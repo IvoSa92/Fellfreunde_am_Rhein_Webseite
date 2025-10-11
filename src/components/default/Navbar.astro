@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../assets/images/fellnasen_logo .png";
+import notfallIcon from "../../assets/images/notfall.svg?raw";
+
+---
+
+<div class="navbar bg-base-100 shadow-sm">
+  <div class="navbar-start">
+    <div class="dropdown dropdown-hover">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a>Home</a></li>
+        <li><a>Über Uns</a></li>
+        <li>
+          <a>Leistungen</a>
+          <ul class="p-2">
+            <li><a>Allgemeinmedizin</a></li>
+            <li><a>Chirurgie & Zahnmedizin</a></li>
+            <li><a>Diagnostik & Labor</a></li>
+            <li><a>Ernährungs- & Seniorenberatung</a></li>
+          </ul>
+        </li>
+        <li><a>Kontakt</a></li>
+      </ul>
+    </div>
+
+    <a class="btn btn-ghost text-2xl gap-2 p-6">
+      <Image src={logo} format="webp" alt="Fellnasen Logo" width={logo.width} height={logo.height} class="h-10 w-auto pr-2" />
+      Fellnasen
+    </a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1 gap-6 text-lg">
+      <li class="hover:text-warning"><a>Home</a></li>
+      <li class="hover:text-warning"><a>Über Uns</a></li>
+      <li class="relative">
+        <div class="dropdown dropdown-hover dropdown-center">
+          <div tabindex="0" role="button" class="m-0 px-0 hover:text-warning">Leistungen</div>
+          <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-10 mt-2 w-64 p-2 shadow">
+            <li><a class="hover:text-warning">Allgemeinmedizin</a></li>
+            <li><a class="hover:text-warning">Chirurgie &amp; Zahnmedizin</a></li>
+            <li><a class="hover:text-warning">Diagnostik &amp; Labor</a></li>
+            <li><a class="hover:text-warning">Ernährungs- &amp; Seniorenberatung</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="hover:text-warning"><a>Kontakt</a></li>
+    </ul>
+  </div>
+  <div class="navbar-end pr-4">
+    <a class="btn btn-warning btn-outline text-lg font-bold gap-2 text-error hover:text-white transition">
+      <span
+        set:html={notfallIcon}
+        class="h-5 w-5 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:fill-current [&>svg]:shrink-0 [&>svg]:translate-y-[1px]"
+      />
+      Notfall
+    </a>
+  </div>
+</div>
