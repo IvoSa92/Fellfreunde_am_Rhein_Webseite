@@ -1,10 +1,4 @@
-@font-face {
-  font-family: "Pally-Variable.woff2";
-  src: url("/assets/fonts/Pally-Variable.woff2") format("woff2");
-  font-weight: 200 800;
-  font-style: normal;
-  font-display: swap;
-}
+@import "@fontsource-variable/comfortaa";
 
 @import "tailwindcss";
 
@@ -14,6 +8,7 @@
   name: "Fellnasen";
   default: true;
   prefersdark: false;
+  root: ":root";
   color-scheme: "light";
   --color-base-100: oklch(98% 0.016 73.684);
   --color-base-200: oklch(95% 0.038 75.164);
@@ -43,4 +38,8 @@
   --border: 1px;
   --depth: 1;
   --noise: 0;
+}
+
+@theme {
+  --font-sans: "Comfortaa Variable", sans-serif;
 }
