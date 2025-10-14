@@ -1,20 +1,37 @@
 ---
-import { Image } from "astro:assets";
-import logo from "../../assets/images/fellnasen_logo .png";
-import notfallIcon from "../../assets/images/notfall.svg?raw";
-
-
+import { Image } from 'astro:assets';
+import logo from '../../assets/images/fellnasen_logo .png';
+import notfallIcon from '../../assets/images/notfall.svg?raw';
 ---
 
-<div class="navbar bg-base-200 shadow-sm fixed top-0 z-20 py-3 transition-all duration-300 data-[shrink=true]:py-1 data-[shrink=true]:bg-base-200/80" data-shrink="false" id="navbar" >
+<div
+  class="navbar bg-base-200 data-[shrink=true]:bg-base-200/80 fixed top-0 z-20 py-3 shadow-sm transition-all duration-300 data-[shrink=true]:py-1"
+  data-shrink="false"
+  id="navbar"
+>
   <div class="navbar-start">
     <div class="dropdown dropdown-hover">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          >
+          </path>
+        </svg>
       </div>
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+      >
         <li><a>Home</a></li>
         <li><a>Über Uns</a></li>
         <li>
@@ -32,19 +49,29 @@ import notfallIcon from "../../assets/images/notfall.svg?raw";
       </ul>
     </div>
 
-    <a class="btn btn-ghost text-2xl font-extrabold gap-2 p-6">
-      <Image src={logo} format="webp" alt="Fellnasen Logo" width={logo.width} height={logo.height} class="h-10 w-auto pr-2" />
+    <a class="btn btn-ghost gap-2 p-6 text-2xl font-extrabold">
+      <Image
+        src={logo}
+        format="webp"
+        alt="Fellnasen Logo"
+        width={logo.width}
+        height={logo.height}
+        class="h-10 w-auto pr-2"
+      />
       Fellnasen
     </a>
   </div>
   <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1 gap-6 text-lg font-extrabold">
-      <li class="hover:text-warning "><a>Home</a> </li>
+    <ul class="menu menu-horizontal gap-6 px-1 text-lg font-extrabold">
+      <li class="hover:text-warning"><a>Home</a></li>
       <li class="hover:text-warning"><a>Über Uns</a></li>
       <li class="relative">
         <div class="dropdown dropdown-hover dropdown-center">
-          <div tabindex="0" role="button" class="m-0 px-0 hover:text-warning">Leistungen</div>
-          <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-10 mt-2 w-64 p-2 shadow">
+          <div tabindex="0" role="button" class="hover:text-warning m-0 px-0">Leistungen</div>
+          <ul
+            tabindex="0"
+            class="dropdown-content menu bg-base-100 rounded-box z-10 mt-2 w-64 p-2 shadow"
+          >
             <li><a class="hover:text-warning">Allgemeinmedizin</a></li>
             <li><a class="hover:text-warning">Chirurgie &amp; Zahnmedizin</a></li>
             <li><a class="hover:text-warning">Diagnostik &amp; Labor</a></li>
@@ -58,10 +85,12 @@ import notfallIcon from "../../assets/images/notfall.svg?raw";
     </ul>
   </div>
   <div class="navbar-end pr-4">
-    <a class="btn btn-warning  text-lg font-bold text-white/90 gap-2 text-error hover:text-white transition">
+    <a
+      class="btn btn-warning text-error gap-2 text-lg font-bold text-white/90 transition hover:text-white"
+    >
       <span
         set:html={notfallIcon}
-        class="h-5 w-5 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:fill-current [&>svg]:shrink-0 [&>svg]:translate-y-[1px]"
+        class="h-5 w-5 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:shrink-0 [&>svg]:translate-y-[1px] [&>svg]:fill-current"
       />
       Notfall
     </a>
@@ -69,15 +98,14 @@ import notfallIcon from "../../assets/images/notfall.svg?raw";
 </div>
 
 <script>
-  const navbar = document.querySelector("#navbar");
+  const navbar = document.querySelector('#navbar');
   const shrinkOffset = 80;
 
   const onScroll = () => {
     const shouldShrink = window.scrollY > shrinkOffset;
-    navbar?.setAttribute("data-shrink", shouldShrink ? "true" : "false");
+    navbar?.setAttribute('data-shrink', shouldShrink ? 'true' : 'false');
   };
 
-  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 </script>
-

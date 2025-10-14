@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import type { AstroComponentFactory } from 'astro/runtime';
+import type { ImageMetadata } from 'astro:assets';
+
+type Highlight = {
+  title: string;
+  description: string;
+};
+
+type TeamMember = {
+  name: string;
+  role: string;
+  image?: ImageMetadata;
+};
+
+type CTA = { label: string; href: string };
+
+type Props = {
+  id?: string;
+  heading: string;
+  subtitle?: string;
+  intro?: string;
+  highlights?: Highlight[];
+  team?: TeamMember[];
+  cta?: CTA;
+};
+
+const {
+  id = 'vorstellung',
+  heading,
+  subtitle = '',
+  intro = '',
+  highlights = [],
+  team = [],
+  cta,
+} = Astro.props as Props;
+---
+
+<section id={id} aria-labelledby={`${id}-heading`} class="bg-base-100">
+  <div class="mx-auto max-w-screen-xl px-4 py-16 lg:px-8 lg:py-24">
+    <div class="flex h-auto w-full flex-row">
+      <div class="flex h-auto flex-1 flex-col">
+        <h2
+          id={`${id}-heading`}
+          class="font-header max-w-3xl text-4xl/tight text-balance sm:text-4xl/tight"
+        >
+          {heading}
+        </h2>
+        <p class="text-base-content/80 mt-3">{subtitle}</p>
+
+        {
+          highlights.length > 0 && (
+            <div class="mt-6 flex flex-wrap gap-3">
+              {highlights.map((item) => (
+                <div class="badge badge-lg badge-outline bg-base-200/70 text-base-content">
+                  <span class="font-semibold">{item.title}</span>
+                  {item.description && (
+                    <span class="text-base-content/70 ml-2 text-sm">{item.description}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )
+        }
+      </div>
+      <div class="flex h-auto flex-1 flex-col bg-amber-700"></div>
+    </div>
+  </div>
+</section>

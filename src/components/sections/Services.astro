@@ -1,7 +1,6 @@
 ---
-
-import {Image} from "astro:assets";
-import type {ImageMetadata} from "astro:assets";
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro:assets';
 
 type Service = {
   title: string;
@@ -15,87 +14,72 @@ type Service = {
   };
 };
 
-
-
 type Props = {
   id?: string;
   heading: string;
   intro?: string;
   services: Service[];
-
 };
 
-const {
-  id = "services",
-  heading,
-  intro = "",
-  services = [],
-
-} = Astro.props as Props;
+const { id = 'services', heading, intro = '', services = [] } = Astro.props as Props;
 ---
 
 <section id={id} aria-labelledby={`${id}-heading`} class="bg-base-100">
-  <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24 ">
+  <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
     <div class="w-full text-center">
-      <h2 id={`${id}-heading`} class="font-header text-3xl/tight sm:text-4xl/tight text-balance">
+      <h2 id={`${id}-heading`} class="font-header text-3xl/tight text-balance sm:text-4xl/tight">
         {heading}
       </h2>
 
-      {intro && (
-         <p class="mt-6 max-w-xl mx-auto text-base-content/80">
-      {intro}
-    </p>
-      )}
+      {intro && <p class="text-base-content/80 mx-auto mt-6 max-w-xl">{intro}</p>}
     </div>
 
-    {services.length > 0 && (
-      <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 ">
-        {services.map((service) => {
-          const Icon = service.icon;
-          return (
-            <article class="h-full rounded-2xl border border-base-200 bg-gradient-to-tl from-success/10 to-base-100 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg hover:border-base-3ƒ00 flex flex-col gap-4 group">
-              <div class="flex items-center gap-6">
-                {Icon && (
-                  <span class="inline-flex size-12  items-center justify-center rounded-full bg-primary/10 text-primary">
-                    <Image
-                      src={Icon.src}
-                      alt={Icon.alt ?? `${service.title} Icon`}
-                      width={Icon.width ?? 40}
-                      height={Icon.height}
-                      loading="lazy"
-                    />
-                  </span>
+    {
+      services.length > 0 && (
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <article class="border-base-200 from-success/10 to-base-100 hover:border-base-3ƒ00 group flex h-full flex-col gap-4 rounded-2xl border bg-gradient-to-tl p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <div class="flex items-center gap-6">
+                  {Icon && (
+                    <span class="bg-primary/10 text-primary inline-flex size-12 items-center justify-center rounded-full">
+                      <Image
+                        src={Icon.src}
+                        alt={Icon.alt ?? `${service.title} Icon`}
+                        width={Icon.width ?? 40}
+                        height={Icon.height}
+                        loading="lazy"
+                      />
+                    </span>
+                  )}
+
+                  <h3 class="font-header text-base-content group-hover:text-success text-xl font-bold transition">
+                    {service.title}
+                  </h3>
+                </div>
+
+                <p class="text-base-content/80 mt-3">{service.description}</p>
+
+                {service.href && (
+                  <a
+                    href={service.href}
+                    class="text-primary-content hover:text-primary-content/60 mt-auto inline-flex items-center gap-2 text-sm font-medium underline underline-offset-2"
+                  >
+                    Mehr erfahren
+                    <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M13.172 12L8.222 7.05l1.414-1.414L16 12l-6.364 6.364l-1.414-1.414z"
+                      />
+                    </svg>
+                  </a>
                 )}
-
-                <h3 class="font-header font-bold text-xl text-base-content group-hover:text-success transition">
-                  {service.title}
-                </h3>
-              </div>
-
-              <p class="mt-3 text-base-content/80">
-                {service.description}
-              </p>
-
-              {service.href && (
-                <a
-                  href={service.href}
-                  class="mt-auto inline-flex items-center gap-2 text-sm font-medium text-primary-content underline underline-offset-2 hover:text-primary-content/60"
-                >
-                  Mehr erfahren
-                  <svg class="size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M13.172 12L8.222 7.05l1.414-1.414L16 12l-6.364 6.364l-1.414-1.414z"
-                    />
-                  </svg>
-                </a>
-              )}
-            </article>
-          );
-        })}
-      </div>
-    )}
-
-   
+              </article>
+            );
+          })}
+        </div>
+      )
+    }
   </div>
 </section>

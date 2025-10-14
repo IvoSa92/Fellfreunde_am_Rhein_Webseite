@@ -1,26 +1,29 @@
 ---
-import "../assets/styles/global.css";
-import { Image } from "astro:assets";
-import Navbar from "../components/default/Navbar.astro";
-import Hero from "../components/sections/Hero.astro";
-import HeroImage from "../assets/images/fellnasen_hero.png";
-import Services from "../components/sections/Services.astro";
-import allgemeinIcon from "../assets/images/allgemein.png";
-import ernährungIcon from "../assets/images/ernaehrung.png";
-import laborIcon from "../assets/images/labor.png";
-import notfallmedizinIcon from "../assets/images/notfallmedizin.png";
-import physioIcon from "../assets/images/physio.png";
-import zahnmedizinIcon from "../assets/images/zahnmedizin.png";
-
+import '../assets/styles/global.css';
+import { Image } from 'astro:assets';
+import Navbar from '../components/default/Navbar.astro';
+import Hero from '../components/sections/Hero.astro';
+import HeroImage from '../assets/images/fellnasen_hero.png';
+import Services from '../components/sections/Services.astro';
+import allgemeinIcon from '../assets/images/allgemein.png';
+import ernährungIcon from '../assets/images/ernaehrung.png';
+import laborIcon from '../assets/images/labor.png';
+import notfallmedizinIcon from '../assets/images/notfallmedizin.png';
+import physioIcon from '../assets/images/physio.png';
+import zahnmedizinIcon from '../assets/images/zahnmedizin.png';
+import Vorstellung from '../components/sections/Vorstellung.astro';
 ---
 
 <html lang="de" data-theme="Fellnasen">
- <head>
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Fellfreunde am Rhein – Moderne Tierarztpraxis</title>
-    <meta name="description" content="Moderne Diagnostik und liebevolle Betreuung für Hund & Katze am Rhein." />
+    <meta
+      name="description"
+      content="Moderne Diagnostik und liebevolle Betreuung für Hund & Katze am Rhein."
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
@@ -29,12 +32,18 @@ import zahnmedizinIcon from "../assets/images/zahnmedizin.png";
       <Hero
         title="Tierarztpraxis am Rhein – moderne Diagnostik, liebevoller Umgang."
         subtitle="Wir begleiten Sie und Ihr Tier vom ersten Kennenlernen bis zur Nachsorge: Vorsorge, Chirurgie, Zahnmedizin und schnelle Diagnostik direkt vor Ort. Wir nehmen uns Zeit für Fragen, erklären Befunde verständlich und priorisieren Notfälle – Termine lassen sich bequem online buchen."
-        primary={{ label: "Termin vereinbaren", href: "#kontakt" }}
-        secondary={{ label: "Notfallhinweise", href: "#notfall" }}
-        badges={["Seit 2015", "Röntgen & Ultraschall", "24/7 Notfallnummer"]}
+        primary={{ label: 'Termin vereinbaren', href: '#kontakt' }}
+        secondary={{ label: 'Notfallhinweise', href: '#notfall' }}
+        badges={['Seit 2015', 'Röntgen & Ultraschall', '24/7 Notfallnummer']}
       >
-        <div slot="visual" class="aspect-[4/3] w-full rounded-2xl border border-base-200 bg-base-200/50">
-          <Image src={HeroImage} alt="Ein glücklicher Hund sitzt in der Tierarztpraxis Fellfreunde am Rhein." />
+        <div
+          slot="visual"
+          class="border-base-200 bg-base-200/50 aspect-[4/3] w-full rounded-2xl border"
+        >
+          <Image
+            src={HeroImage}
+            alt="Ein glücklicher Hund sitzt in der Tierarztpraxis Fellfreunde am Rhein."
+          />
         </div>
       </Hero>
 
@@ -43,41 +52,72 @@ import zahnmedizinIcon from "../assets/images/zahnmedizin.png";
         intro="Lernen Sie unsere wichtigsten Leistungen kennen – vom ersten Gesundheitscheck bis zur spezialisierten Behandlung."
         services={[
           {
-            icon: { src: allgemeinIcon, alt: "Icon für Allgemeinmedizin" , width: 48, height: 48},
-            title: "Allgemeinmedizin",
-            description: "Vom Welpen bis zum Senior: gründliche Untersuchungen, Impfpläne und Beratung rund um Verhalten, Futter und Alltag.",
-            href: "#allgemeinmedizin"
+            icon: { src: allgemeinIcon, alt: 'Icon für Allgemeinmedizin', width: 48, height: 48 },
+            title: 'Allgemeinmedizin',
+            description:
+              'Vom Welpen bis zum Senior: gründliche Untersuchungen, Impfpläne und Beratung rund um Verhalten, Futter und Alltag.',
+            href: '#allgemeinmedizin',
           },
           {
-            icon: { src: zahnmedizinIcon, alt: "Icon für Chirurgie & Zahnmedizin" , width: 48, height: 48},
-            title: "Chirurgie & Zahnmedizin",
-            description: "Schonende Operationen, professionelles Dental-Management und engmaschige Nachsorge für eine schnelle Genesung.",
-            href: "#chirurgie-zahnmedizin"
+            icon: {
+              src: zahnmedizinIcon,
+              alt: 'Icon für Chirurgie & Zahnmedizin',
+              width: 48,
+              height: 48,
+            },
+            title: 'Chirurgie & Zahnmedizin',
+            description:
+              'Schonende Operationen, professionelles Dental-Management und engmaschige Nachsorge für eine schnelle Genesung.',
+            href: '#chirurgie-zahnmedizin',
           },
           {
-            icon: { src: laborIcon, alt: "Icon für Diagnostik & Labor" , width: 48, height: 48},
-            title: "Diagnostik & Labor",
-            description: "Digitales Röntgen, Ultraschall und hauseigene Laboranalysen liefern binnen Minuten Klarheit zur Bestimmung der Therapie.",
-            href: "#diagnostik-labor"
+            icon: { src: laborIcon, alt: 'Icon für Diagnostik & Labor', width: 48, height: 48 },
+            title: 'Diagnostik & Labor',
+            description:
+              'Digitales Röntgen, Ultraschall und hauseigene Laboranalysen liefern binnen Minuten Klarheit zur Bestimmung der Therapie.',
+            href: '#diagnostik-labor',
           },
           {
-            icon: { src: ernährungIcon, alt: "Icon für Ernährungs- & Seniorenberatung" , width: 48, height: 48},
-            title: "Ernährungs- & Seniorenberatung",
-            description: "Individuelle Futterpläne, Gewichtsmanagement und Senioren-Check-ups, damit Fellfreunde jeden Lebensabschnitt genießen.",
-            href: "#ernaehrung-senioren"
+            icon: {
+              src: ernährungIcon,
+              alt: 'Icon für Ernährungs- & Seniorenberatung',
+              width: 48,
+              height: 48,
+            },
+            title: 'Ernährungs- & Seniorenberatung',
+            description:
+              'Individuelle Futterpläne, Gewichtsmanagement und Senioren-Check-ups, damit Fellfreunde jeden Lebensabschnitt genießen.',
+            href: '#ernaehrung-senioren',
           },
           {
-            icon: { src: notfallmedizinIcon, alt: "Icon für Notfall- & Intensivversorgung" , width: 48, height: 48},
-            title: "Notfall- & Intensivversorgung",
-            description: "Rund um die Uhr erreichbar: schnelle Erstversorgung, Stabilisierung und engmaschige Überwachung in kritischen Situationen.",
-            href: "#notfall-intensiv"
+            icon: {
+              src: notfallmedizinIcon,
+              alt: 'Icon für Notfall- & Intensivversorgung',
+              width: 48,
+              height: 48,
+            },
+            title: 'Notfall- & Intensivversorgung',
+            description:
+              'Rund um die Uhr erreichbar: schnelle Erstversorgung, Stabilisierung und engmaschige Überwachung in kritischen Situationen.',
+            href: '#notfall-intensiv',
           },
           {
-            icon: { src: physioIcon, alt: "Icon für Physiotherapie & Reha" , width: 48, height: 48},
-            title: "Physiotherapie & Reha",
-            description: "Gezielte Therapie, Laser- und Bewegungstraining unterstützen Muskulatur, Beweglichkeit und schmerzfreie Heilung nach Verletzungen.",
-            href: "#physiotherapie-reha"
-          }
+            icon: { src: physioIcon, alt: 'Icon für Physiotherapie & Reha', width: 48, height: 48 },
+            title: 'Physiotherapie & Reha',
+            description:
+              'Gezielte Therapie, Laser- und Bewegungstraining unterstützen Muskulatur, Beweglichkeit und schmerzfreie Heilung nach Verletzungen.',
+            href: '#physiotherapie-reha',
+          },
+        ]}
+      />
+
+      <Vorstellung
+        heading="Team & Praxis"
+        subtitle={`Lernen Sie das Team von Fellfreunde am Rhein kennen: erfahrene Tierärzt:innen, MFA und Praxisleitung – einfühlsam, kompetent und individuell in Allgemeinmedizin, Chirurgie, Zahnmedizin und Notfallversorgung.`}
+        highlights={[
+          { title: 'Seit 2015', description: 'Vertrauen und Erfahrung' },
+          { title: 'Moderne Praxis', description: 'Ausstattung auf dem neuesten Stand' },
+          { title: 'Zentrale Lage', description: 'Gut erreichbar am Rhein' },
         ]}
       />
     </main>
