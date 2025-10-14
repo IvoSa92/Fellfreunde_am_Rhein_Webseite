@@ -18,12 +18,12 @@ const {
 } = Astro.props
 ---
 
-<section id={id} aria-labelledby={`${id}-heading`} class="relative bg-base-100">
+<section id={id} aria-labelledby={`${id}-heading`} class="relative bg-base-100 mt-12">
 <div
   class="absolute left-30 top-140 rotate-40 z-0 w-[25rem] h-[25rem] bg-[url('/dog-paw.svg')] bg-no-repeat bg-contain opacity-10"
   aria-hidden="true"
 ></div>
-    <div class="relative mx-auto max-w-screen-xl z-10 px-4 sm:px-6 lg:px-8 py-16 lg:py-24 ">
+    <div class="relative mx-auto max-w-screen-xl z-10 px-4 sm:px-6 lg:px-8 py-16 lg:py-32 ">
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
       <!-- Text -->
 <div class="flex flex-col items-center text-center lg:items-start lg:text-left gap-6 sm:gap-8">
@@ -36,7 +36,7 @@ const {
         )}
 
         <div class="mt-8 flex flex-wrap gap-6">
-          {primary && <a href={primary.href} class="btn btn-primary">{primary.label}</a>}
+          {primary && <a href={primary.href} class="btn btn-primary hover:text-black">{primary.label}</a>}
           {secondary && <a href={secondary.href} class="btn btn-ghost btn-outline">{secondary.label}</a>}
         </div>
 
