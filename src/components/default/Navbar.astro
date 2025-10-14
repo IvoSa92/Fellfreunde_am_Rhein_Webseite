@@ -3,9 +3,10 @@ import { Image } from "astro:assets";
 import logo from "../../assets/images/fellnasen_logo .png";
 import notfallIcon from "../../assets/images/notfall.svg?raw";
 
+
 ---
 
-<div class="navbar bg-base-200 shadow-sm ">
+<div class="navbar bg-base-200 shadow-sm fixed top-0 z-20 py-3 transition-all duration-300 data-[shrink=true]:py-1 data-[shrink=true]:bg-base-200/80" data-shrink="false" id="navbar" >
   <div class="navbar-start">
     <div class="dropdown dropdown-hover">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -66,3 +67,17 @@ import notfallIcon from "../../assets/images/notfall.svg?raw";
     </a>
   </div>
 </div>
+
+<script>
+  const navbar = document.querySelector("#navbar");
+  const shrinkOffset = 80;
+
+  const onScroll = () => {
+    const shouldShrink = window.scrollY > shrinkOffset;
+    navbar?.setAttribute("data-shrink", shouldShrink ? "true" : "false");
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+</script>
+
