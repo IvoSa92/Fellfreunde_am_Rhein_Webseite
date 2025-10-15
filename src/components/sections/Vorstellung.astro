@@ -1,12 +1,8 @@
 ---
 import { Image } from 'astro:assets';
-import type { AstroComponentFactory } from 'astro/runtime';
-import type { ImageMetadata } from 'astro:assets';
+import TeamPhoto from '../../assets/images/team.jpeg';
 
-type Highlight = {
-  title: string;
-  description: string;
-};
+type Highlight = { title: string; description?: string };
 
 type TeamMember = {
   name: string;
@@ -35,36 +31,97 @@ const {
   team = [],
   cta,
 } = Astro.props as Props;
+
+const hotspots = [
+  {
+    name: 'Dr. Lubudu',
+    role: 'Zahnmedizinerin',
+    top: '50%',
+    left: '20%',
+    height: '55%',
+    pulse: true,
+  },
+  {
+    name: 'Dr. Preiser',
+    role: 'Notfallmedizinerin',
+    top: '50%',
+    left: '40%',
+    height: '52%',
+    pulse: false,
+  },
+  {
+    name: 'Dr.  Hermann',
+    role: 'Praxismanager',
+    top: '50%',
+    left: '55%',
+    height: '80%',
+    pulse: false,
+  },
+  {
+    name: 'Zulana',
+    role: 'Tiermedizinischer Fachangestellter',
+    top: '50%',
+    left: '70%',
+    height: '60%',
+    pulse: false,
+  },
+];
 ---
 
 <section id={id} aria-labelledby={`${id}-heading`} class="bg-base-100">
   <div class="mx-auto max-w-screen-xl px-4 py-16 lg:px-8 lg:py-24">
-    <div class="flex h-auto w-full flex-row">
-      <div class="flex h-auto flex-1 flex-col">
+    <div class="flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+      <div class="flex flex-col gap-6 lg:col-start-1 lg:row-start-1">
         <h2
           id={`${id}-heading`}
-          class="font-header max-w-3xl text-4xl/tight text-balance sm:text-4xl/tight"
+          class="font-header decoration-primary-content max-w-3xl text-4xl/tight text-balance underline underline-offset-6 sm:text-4xl/tight"
         >
           {heading}
         </h2>
         <p class="text-base-content/80 mt-3">{subtitle}</p>
-
-        {
-          highlights.length > 0 && (
-            <div class="mt-6 flex flex-wrap gap-3">
-              {highlights.map((item) => (
-                <div class="badge badge-lg badge-outline bg-base-200/70 text-base-content">
-                  <span class="font-semibold">{item.title}</span>
-                  {item.description && (
-                    <span class="text-base-content/70 ml-2 text-sm">{item.description}</span>
-                  )}
-                </div>
-              ))}
-            </div>
-          )
-        }
       </div>
-      <div class="flex h-auto flex-1 flex-col bg-amber-700"></div>
+
+      <div
+        class="border-primary/40 order-2 flex overflow-visible rounded-3xl border-6 lg:order-none lg:col-start-2 lg:row-span-2"
+      >
+        <div class="relative">
+          <Image
+            src={TeamPhoto}
+            alt="Das Team der Tierarztpraxis Fellfreunde am Rhein"
+            width={800}
+            height={800}
+            class="object-cover-base-300 border-primary h-full w-full rounded-2xl"
+          />
+          {
+            hotspots.map((spot) => (
+              <button
+                class="group absolute size-20 -translate-x-1/2 -translate-y-1/2 bg-transparent transition hover:scale-105"
+                style={`top:${spot.top};left:${spot.left};height:${spot.height}`}
+                aria-label={`${spot.name} – ${spot.role}`}
+              >
+                <span class="bg-secondary/70 text-base-content absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap opacity-0 shadow-lg transition group-hover:opacity-100">
+                  {spot.name}
+                </span>
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      {
+        highlights.length > 0 && (
+          <div class="order-3 flex flex-wrap gap-4 lg:order-none lg:col-start-1 lg:row-start-2">
+            {highlights.map((item) => (
+              <div class="badge badge-xl bg-base-200/70 text-base-content p-4">
+                <span class="font-semibold">{item.title}</span>
+                {item.description && (
+                  <span class="text-base-content/70 ml-2 text-sm">{item.description}</span>
+                )}
+              </div>
+            ))}
+          </div>
+        )
+      }
     </div>
   </div>
 </section>

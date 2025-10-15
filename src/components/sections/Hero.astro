@@ -1,56 +1,91 @@
 ---
-interface CTA { label: string; href: string }
-interface Props {
-  id?: string
-  title: string
-  subtitle?: string
-  primary?: CTA
-  secondary?: CTA
-  badges?: string[]
+interface CTA {
+  label: string;
+  href: string;
 }
-const {
-  id = "hero",
-  title,
-  subtitle = "",
-  primary,
-  secondary,
-  badges = [],
-} = Astro.props
+interface Props {
+  id?: string;
+  title: string;
+  subtitle?: string;
+  primary?: CTA;
+  secondary?: CTA;
+  badges?: string[];
+}
+const { id = 'hero', title, subtitle = '', primary, secondary, badges = [] } = Astro.props;
 ---
 
-<section id={id} aria-labelledby={`${id}-heading`} class="relative bg-base-100 mt-12">
-<div
-  class="absolute left-30 top-140 rotate-40 z-0 w-[25rem] h-[25rem] bg-[url('/dog-paw.svg')] bg-no-repeat bg-contain opacity-10"
-  aria-hidden="true"
-></div>
-    <div class="relative mx-auto max-w-screen-xl z-10 px-4 sm:px-6 lg:px-8 py-16 lg:py-32 ">
+<section id={id} aria-labelledby={`${id}-heading`} class="bg-base-100 relative mt-12">
+  <div
+    class="absolute top-180 left-30 z-0 h-[25rem] w-[25rem] rotate-40 bg-[url('/dog-paw.svg')] bg-contain bg-no-repeat opacity-10"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="relative z-10 mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:py-32">
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
       <!-- Text -->
-<div class="flex flex-col items-center text-center lg:items-start lg:text-left gap-6 sm:gap-8">
-            <h1 id={`${id}-heading`} class="font-header text-balance text-4xl/tight sm:text-5xl/tight">
+      <div
+        class="flex flex-col items-center gap-6 text-center sm:gap-8 lg:items-start lg:text-left"
+      >
+        <h1 id={`${id}-heading`} class="font-header text-4xl/tight text-balance sm:text-5xl/tight">
           {title}
-        </h1> 
+        </h1>
 
-        {subtitle && (
-          <p class="mt-5 max-w-prose text-base-content/80 text-md" >{subtitle}</p>
-        )}
+        {subtitle && <p class="text-base-content/80 text-md mt-5 max-w-prose">{subtitle}</p>}
 
         <div class="mt-8 flex flex-wrap gap-6">
-          {primary && <a href={primary.href} class="btn btn-primary hover:text-black">{primary.label}</a>}
-          {secondary && <a href={secondary.href} class="btn btn-ghost btn-outline">{secondary.label}</a>}
+          {
+            primary && (
+              <a href={primary.href} class="btn btn-primary hover:text-black">
+                {primary.label}
+              </a>
+            )
+          }
+          {
+            secondary && (
+              <a href={secondary.href} class="btn btn-ghost btn-outline">
+                {secondary.label}
+              </a>
+            )
+          }
         </div>
-
-       
       </div>
 
       <!-- Visual -->
-      <div class="relative ">
-        <slot name="visual" /> 
-        {badges.length > 0 && (
-          <div class="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm text-base-content/70">
-            {badges.map((b) => <span class="badge badge-soft badge-success p-4"><svg class="size-[1em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="currentColor" stroke-linejoin="miter" stroke-linecap="butt"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"></circle><polyline points="7 13 10 16 17 8" fill="none" stroke="currentColor" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"></polyline></g></svg>{b}</span>)}
-          </div>
-        )}
+      <div class="relative">
+        <slot name="visual" />
+        {
+          badges.length > 0 && (
+            <div class="text-base-content/70 mt-8 flex flex-wrap items-center justify-center gap-3 text-sm">
+              {badges.map((b) => (
+                <span class="badge badge-soft badge-success p-4">
+                  <svg class="size-[1em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g fill="currentColor" stroke-linejoin="miter" stroke-linecap="butt">
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="square"
+                        stroke-miterlimit="10"
+                        stroke-width="2"
+                      />
+                      <polyline
+                        points="7 13 10 16 17 8"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="square"
+                        stroke-miterlimit="10"
+                        stroke-width="2"
+                      />
+                    </g>
+                  </svg>
+                  {b}
+                </span>
+              ))}
+            </div>
+          )
+        }
       </div>
     </div>
   </div>

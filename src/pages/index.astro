@@ -43,6 +43,7 @@ import Vorstellung from '../components/sections/Vorstellung.astro';
           <Image
             src={HeroImage}
             alt="Ein glücklicher Hund sitzt in der Tierarztpraxis Fellfreunde am Rhein."
+            format="webp"
           />
         </div>
       </Hero>
@@ -113,11 +114,14 @@ import Vorstellung from '../components/sections/Vorstellung.astro';
 
       <Vorstellung
         heading="Team & Praxis"
-        subtitle={`Lernen Sie das Team von Fellfreunde am Rhein kennen: erfahrene Tierärzt:innen, MFA und Praxisleitung – einfühlsam, kompetent und individuell in Allgemeinmedizin, Chirurgie, Zahnmedizin und Notfallversorgung.`}
+        subtitle={`Lernen Sie das Team von Fellfreunde am Rhein kennen: erfahrene Tierärzt:innen, MFA und Praxisleitung – einfühlsam, kompetent und individuell in Allgemeinmedizin, Chirurgie, Zahnmedizin und Notfallversorgung. Wir begleiten Sie vom ersten Kennenlernen bis zur Nachsorge, bleiben transparent in jeder Entscheidung und nehmen uns Zeit für Fragen. So schaffen wir ein Umfeld, in dem sich Mensch und Tier gleichermaßen sicher fühlen.`}
         highlights={[
           { title: 'Seit 2015', description: 'Vertrauen und Erfahrung' },
-          { title: 'Moderne Praxis', description: 'Ausstattung auf dem neuesten Stand' },
-          { title: 'Zentrale Lage', description: 'Gut erreichbar am Rhein' },
+          {
+            title: 'Team aus Spezialist:innen',
+            description: 'Chirurgie & Notfall',
+          },
+          { title: 'Hightech-Praxis', description: 'Digitale Diagnostik' },
         ]}
       />
     </main>
