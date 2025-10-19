@@ -12,6 +12,7 @@ import notfallmedizinIcon from '../assets/images/notfallmedizin.png';
 import physioIcon from '../assets/images/physio.png';
 import zahnmedizinIcon from '../assets/images/zahnmedizin.png';
 import Vorstellung from '../components/sections/Vorstellung.astro';
+import Kundenmeinungen from '../components/sections/Kundenmeinungen.astro';
 ---
 
 <html lang="de" data-theme="Fellnasen">
@@ -123,6 +124,11 @@ import Vorstellung from '../components/sections/Vorstellung.astro';
           },
           { title: 'Hightech-Praxis', description: 'Digitale Diagnostik' },
         ]}
+      />
+
+      <Kundenmeinungen
+        heading="Was unsere Kunden sagen"
+        intro={`Echte Geschichten aus unserer Praxis: Tierhalterinnen und Tierhalter berichten, wie aufmerksam wir zuhören, wie sorgfältig wir behandeln und wie vertrauensvoll die Zusammenarbeit für Zwei- und Vierbeiner ist.`}
       />
     </main>
   </body>

@@ -39,15 +39,15 @@ const hotspots = [
     top: '50%',
     left: '20%',
     height: '55%',
-    pulse: true,
+    delay: '100ms',
   },
   {
     name: 'Dr. Preiser',
     role: 'Notfallmedizinerin',
-    top: '50%',
+    top: '45%',
     left: '40%',
     height: '52%',
-    pulse: false,
+    delay: '300ms',
   },
   {
     name: 'Dr.  Hermann',
@@ -55,7 +55,7 @@ const hotspots = [
     top: '50%',
     left: '55%',
     height: '80%',
-    pulse: false,
+    delay: '500ms',
   },
   {
     name: 'Zulana',
@@ -63,7 +63,7 @@ const hotspots = [
     top: '50%',
     left: '70%',
     height: '60%',
-    pulse: false,
+    delay: '700ms',
   },
 ];
 ---
@@ -82,9 +82,15 @@ const hotspots = [
       </div>
 
       <div
-        class="border-primary/40 order-2 flex overflow-visible rounded-3xl border-6 lg:order-none lg:col-start-2 lg:row-span-2"
+        class="border-primary/40 relative order-2 overflow-visible rounded-3xl border-6 lg:order-none lg:col-start-2 lg:row-span-2"
       >
-        <div class="relative">
+        <div class="group relative">
+          <div
+            class="badge-marker pointer-events-none absolute z-20 opacity-0 transition-opacity duration-500 group-hover:opacity-0 sm:opacity-0 lg:opacity-100"
+            style="top: 10%; left: 16%;"
+          >
+            <div class="badge badge-xl bg-warning/30 round badge-pulse rounded-2xl"></div>
+          </div>
           <Image
             src={TeamPhoto}
             alt="Das Team der Tierarztpraxis Fellfreunde am Rhein"
@@ -95,11 +101,14 @@ const hotspots = [
           {
             hotspots.map((spot) => (
               <button
-                class="group absolute size-20 -translate-x-1/2 -translate-y-1/2 bg-transparent transition hover:scale-105"
-                style={`top:${spot.top};left:${spot.left};height:${spot.height}`}
+                class="group absolute size-20 -translate-x-1/2 -translate-y-1/2 bg-transparent group-hover:opacity-100 hover:scale-105 lg:opacity-0"
+                style={`top:${spot.top};left:${spot.left};height:${spot.height};transition: opacity 500ms ease ${spot.delay}, transform 300ms ease 0s;`}
                 aria-label={`${spot.name} – ${spot.role}`}
               >
-                <span class="bg-secondary/70 text-base-content absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap opacity-0 shadow-lg transition group-hover:opacity-100">
+                <span
+                  class="bg-secondary/70 text-base-content absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap shadow-lg transition-opacity duration-500 group-hover:opacity-100 sm:opacity-100 lg:opacity-0"
+                  style={`transition-delay:${spot.delay};`}
+                >
                   {spot.name}
                 </span>
               </button>
@@ -125,3 +134,53 @@ const hotspots = [
     </div>
   </div>
 </section>
+
+<style>
+  .badge-marker {
+    transform: translate(-50%, -50%);
+  }
+
+  .badge-pulse {
+    position: relative;
+    isolation: isolate;
+    animation: badgePulse 5s ease-in-out infinite;
+  }
+
+  .badge-pulse::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    border: 2px solid lightsalmon;
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    z-index: -1;
+    animation: badgePulseRing 5s ease-in-out infinite;
+  }
+
+  @keyframes badgePulse {
+    0%,
+    100% {
+      transform: scale(0.8);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+  }
+
+  @keyframes badgePulseRing {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.35);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.45);
+    }
+  }
+</style>

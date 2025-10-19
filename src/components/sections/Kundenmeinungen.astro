@@ -1,0 +1,288 @@
+---
+import type { ImageMetadata } from 'astro:assets';
+
+type Testimonial = {
+  name?: string;
+  quote?: string;
+  role?: string;
+  image?: ImageMetadata;
+  imageUrl?: string;
+};
+
+type Props = {
+  id?: string;
+  heading?: string;
+  intro?: string;
+  testimonials?: Testimonial[];
+};
+
+const QUOTE_ICON_URL = 'https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpink-quote.svg';
+const DEFAULT_IMAGE_URL =
+  'https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FPeople%2Fperson7.jpg';
+
+const FALLBACK_TESTIMONIALS: Testimonial[] = [
+  {
+    name: 'Familie Krüger mit Luna',
+    quote: 'Einfühlsames Team, das sich wirklich Zeit nimmt!',
+    imageUrl: DEFAULT_IMAGE_URL,
+  },
+  {
+    name: 'Sabine H. mit Kater Felix',
+    quote: 'Schnelle Hilfe im Notfall und super Nachbetreuung.',
+    imageUrl: DEFAULT_IMAGE_URL,
+  },
+  {
+    name: 'Familie Schneider',
+    quote: 'Man merkt sofort: Hier lieben alle Tiere.',
+    imageUrl: 'https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FPeople%2Fperson8.jpg',
+  },
+];
+
+const {
+  id = 'reviews-707',
+  heading = 'Happy <span class="cs-color">Customer Feedback</span> About Our Service',
+  intro = '',
+  testimonials = [],
+} = Astro.props as Props;
+
+const testimonialItems = testimonials.length > 0 ? testimonials : FALLBACK_TESTIMONIALS;
+
+const formatQuote = (quote?: string) => {
+  if (!quote) return '';
+  const trimmed = quote.trim();
+  return trimmed.startsWith('„') ? trimmed : `„${trimmed}“`;
+};
+---
+
+<section id={id}>
+  <div class="cs-container">
+    <div class="cs-content">
+      <span class="cs-topper">Testimonials</span>
+      <h2 class="cs-title" set:html={heading} />
+      {intro && <p class="cs-text">{intro}</p>}
+    </div>
+
+    <div class="cs-flex-group">
+      {
+        testimonialItems.map((item) => (
+          <div class="cs-review-group">
+            <div class="cs-picture-group">
+              <div class="cs-picture">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src={item.image ? item.image.src : (item.imageUrl ?? DEFAULT_IMAGE_URL)}
+                  alt={item.name ? `Portrait von ${item.name}` : 'Testimonial Portrait'}
+                  width={item.image ? item.image.width : 240}
+                  height={item.image ? item.image.height : 286}
+                />
+              </div>
+              <div class="cs-wrapper">
+                <img
+                  class="cs-icon"
+                  loading="lazy"
+                  decoding="async"
+                  src={QUOTE_ICON_URL}
+                  alt=""
+                  width="58"
+                  height="48"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+            <div class="cs-review">
+              {item.quote && <p class="cs-review-text">{formatQuote(item.quote)}</p>}
+              {item.name && <span class="cs-name">{item.name}</span>}
+              {item.role && <span class="cs-job">{item.role}</span>}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <picture class="cs-waves">
+    <source
+      media="(max-width: 1023px)"
+      srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fripple3-m.svg"
+    />
+    <source
+      media="(min-width: 1024px)"
+      srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fripple3.svg"
+    />
+    <img
+      loading="lazy"
+      decoding="async"
+      src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fripple3.svg"
+      alt=""
+      width="566"
+      height="309"
+      aria-hidden="true"
+    />
+  </picture>
+</section>
+
+<style>
+  @media only screen and (min-width: 0rem) {
+    #reviews-707 {
+      padding: var(--sectionPadding);
+      position: relative;
+      overflow: hidden;
+    }
+    #reviews-707 .cs-container {
+      width: 100%;
+      max-width: 34.375rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(3rem, 6vw, 4rem);
+      position: relative;
+      z-index: 1;
+    }
+    #reviews-707 .cs-content {
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    #reviews-707 .cs-topper {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+    }
+    #reviews-707 .cs-title {
+      max-width: 26ch;
+      margin: 0;
+    }
+    #reviews-707 .cs-text {
+      max-width: 46ch;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    #reviews-707 .cs-color {
+      color: var(--primary);
+    }
+    #reviews-707 .cs-flex-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      column-gap: 1.25rem;
+      row-gap: 2.5rem;
+    }
+    #reviews-707 .cs-review-group {
+      text-align: left;
+      max-width: 39.375rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      row-gap: 2.5rem;
+    }
+    #reviews-707 .cs-picture-group {
+      width: 100%;
+      max-width: 21.875rem;
+      position: relative;
+    }
+    #reviews-707 .cs-picture {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 240 / 286;
+      border-radius: 17.8125em;
+      overflow: hidden;
+      position: relative;
+    }
+    #reviews-707 .cs-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #reviews-707 .cs-wrapper {
+      width: 5rem;
+      height: 5rem;
+      background-color: #fff;
+      border: 1px solid #f7f7f7;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    #reviews-707 .cs-icon {
+      width: 2.375rem;
+      height: auto;
+      margin: 0;
+      display: inline-block;
+    }
+    #reviews-707 .cs-review {
+      max-width: 33.8125rem;
+    }
+    #reviews-707 .cs-review-text {
+      font-size: 1rem;
+      line-height: 1.5em;
+      text-align: inherit;
+      margin: 0 0 1.5rem 0;
+      color: var(--bodyTextColor);
+    }
+    #reviews-707 .cs-name {
+      font-size: clamp(1.25rem, 3vw, 1.5625rem);
+      line-height: 1.2em;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: var(--headerColor);
+      display: block;
+    }
+    #reviews-707 .cs-job {
+      font-size: 1rem;
+      line-height: 1.5em;
+      margin: 0;
+      color: var(--bodyTextColor);
+      display: block;
+    }
+    #reviews-707 .cs-waves {
+      width: 55vw;
+      max-width: clamp(25rem, 40vw, 35.375rem);
+      height: auto;
+      opacity: 0.5;
+      position: absolute;
+      right: -7.5rem;
+      bottom: -5rem;
+      z-index: 0;
+    }
+    #reviews-707 .cs-waves img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  @media only screen and (min-width: 48rem) {
+    #reviews-707 .cs-container {
+      max-width: 80rem;
+    }
+    #reviews-707 .cs-flex-group {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    #reviews-707 .cs-review-group {
+      width: calc(50% - 1.25rem);
+    }
+  }
+
+  @media only screen and (min-width: 64rem) {
+    #reviews-707 .cs-review-group {
+      width: calc(33.333% - 1.25rem);
+    }
+  }
+</style>
