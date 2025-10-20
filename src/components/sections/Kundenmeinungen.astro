@@ -1,12 +1,14 @@
 ---
-import type { ImageMetadata } from 'astro:assets';
+import { Image, type ImageMetadata } from 'astro:assets';
+import HundImage from '../../assets/images/hund.png';
+import HamsterImage from '../../assets/images/hamster.png';
+import KatzeImage from '../../assets/images/katze.png';
 
 type Testimonial = {
   name?: string;
   quote?: string;
   role?: string;
   image?: ImageMetadata;
-  imageUrl?: string;
 };
 
 type Props = {
@@ -17,35 +19,14 @@ type Props = {
 };
 
 const QUOTE_ICON_URL = 'https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fpink-quote.svg';
-const DEFAULT_IMAGE_URL =
-  'https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FPeople%2Fperson7.jpg';
-
-const FALLBACK_TESTIMONIALS: Testimonial[] = [
-  {
-    name: 'Familie Krüger mit Luna',
-    quote: 'Einfühlsames Team, das sich wirklich Zeit nimmt!',
-    imageUrl: DEFAULT_IMAGE_URL,
-  },
-  {
-    name: 'Sabine H. mit Kater Felix',
-    quote: 'Schnelle Hilfe im Notfall und super Nachbetreuung.',
-    imageUrl: DEFAULT_IMAGE_URL,
-  },
-  {
-    name: 'Familie Schneider',
-    quote: 'Man merkt sofort: Hier lieben alle Tiere.',
-    imageUrl: 'https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FPeople%2Fperson8.jpg',
-  },
-];
+const PLACEHOLDER_IMAGES = [HundImage, HamsterImage, KatzeImage] as const;
 
 const {
   id = 'reviews-707',
-  heading = 'Happy <span class="cs-color">Customer Feedback</span> About Our Service',
+  heading = 'Was unsere Kunden sagen',
   intro = '',
   testimonials = [],
 } = Astro.props as Props;
-
-const testimonialItems = testimonials.length > 0 ? testimonials : FALLBACK_TESTIMONIALS;
 
 const formatQuote = (quote?: string) => {
   if (!quote) return '';
@@ -57,46 +38,58 @@ const formatQuote = (quote?: string) => {
 <section id={id}>
   <div class="cs-container">
     <div class="cs-content">
-      <span class="cs-topper">Testimonials</span>
-      <h2 class="cs-title" set:html={heading} />
-      {intro && <p class="cs-text">{intro}</p>}
+      <h2
+        class="cs-title decoration-primary-content text-4xl underline underline-offset-6"
+        set:html={heading}
+      />
+      {intro && <p class="cs-text text-base-content/80">{intro}</p>}
     </div>
 
     <div class="cs-flex-group">
       {
-        testimonialItems.map((item) => (
-          <div class="cs-review-group">
-            <div class="cs-picture-group">
-              <div class="cs-picture">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={item.image ? item.image.src : (item.imageUrl ?? DEFAULT_IMAGE_URL)}
-                  alt={item.name ? `Portrait von ${item.name}` : 'Testimonial Portrait'}
-                  width={item.image ? item.image.width : 240}
-                  height={item.image ? item.image.height : 286}
-                />
+        testimonials.length > 0 &&
+          testimonials.map((item, index) => {
+            const imageData = item.image ?? PLACEHOLDER_IMAGES[index % PLACEHOLDER_IMAGES.length];
+            const altText = item.name
+              ? `Portrait von ${item.name}`
+              : 'Porträt eines zufriedenen Tierbesitzers';
+            return (
+              <div class="cs-review-group">
+                <div class="cs-picture-group">
+                  <div class="cs-picture rounded-full">
+                    <Image
+                      src={imageData}
+                      alt={altText}
+                      loading="lazy"
+                      decoding="async"
+                      sizes="(max-width: 600px) 240px, 240px"
+                      class="cs-picture-img"
+                      fit="cover"
+                    />
+                  </div>
+                  <div class="cs-wrapper">
+                    <img
+                      class="cs-icon"
+                      loading="lazy"
+                      decoding="async"
+                      src={QUOTE_ICON_URL}
+                      alt=""
+                      width="58"
+                      height="48"
+                      aria-hidden="true"
+                    />
+                  </div>
+                </div>
+                <div class="cs-review bg-info/10 min-h-4 rounded-xl p-12 transition hover:-translate-y-1 hover:shadow-lg">
+                  {item.quote && (
+                    <p class="cs-review-text text-base-content/80">{formatQuote(item.quote)}</p>
+                  )}
+                  {item.name && <span class="cs-name">{item.name}</span>}
+                  {item.role && <span class="cs-job">{item.role}</span>}
+                </div>
               </div>
-              <div class="cs-wrapper">
-                <img
-                  class="cs-icon"
-                  loading="lazy"
-                  decoding="async"
-                  src={QUOTE_ICON_URL}
-                  alt=""
-                  width="58"
-                  height="48"
-                  aria-hidden="true"
-                />
-              </div>
-            </div>
-            <div class="cs-review">
-              {item.quote && <p class="cs-review-text">{formatQuote(item.quote)}</p>}
-              {item.name && <span class="cs-name">{item.name}</span>}
-              {item.role && <span class="cs-job">{item.role}</span>}
-            </div>
-          </div>
-        ))
+            );
+          })
       }
     </div>
   </div>
@@ -128,6 +121,8 @@ const formatQuote = (quote?: string) => {
       padding: var(--sectionPadding);
       position: relative;
       overflow: hidden;
+      margin-top: 5rem;
+      margin-bottom: 5rem;
     }
     #reviews-707 .cs-container {
       width: 100%;
@@ -153,7 +148,6 @@ const formatQuote = (quote?: string) => {
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--primary);
     }
     #reviews-707 .cs-title {
       max-width: 26ch;
@@ -162,11 +156,8 @@ const formatQuote = (quote?: string) => {
     #reviews-707 .cs-text {
       max-width: 46ch;
       margin: 0;
-      color: var(--bodyTextColor);
     }
-    #reviews-707 .cs-color {
-      color: var(--primary);
-    }
+
     #reviews-707 .cs-flex-group {
       width: 100%;
       display: flex;
@@ -193,7 +184,7 @@ const formatQuote = (quote?: string) => {
       width: 100%;
       height: auto;
       aspect-ratio: 240 / 286;
-      border-radius: 17.8125em;
+
       overflow: hidden;
       position: relative;
     }
@@ -232,21 +223,20 @@ const formatQuote = (quote?: string) => {
       line-height: 1.5em;
       text-align: inherit;
       margin: 0 0 1.5rem 0;
-      color: var(--bodyTextColor);
     }
     #reviews-707 .cs-name {
       font-size: clamp(1.25rem, 3vw, 1.5625rem);
       line-height: 1.2em;
       font-weight: 700;
       margin: 0 0 0.5rem 0;
-      color: var(--headerColor);
+
       display: block;
     }
     #reviews-707 .cs-job {
       font-size: 1rem;
       line-height: 1.5em;
       margin: 0;
-      color: var(--bodyTextColor);
+
       display: block;
     }
     #reviews-707 .cs-waves {
@@ -269,6 +259,13 @@ const formatQuote = (quote?: string) => {
   @media only screen and (min-width: 48rem) {
     #reviews-707 .cs-container {
       max-width: 80rem;
+      h2 {
+        margin-bottom: 2rem;
+      }
+      p {
+        max-width: 50rem;
+        margin-bottom: 2rem;
+      }
     }
     #reviews-707 .cs-flex-group {
       flex-direction: row;

@@ -128,7 +128,24 @@ import Kundenmeinungen from '../components/sections/Kundenmeinungen.astro';
 
       <Kundenmeinungen
         heading="Was unsere Kunden sagen"
-        intro={`Echte Geschichten aus unserer Praxis: Tierhalterinnen und Tierhalter berichten, wie aufmerksam wir zuhören, wie sorgfältig wir behandeln und wie vertrauensvoll die Zusammenarbeit für Zwei- und Vierbeiner ist.`}
+        intro={` Tierhalterinnen und Tierhalter berichten, wie aufmerksam wir zuhören, wie sorgfältig wir behandeln und wie vertrauensvoll die Zusammenarbeit für Zwei- und Vierbeiner ist.`}
+        testimonials={[
+          {
+            name: 'Gerd Richter mit Hund Hellmut',
+            quote:
+              'Kompetente Beratung, liebevolle Betreuung und schnelle Diagnostik vor Ort – wir kommen auf jeden Fall wieder.',
+          },
+          {
+            name: 'Maria Schmidt mit Hamster Luna',
+            quote:
+              'Selbst unser Hamster bekommt Zeit, Ruhe und moderne Behandlung – wir fühlten uns vom ersten Moment verstanden.',
+          },
+          {
+            name: 'Sabine H. mit Kater Felix',
+            quote:
+              'Herzliches Team, moderne Praxis und klare Erklärungen – hier fühlen wir uns mit unserem Felix jederzeit bestens betreut.',
+          },
+        ]}
       />
     </main>
   </body>
