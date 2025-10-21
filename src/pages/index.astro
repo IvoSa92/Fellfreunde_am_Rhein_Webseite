@@ -14,6 +14,7 @@ import zahnmedizinIcon from '../assets/images/zahnmedizin.png';
 import Vorstellung from '../components/sections/Vorstellung.astro';
 import Kundenmeinungen from '../components/sections/Kundenmeinungen.astro';
 import Footer from '../components/default/Footer.astro';
+import Cta from '../components/default/Cta.astro';
 ---
 
 <html lang="de" data-theme="Fellnasen">
@@ -38,10 +39,7 @@ import Footer from '../components/default/Footer.astro';
         secondary={{ label: 'Notfallhinweise', href: '#notfall' }}
         badges={['Seit 2015', 'Röntgen & Ultraschall', '24/7 Notfallnummer']}
       >
-        <div
-          slot="visual"
-          class="border-base-200 bg-base-200/50 aspect-[4/3] w-full rounded-2xl border"
-        >
+        <div slot="visual" class="bg-base-200/50 ml-12 aspect-[4/3] w-[80%]">
           <Image
             src={HeroImage}
             alt="Ein glücklicher Hund sitzt in der Tierarztpraxis Fellfreunde am Rhein."
@@ -148,6 +146,7 @@ import Footer from '../components/default/Footer.astro';
           },
         ]}
       />
+      <Cta />
       <Footer />
     </main>
   </body>

@@ -1,0 +1,147 @@
+---
+import { Image } from 'astro:assets';
+import CatLogo from '/src/assets/images/cat-cta.png';
+---
+
+<section id="cta-2372">
+  <div class="cs-container bg-warning/20 backdrop-blur-md">
+    <div class="cs-content">
+      <h2 class="cs-title text-2xl">Bereit für Ihren nächsten Tierarztbesuch?</h2>
+      <p class="cs-text">
+        Vereinbaren Sie jetzt einen Termin: Wir nehmen uns Zeit für Untersuchung, Beratung und alle
+        Fragen – persönlich, transparent und mit moderner Diagnostik direkt vor Ort.
+      </p>
+      <button
+        class="btn btn-primary btn-md sm:btn-md md:btn-md lg:btn-lg xl:btn-xl hover:bg-primary hover:brightness-105"
+      >
+        Termin vereinbaren
+      </button>
+    </div>
+    <Image src={CatLogo} alt="Illustration einer Katze mit Stethoskop" class="cs-graphic" />
+  </div>
+
+  <style>
+    /* Mobile - 360px */
+    @media only screen and (min-width: 0rem) {
+      #cta-2372 {
+        margin-bottom: 5rem;
+      }
+      #cta-2372 .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        padding: clamp(2rem, 8vw, 3.75rem) clamp(1rem, 6vw, 6.75rem) 0;
+
+        border-radius: 1rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 48px - 64px */
+        gap: clamp(3rem, 6vw, 4rem);
+        position: relative;
+        z-index: 1;
+      }
+      #cta-2372 .cs-content {
+        /* set text align to left if content needs to be left aligned */
+        text-align: left;
+        width: 100%;
+        max-width: 36.25rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        /* centers content horizontally, set to flex-start to left align */
+        align-items: flex-start;
+      }
+      #cta-2372 .cs-title {
+        text-align: inherit;
+        margin-bottom: 2rem;
+        /* 48px - 64px */
+
+        position: relative;
+        z-index: 1;
+      }
+      #cta-2372 .cs-title:before {
+        content: '';
+        width: 100vw;
+        height: 1px;
+        background: #d2d8df;
+        opacity: 0.2;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      #cta-2372 .cs-text {
+        margin-bottom: 1rem;
+      }
+      #cta-2372 .cs-text:last-of-type {
+        margin-bottom: 2rem;
+      }
+      #cta-2372 .cta-button {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-primary-content);
+        transition:
+          filter 0.2s ease,
+          transform 0.2s ease;
+      }
+      #cta-2372 .cta-button:hover,
+      #cta-2372 .cta-button:focus-visible {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-primary-content);
+        filter: brightness(1.1);
+      }
+      #cta-2372 .cta-button:active {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-primary-content);
+        filter: brightness(0.95);
+      }
+      #cta-2372 .cs-graphic {
+        width: 100%;
+        max-width: 10rem;
+        margin-left: 20rem;
+        margin-top: -6rem;
+        height: auto;
+        display: block;
+      }
+      #cta-2372 .cs-floater {
+        width: 53.1875rem;
+        height: auto;
+
+        opacity: 0.54;
+        filter: blur(80px);
+        /* prevents the mouse from interacting wiht it */
+        pointer-events: none;
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: -1;
+        transform: translate(-50%, -50%);
+      }
+    }
+    /* Tablet - 700px */
+    @media only screen and (min-width: 43.75rem) {
+      #cta-2372 .cs-container {
+        padding-bottom: 3.75rem;
+        flex-direction: row;
+        align-items: flex-end;
+      }
+      #cta-2372 .cs-content {
+        width: 45vw;
+      }
+      #cta-2372 .cs-graphic {
+        width: 20vw;
+        max-width: 30vw;
+        position: absolute;
+        bottom: -1rem;
+
+        right: 5rem;
+        z-index: 1;
+      }
+    }
+  </style>
+</section>
