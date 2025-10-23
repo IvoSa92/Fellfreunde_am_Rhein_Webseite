@@ -32,8 +32,8 @@ import notfallIcon from '../../assets/images/notfall.svg?raw';
         tabindex="0"
         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
       >
-        <li><a>Home</a></li>
-        <li><a>Über Uns</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/ueber_uns">Über uns</a></li>
         <li>
           <a>Leistungen</a>
           <ul class="p-2">
@@ -49,7 +49,7 @@ import notfallIcon from '../../assets/images/notfall.svg?raw';
       </ul>
     </div>
 
-    <a class="btn btn-ghost gap-2 p-6 text-2xl font-extrabold">
+    <a class="btn btn-ghost gap-2 p-6 text-lg font-extrabold lg:text-2xl">
       <Image
         src={logo}
         format="webp"
@@ -63,8 +63,8 @@ import notfallIcon from '../../assets/images/notfall.svg?raw';
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal gap-6 px-1 text-lg font-extrabold">
-      <li class="hover:text-warning"><a>Home</a></li>
-      <li class="hover:text-warning"><a>Über Uns</a></li>
+      <li class="hover:text-warning"><a href="/">Home</a></li>
+      <li class="hover:text-warning"><a href="/ueber_uns">Über uns</a></li>
       <li class="relative">
         <div class="dropdown dropdown-hover dropdown-center">
           <div tabindex="0" role="button" class="hover:text-warning m-0 px-0">Leistungen</div>
@@ -86,26 +86,13 @@ import notfallIcon from '../../assets/images/notfall.svg?raw';
   </div>
   <div class="navbar-end pr-4">
     <a
-      class="btn btn-warning text-error gap-2 text-lg font-bold text-white/90 transition hover:text-white"
+      class="btn btn-warning text-error text-md gap-2 font-bold text-white/90 transition hover:text-white lg:text-lg"
     >
-      <span
-        set:html={notfallIcon}
-        class="h-5 w-5 [&>svg]:h-5 [&>svg]:w-5 [&>svg]:shrink-0 [&>svg]:translate-y-[1px] [&>svg]:fill-current"
-      />
+    <span
+      set:html={notfallIcon}
+      class="hidden h-5 w-5 md:inline [&>svg]:h-5 [&>svg]:w-5 [&>svg]:shrink-0 [&>svg]:translate-y-[1px] [&>svg]:fill-current"
+    />
       Notfall
     </a>
   </div>
 </div>
-
-<script>
-  const navbar = document.querySelector('#navbar');
-  const shrinkOffset = 80;
-
-  const onScroll = () => {
-    const shouldShrink = window.scrollY > shrinkOffset;
-    navbar?.setAttribute('data-shrink', shouldShrink ? 'true' : 'false');
-  };
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-</script>

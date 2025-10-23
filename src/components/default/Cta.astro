@@ -4,10 +4,12 @@ import CatLogo from '/src/assets/images/cat-cta.png';
 ---
 
 <section id="cta-2372">
-  <div class="cs-container bg-warning/20 backdrop-blur-md">
-    <div class="cs-content">
+  <div
+    class="bg-warning/20 flex flex-col items-center justify-center rounded-2xl p-10 backdrop-blur-md sm:flex-row lg:flex-row"
+  >
+    <div class="flex flex-col items-start justify-center text-left">
       <h2 class="cs-title text-2xl">Bereit für Ihren nächsten Tierarztbesuch?</h2>
-      <p class="cs-text">
+      <p class="cs-text text-base-content/80 mb-4 max-w-md">
         Vereinbaren Sie jetzt einen Termin: Wir nehmen uns Zeit für Untersuchung, Beratung und alle
         Fragen – persönlich, transparent und mit moderner Diagnostik direkt vor Ort.
       </p>
@@ -17,7 +19,12 @@ import CatLogo from '/src/assets/images/cat-cta.png';
         Termin vereinbaren
       </button>
     </div>
-    <Image src={CatLogo} alt="Illustration einer Katze mit Stethoskop" class="cs-graphic" />
+    <Image
+      src={CatLogo}
+      alt="Illustration einer Katze mit Stethoskop"
+      class="relative -z-2 -mt-3 ml-40 w-30 md:ml-0 md:w-60 lg:mt-0 lg:ml-0 lg:w-80"
+      format="webp"
+    />
   </div>
 
   <style>
@@ -63,7 +70,7 @@ import CatLogo from '/src/assets/images/cat-cta.png';
       }
       #cta-2372 .cs-title:before {
         content: '';
-        width: 100vw;
+        width: 100%;
         height: 1px;
         background: #d2d8df;
         opacity: 0.2;

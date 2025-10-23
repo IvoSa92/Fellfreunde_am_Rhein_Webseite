@@ -1,7 +1,6 @@
 ---
-import '../assets/styles/global.css';
 import { Image } from 'astro:assets';
-import Navbar from '../components/default/Navbar.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/sections/Hero.astro';
 import HeroImage from '../assets/images/fellnasen_hero.png';
 import Services from '../components/sections/Services.astro';
@@ -13,141 +12,130 @@ import physioIcon from '../assets/images/physio.png';
 import zahnmedizinIcon from '../assets/images/zahnmedizin.png';
 import Vorstellung from '../components/sections/Vorstellung.astro';
 import Kundenmeinungen from '../components/sections/Kundenmeinungen.astro';
-import Footer from '../components/default/Footer.astro';
 import Cta from '../components/default/Cta.astro';
 ---
 
-<html lang="de" data-theme="Fellnasen">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Fellfreunde am Rhein – Moderne Tierarztpraxis</title>
-    <meta
-      name="description"
-      content="Moderne Diagnostik und liebevolle Betreuung für Hund & Katze am Rhein."
-    />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  </head>
-  <body>
-    <Navbar />
-    <main>
-      <Hero
-        title="Tierarztpraxis am Rhein – moderne Diagnostik, liebevoller Umgang."
-        subtitle="Wir begleiten Sie und Ihr Tier vom ersten Kennenlernen bis zur Nachsorge: Vorsorge, Chirurgie, Zahnmedizin und schnelle Diagnostik direkt vor Ort. Wir nehmen uns Zeit für Fragen, erklären Befunde verständlich und priorisieren Notfälle – Termine lassen sich bequem online buchen."
-        primary={{ label: 'Termin vereinbaren', href: '#kontakt' }}
-        secondary={{ label: 'Notfallhinweise', href: '#notfall' }}
-        badges={['Seit 2015', 'Röntgen & Ultraschall', '24/7 Notfallnummer']}
-      >
-        <div slot="visual" class="bg-base-200/50 ml-12 aspect-[4/3] w-[80%]">
-          <Image
-            src={HeroImage}
-            alt="Ein glücklicher Hund sitzt in der Tierarztpraxis Fellfreunde am Rhein."
-            format="webp"
-          />
-        </div>
-      </Hero>
-
-      <Services
-        heading="Was wir für Ihre Fellfreunde tun"
-        intro="Lernen Sie unsere wichtigsten Leistungen kennen – vom ersten Gesundheitscheck bis zur spezialisierten Behandlung."
-        services={[
-          {
-            icon: { src: allgemeinIcon, alt: 'Icon für Allgemeinmedizin', width: 48, height: 48 },
-            title: 'Allgemeinmedizin',
-            description:
-              'Vom Welpen bis zum Senior: gründliche Untersuchungen, Impfpläne und Beratung rund um Verhalten, Futter und Alltag.',
-            href: '#allgemeinmedizin',
-          },
-          {
-            icon: {
-              src: zahnmedizinIcon,
-              alt: 'Icon für Chirurgie & Zahnmedizin',
-              width: 48,
-              height: 48,
-            },
-            title: 'Chirurgie & Zahnmedizin',
-            description:
-              'Schonende Operationen, professionelles Dental-Management und engmaschige Nachsorge für eine schnelle Genesung.',
-            href: '#chirurgie-zahnmedizin',
-          },
-          {
-            icon: { src: laborIcon, alt: 'Icon für Diagnostik & Labor', width: 48, height: 48 },
-            title: 'Diagnostik & Labor',
-            description:
-              'Digitales Röntgen, Ultraschall und hauseigene Laboranalysen liefern binnen Minuten Klarheit zur Bestimmung der Therapie.',
-            href: '#diagnostik-labor',
-          },
-          {
-            icon: {
-              src: ernährungIcon,
-              alt: 'Icon für Ernährungs- & Seniorenberatung',
-              width: 48,
-              height: 48,
-            },
-            title: 'Ernährungs- & Seniorenberatung',
-            description:
-              'Individuelle Futterpläne, Gewichtsmanagement und Senioren-Check-ups, damit Fellfreunde jeden Lebensabschnitt genießen.',
-            href: '#ernaehrung-senioren',
-          },
-          {
-            icon: {
-              src: notfallmedizinIcon,
-              alt: 'Icon für Notfall- & Intensivversorgung',
-              width: 48,
-              height: 48,
-            },
-            title: 'Notfall- & Intensivversorgung',
-            description:
-              'Rund um die Uhr erreichbar: schnelle Erstversorgung, Stabilisierung und engmaschige Überwachung in kritischen Situationen.',
-            href: '#notfall-intensiv',
-          },
-          {
-            icon: { src: physioIcon, alt: 'Icon für Physiotherapie & Reha', width: 48, height: 48 },
-            title: 'Physiotherapie & Reha',
-            description:
-              'Gezielte Therapie, Laser- und Bewegungstraining unterstützen Muskulatur, Beweglichkeit und schmerzfreie Heilung nach Verletzungen.',
-            href: '#physiotherapie-reha',
-          },
-        ]}
+<BaseLayout
+  title="Fellfreunde am Rhein – Moderne Tierarztpraxis"
+  description="Moderne Diagnostik und liebevolle Betreuung für Hund & Katze am Rhein."
+>
+  <Hero
+    title1="Tierarztpraxis am Rhein – moderne Diagnostik, liebevoller Umgang."
+    title2="Ihre kompetente Tierarztpraxis am Rhein"
+    subtitle="Wir begleiten Sie und Ihr Tier vom ersten Kennenlernen bis zur Nachsorge: Vorsorge, Chirurgie, Zahnmedizin und schnelle Diagnostik direkt vor Ort. Wir nehmen uns Zeit für Fragen, erklären Befunde verständlich und priorisieren Notfälle – Termine lassen sich bequem online buchen."
+    primary={{ label: 'Termin vereinbaren', href: '#kontakt' }}
+    secondary={{ label: 'Notfallhinweise', href: '#notfall' }}
+    badges={['Seit 2015', 'Röntgen & Ultraschall', '24/7 Notfallnummer']}
+  >
+    <div
+      slot="visual"
+      class="bg-base-200/50 mx-auto aspect-[4/3] w-full max-w-sm sm:max-w-md lg:mr-0 lg:ml-12 lg:max-w-lg"
+    >
+      <Image
+        src={HeroImage}
+        alt="Ein glücklicher Hund sitzt in der Tierarztpraxis Fellfreunde am Rhein."
+        format="webp"
       />
+    </div>
+  </Hero>
 
-      <Vorstellung
-        heading="Team & Praxis"
-        subtitle={`Lernen Sie das Team von Fellfreunde am Rhein kennen: erfahrene Tierärzt:innen, MFA und Praxisleitung – einfühlsam, kompetent und individuell in Allgemeinmedizin, Chirurgie, Zahnmedizin und Notfallversorgung. Wir begleiten Sie vom ersten Kennenlernen bis zur Nachsorge, bleiben transparent in jeder Entscheidung und nehmen uns Zeit für Fragen. So schaffen wir ein Umfeld, in dem sich Mensch und Tier gleichermaßen sicher fühlen.`}
-        highlights={[
-          { title: 'Seit 2015', description: 'Vertrauen und Erfahrung' },
-          {
-            title: 'Team aus Spezialist:innen',
-            description: 'Chirurgie & Notfall',
-          },
-          { title: 'Hightech-Praxis', description: 'Digitale Diagnostik' },
-        ]}
-      />
+  <Services
+    heading="Was wir für Ihre Fellfreunde tun"
+    intro="Lernen Sie unsere wichtigsten Leistungen kennen – vom ersten Gesundheitscheck bis zur spezialisierten Behandlung."
+    services={[
+      {
+        icon: { src: allgemeinIcon, alt: 'Icon für Allgemeinmedizin', width: 48, height: 48 },
+        title: 'Allgemeinmedizin',
+        description:
+          'Vom Welpen bis zum Senior: gründliche Untersuchungen, Impfpläne und Beratung rund um Verhalten, Futter und Alltag.',
+        href: '#allgemeinmedizin',
+      },
+      {
+        icon: {
+          src: zahnmedizinIcon,
+          alt: 'Icon für Chirurgie & Zahnmedizin',
+          width: 48,
+          height: 48,
+        },
+        title: 'Chirurgie & Zahnmedizin',
+        description:
+          'Schonende Operationen, professionelles Dental-Management und engmaschige Nachsorge für eine schnelle Genesung.',
+        href: '#chirurgie-zahnmedizin',
+      },
+      {
+        icon: { src: laborIcon, alt: 'Icon für Diagnostik & Labor', width: 48, height: 48 },
+        title: 'Diagnostik & Labor',
+        description:
+          'Digitales Röntgen, Ultraschall und hauseigene Laboranalysen liefern binnen Minuten Klarheit zur Bestimmung der Therapie.',
+        href: '#diagnostik-labor',
+      },
+      {
+        icon: {
+          src: ernährungIcon,
+          alt: 'Icon für Ernährungs- & Seniorenberatung',
+          width: 48,
+          height: 48,
+        },
+        title: 'Ernährungs- & Seniorenberatung',
+        description:
+          'Individuelle Futterpläne, Gewichtsmanagement und Senioren-Check-ups, damit Fellfreunde jeden Lebensabschnitt genießen.',
+        href: '#ernaehrung-senioren',
+      },
+      {
+        icon: {
+          src: notfallmedizinIcon,
+          alt: 'Icon für Notfall- & Intensivversorgung',
+          width: 48,
+          height: 48,
+        },
+        title: 'Notfall- & Intensivversorgung',
+        description:
+          'Rund um die Uhr erreichbar: schnelle Erstversorgung, Stabilisierung und engmaschige Überwachung in kritischen Situationen.',
+        href: '#notfall-intensiv',
+      },
+      {
+        icon: { src: physioIcon, alt: 'Icon für Physiotherapie & Reha', width: 48, height: 48 },
+        title: 'Physiotherapie & Reha',
+        description:
+          'Gezielte Therapie, Laser- und Bewegungstraining unterstützen Muskulatur, Beweglichkeit und schmerzfreie Heilung nach Verletzungen.',
+        href: '#physiotherapie-reha',
+      },
+    ]}
+  />
 
-      <Kundenmeinungen
-        heading="Was unsere Kunden sagen"
-        intro={` Tierhalterinnen und Tierhalter berichten, wie aufmerksam wir zuhören, wie sorgfältig wir behandeln und wie vertrauensvoll die Zusammenarbeit für Zwei- und Vierbeiner ist.`}
-        testimonials={[
-          {
-            name: 'Gerd Richter mit Hund Hellmut',
-            quote:
-              'Kompetente Beratung, liebevolle Betreuung und schnelle Diagnostik vor Ort – wir kommen auf jeden Fall wieder.',
-          },
-          {
-            name: 'Maria Schmidt mit Hamster Luna',
-            quote:
-              'Selbst unser Hamster bekommt Zeit, Ruhe und moderne Behandlung – wir fühlten uns vom ersten Moment verstanden.',
-          },
-          {
-            name: 'Sabine H. mit Kater Felix',
-            quote:
-              'Herzliches Team, moderne Praxis und klare Erklärungen – hier fühlen wir uns mit unserem Felix jederzeit bestens betreut.',
-          },
-        ]}
-      />
-      <Cta />
-      <Footer />
-    </main>
-  </body>
-</html>
+  <Vorstellung
+    heading="Team & Praxis"
+    subtitle={`Lernen Sie das Team von Fellfreunde am Rhein kennen: erfahrene Tierärzt:innen, MFA und Praxisleitung – einfühlsam, kompetent und individuell in Allgemeinmedizin, Chirurgie, Zahnmedizin und Notfallversorgung. Wir begleiten Sie vom ersten Kennenlernen bis zur Nachsorge, bleiben transparent in jeder Entscheidung und nehmen uns Zeit für Fragen. So schaffen wir ein Umfeld, in dem sich Mensch und Tier gleichermaßen sicher fühlen.`}
+    highlights={[
+      { title: 'Seit 2015', description: 'Vertrauen und Erfahrung' },
+      {
+        title: 'Team aus Spezialist:innen',
+        description: 'Chirurgie & Notfall',
+      },
+      { title: 'Hightech-Praxis', description: 'Digitale Diagnostik' },
+    ]}
+  />
+
+  <Kundenmeinungen
+    heading="Was unsere Kunden sagen"
+    intro={` Tierhalterinnen und Tierhalter berichten, wie aufmerksam wir zuhören, wie sorgfältig wir behandeln und wie vertrauensvoll die Zusammenarbeit für Zwei- und Vierbeiner ist.`}
+    testimonials={[
+      {
+        name: 'Gerd Richter mit Hund Hellmut',
+        quote:
+          'Kompetente Beratung, liebevolle Betreuung und schnelle Diagnostik vor Ort – wir kommen auf jeden Fall wieder.',
+      },
+      {
+        name: 'Maria Schmidt mit Hamster Luna',
+        quote:
+          'Selbst unser Hamster bekommt Zeit, Ruhe und moderne Behandlung – wir fühlten uns vom ersten Moment verstanden.',
+      },
+      {
+        name: 'Sabine H. mit Kater Felix',
+        quote:
+          'Herzliches Team, moderne Praxis und klare Erklärungen – hier fühlen wir uns mit unserem Felix jederzeit bestens betreut.',
+      },
+    ]}
+  />
+  <Cta />
+</BaseLayout>

@@ -1,0 +1,267 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+type TeamMember = {
+  name: string;
+  role: string;
+  bio?: string;
+  // photo: ImageMetadata;
+};
+
+interface Props {
+  id?: string;
+  heading: string;
+  subtitle?: string;
+  members?: TeamMember[];
+}
+
+const { id = 'team', heading, subtitle = '', members = [] } = Astro.props as Props;
+
+const fallbackMembers: TeamMember[] = [
+  {
+    name: 'Dr. Lara Brenner',
+    role: 'Leitung & Allgemeinmedizin',
+    bio: 'Umfassende Betreuung von Welpen bis Senioren mit Fokus auf Prävention.',
+  },
+  {
+    name: 'Dr. Amir Hassan',
+    role: 'Chirurgie & Notfallmedizin',
+    bio: 'Langjährige OP-Erfahrung und schnelle Hilfe in kritischen Situationen.',
+  },
+  {
+    name: 'Dr. Sophia Krüger',
+    role: 'Zahnmedizin & Diagnostik',
+    bio: 'Spezialisiert auf Dentaldiagnostik, Röntgen und schmerzfreie Behandlung.',
+  },
+  {
+    name: 'Mara Lenz',
+    role: 'Tiermedizinische Fachangestellte',
+    bio: 'Sorgt für beruhigende Abläufe, Laboranalysen und liebevolle Betreuung.',
+  },
+];
+
+const teamMembers = members.length ? members : fallbackMembers;
+---
+
+<section id={id} aria-labelledby={`${id}-heading`} class="bg-base-100 relative">
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-16 sm:py-20 lg:py-24">
+    <header class="flex flex-col items-center text-center">
+      <span class="text-primary text-sm font-semibold tracking-[0.3em] uppercase">Unser Team</span>
+      <h2
+        id={`${id}-heading`}
+        class="font-header mt-4 text-3xl/tight text-balance sm:text-4xl/tight lg:text-5xl/tight"
+      >
+        {heading}
+      </h2>
+      {
+        subtitle && (
+          <p class="text-base-content/80 mt-4 max-w-2xl text-sm leading-relaxed sm:text-base">
+            {subtitle}
+          </p>
+        )
+      }
+    </header>
+
+    <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+      {
+        teamMembers.map((member) => (
+          <article class="group border-base-200 bg-base-100 relative flex flex-col overflow-hidden rounded-3xl border shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
+            <div class="relative aspect-[4/5] overflow-hidden">
+              {/* <Image
+                loading="lazy"
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              /> */}
+            </div>
+            <div class="flex flex-1 flex-col gap-2 px-6 py-6 text-center">
+              <h3 class="font-header text-base-content text-xl font-semibold">{member.name}</h3>
+              <p class="text-primary text-sm font-medium tracking-wide uppercase">{member.role}</p>
+              {member.bio && (
+                <p class="text-base-content/70 text-sm leading-relaxed">{member.bio}</p>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /*-- -------------------------- -->
+<---         Meet Team          -->
+<--- -------------------------- -*/
+
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #meet-436 {
+      padding: var(--sectionPadding);
+    }
+    #meet-436 .cs-container {
+      width: 100%;
+      /* changes to 1280px at tablet */
+      max-width: 34.375rem;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* 48px - 64px */
+      gap: clamp(3rem, 6vw, 4rem);
+    }
+    #meet-436 .cs-content {
+      /* set text align to left if content needs to be left aligned */
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* centers content horizontally, set to flex-start to left align */
+      align-items: center;
+    }
+
+    #meet-436 .cs-card-group {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      /* 24px - 40px, accounts for the translate amount on the list items */
+      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      /* 8px - 20px */
+      column-gap: clamp(0.5rem, 1.5vw, 1.25rem);
+      row-gap: 0.75rem;
+    }
+    #meet-436 .cs-item {
+      text-align: center;
+      list-style: none;
+      width: 48%;
+      padding-bottom: 1.5rem;
+      border-radius: 0.75rem;
+      background-color: #fff;
+      box-shadow: 0px 24px 54px rgba(87, 107, 147, 0.12);
+      border: 1px solid #b4b2c7;
+      position: relative;
+    }
+    #meet-436 .cs-item:before {
+      /* hover box */
+      content: '';
+      width: 99%;
+      height: 99%;
+      border: 4px solid var(--primary);
+      border-radius: 0.75rem;
+      background: transparent;
+      pointer-events: none;
+      opacity: 0;
+      position: absolute;
+      display: block;
+      z-index: 10;
+      /* next three lines are old school way of centering something */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition:
+        transform 0.3s,
+        width 0.3s,
+        height 0.3s,
+        opacity 0.3s;
+    }
+    #meet-436 .cs-item:hover:before {
+      opacity: 1;
+    }
+    #meet-436 .cs-item:hover .cs-picture img {
+      transform: scale(1.1);
+    }
+    #meet-436 .cs-item:nth-of-type(2),
+    #meet-436 .cs-item:nth-of-type(4) {
+      /* 24px - 40px */
+      transform: translateY(clamp(1.5rem, 4.2vw, 2.5rem));
+    }
+    #meet-436 .cs-picture {
+      width: 100%;
+      /* height divided by width */
+      aspect-ratio: 1.26033058;
+      margin-bottom: 1.5rem;
+      /* clips corners of image */
+      overflow: hidden;
+      border-radius: 0.75rem 0.75rem 0 0;
+      border-bottom: 1px solid #b4b2c7;
+      position: relative;
+      display: block;
+    }
+    #meet-436 .cs-picture img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /* makes it behave like a background image */
+      object-fit: cover;
+      /* places the top of the image at the top of the picture element */
+      object-position: top;
+      transition: transform 0.6s;
+    }
+    #meet-436 .cs-name {
+      /* 16px - 25px */
+      font-size: clamp(1rem, 2vw, 1.5625rem);
+      line-height: 1.2em;
+      font-weight: 700;
+      width: 90%;
+      margin: 0 auto 0.25rem;
+      color: var(--headerColor);
+      display: block;
+    }
+    #meet-436 .cs-job {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      line-height: 1.5em;
+      width: 90%;
+      margin: 0 auto;
+      color: var(--primary);
+      display: block;
+    }
+    #meet-436 .cs-leaves {
+      display: none;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #meet-436 .cs-container {
+      max-width: 80rem;
+    }
+    #meet-436 .cs-card-group {
+      flex-wrap: nowrap;
+    }
+    #meet-436 .cs-item {
+      width: 100%;
+    }
+  }
+  /* Large Desktop - 1600px */
+  @media only screen and (min-width: 93.75rem) {
+    #meet-436 {
+      /* prevents overflow issues from the leaves sitting outside the #meet container */
+      overflow: hidden;
+      position: relative;
+    }
+    #meet-436 .cs-leaves {
+      display: block;
+      position: absolute;
+      z-index: -1;
+    }
+    #meet-436 .cs-leaf1 {
+      width: 30.5625rem;
+      height: auto;
+      left: 0;
+      bottom: 7.5rem;
+    }
+    #meet-436 .cs-leaf2 {
+      width: 44.5625rem;
+      height: auto;
+      bottom: 0;
+      /* makes the left edge of the img rest at the center line of the contsiner */
+      left: 50%;
+      /* push 500px away from the center line */
+      margin-left: 31.25rem;
+    }
+  }
+</style>

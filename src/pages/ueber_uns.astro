@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AboutHero from '../components/sections/AboutHero.astro';
+import { slide, fade } from 'astro:transitions';
+import Team from '../components/sections/Team.astro';
+---
+
+<BaseLayout
+  title="Über uns – Fellfreunde am Rhein"
+  description="Lernen Sie das Team und die Geschichte der Tierarztpraxis Fellfreunde am Rhein kennen."
+>
+  <AboutHero />
+  <Team />
+</BaseLayout>

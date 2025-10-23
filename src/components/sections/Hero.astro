@@ -5,18 +5,19 @@ interface CTA {
 }
 interface Props {
   id?: string;
-  title: string;
+  title1: string;
+  title2?: string;
   subtitle?: string;
   primary?: CTA;
   secondary?: CTA;
   badges?: string[];
 }
-const { id = 'hero', title, subtitle = '', primary, secondary, badges = [] } = Astro.props;
+const { id = 'hero', title1, title2, subtitle = '', primary, secondary, badges = [] } = Astro.props;
 ---
 
 <section id={id} aria-labelledby={`${id}-heading`} class="bg-base-100 relative mt-12">
   <div
-    class="absolute top-180 left-30 z-0 h-[25rem] w-[25rem] rotate-40 bg-[url('/dog-paw.svg')] bg-contain bg-no-repeat opacity-10"
+    class="absolute top-120 left-16 z-0 h-[15rem] w-[15rem] rotate-40 bg-[url('/dog-paw.svg')] bg-contain bg-no-repeat opacity-10 md:top-80 md:left-120 lg:top-180 lg:left-30 lg:h-[25rem] lg:w-[25rem]"
     aria-hidden="true"
   >
   </div>
@@ -26,11 +27,21 @@ const { id = 'hero', title, subtitle = '', primary, secondary, badges = [] } = A
       <div
         class="flex flex-col items-center gap-6 text-center sm:gap-8 lg:items-start lg:text-left"
       >
-        <h1 id={`${id}-heading`} class="font-header text-4xl/tight text-balance sm:text-5xl/tight">
-          {title}
+        <h1
+          id={`${id}-heading`}
+          class="font-header w-full pt-4 text-4xl tracking-[0.2rem] text-balance md:max-w-2xl md:tracking-normal lg:text-6xl/tight lg:tracking-normal"
+        >
+          <span class="block hidden md:block">{title1}</span>
+          <span class="block md:hidden">{title2}</span>
         </h1>
 
-        {subtitle && <p class="text-base-content/80 text-md mt-5 max-w-prose">{subtitle}</p>}
+        {
+          subtitle && (
+            <p class="text-base-content/80 mt-5 max-w-125 text-left text-lg md:max-w-xl">
+              {subtitle}
+            </p>
+          )
+        }
 
         <div class="mt-8 flex flex-wrap gap-6">
           {
@@ -51,7 +62,7 @@ const { id = 'hero', title, subtitle = '', primary, secondary, badges = [] } = A
       </div>
 
       <!-- Visual -->
-      <div class="relative">
+      <div class="relative w-full overflow-hidden">
         <slot name="visual" />
         {
           badges.length > 0 && (

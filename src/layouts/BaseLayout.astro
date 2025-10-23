@@ -1,0 +1,71 @@
+---
+import '../assets/styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import { fade, slide } from 'astro:transitions';
+import Navbar from '../components/default/Navbar.astro';
+import Footer from '../components/default/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  includeNavbar?: boolean;
+  includeFooter?: boolean;
+}
+
+const {
+  title = 'Fellfreunde am Rhein – Moderne Tierarztpraxis',
+  description = 'Moderne Diagnostik und liebevolle Betreuung für Hund & Katze am Rhein.',
+  lang = 'de',
+  includeNavbar = true,
+  includeFooter = true,
+} = Astro.props as Props;
+---
+
+<html lang={lang} data-theme="Fellnasen">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <slot name="head" />
+  </head>
+  <body class="overflow-x-hidden">
+    <ClientRouter />
+    {includeNavbar && <Navbar />}
+    <main>
+      <div class="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center p-6">
+        <slot />
+      </div>
+    </main>
+    {includeFooter && <Footer />}
+    <script>
+      const SHRINK_OFFSET = 80;
+
+      const setupNavbarShrink = () => {
+        const navbar = document.querySelector('#navbar');
+        if (!navbar) return;
+
+        const handler = () => {
+          const shouldShrink = window.scrollY > SHRINK_OFFSET;
+          navbar.setAttribute('data-shrink', shouldShrink ? 'true' : 'false');
+        };
+
+        // Clean old listener if present
+        if (navbar.__shrinkListener) {
+          window.removeEventListener('scroll', navbar.__shrinkListener);
+        }
+
+        navbar.__shrinkListener = handler;
+        window.addEventListener('scroll', handler, { passive: true });
+        handler();
+      };
+
+      document.addEventListener('astro:page-load', setupNavbarShrink);
+      document.addEventListener('astro:after-swap', setupNavbarShrink);
+      setupNavbarShrink();
+    </script>
+  </body>
+</html>
