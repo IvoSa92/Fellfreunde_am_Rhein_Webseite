@@ -1,267 +1,463 @@
 ---
 import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-
-type TeamMember = {
-  name: string;
-  role: string;
-  bio?: string;
-  // photo: ImageMetadata;
-};
-
-interface Props {
-  id?: string;
-  heading: string;
-  subtitle?: string;
-  members?: TeamMember[];
-}
-
-const { id = 'team', heading, subtitle = '', members = [] } = Astro.props as Props;
-
-const fallbackMembers: TeamMember[] = [
-  {
-    name: 'Dr. Lara Brenner',
-    role: 'Leitung & Allgemeinmedizin',
-    bio: 'Umfassende Betreuung von Welpen bis Senioren mit Fokus auf Prävention.',
-  },
-  {
-    name: 'Dr. Amir Hassan',
-    role: 'Chirurgie & Notfallmedizin',
-    bio: 'Langjährige OP-Erfahrung und schnelle Hilfe in kritischen Situationen.',
-  },
-  {
-    name: 'Dr. Sophia Krüger',
-    role: 'Zahnmedizin & Diagnostik',
-    bio: 'Spezialisiert auf Dentaldiagnostik, Röntgen und schmerzfreie Behandlung.',
-  },
-  {
-    name: 'Mara Lenz',
-    role: 'Tiermedizinische Fachangestellte',
-    bio: 'Sorgt für beruhigende Abläufe, Laboranalysen und liebevolle Betreuung.',
-  },
-];
-
-const teamMembers = members.length ? members : fallbackMembers;
+import team1 from '../../assets/images/team_1.png';
 ---
 
-<section id={id} aria-labelledby={`${id}-heading`} class="bg-base-100 relative">
-  <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 py-16 sm:py-20 lg:py-24">
-    <header class="flex flex-col items-center text-center">
-      <span class="text-primary text-sm font-semibold tracking-[0.3em] uppercase">Unser Team</span>
-      <h2
-        id={`${id}-heading`}
-        class="font-header mt-4 text-3xl/tight text-balance sm:text-4xl/tight lg:text-5xl/tight"
-      >
-        {heading}
-      </h2>
-      {
-        subtitle && (
-          <p class="text-base-content/80 mt-4 max-w-2xl text-sm leading-relaxed sm:text-base">
-            {subtitle}
+<!-- ============================================ --><!--                  Reviews                     --><!-- ============================================ -->
+<section id="about-1451">
+  <div class="flex w-full flex-col">
+    <h2 class="m-8 mb-24 text-start text-4xl/tight">
+      Wir freuen uns <br /> Ihnen unser
+      <span class="relative inline-block">
+        Team
+        <svg
+          class="pointer-events-none absolute bottom-2 left-2 w-full translate-y-3 max-md:hidden"
+          width="223"
+          height="12"
+          viewBox="0 0 223 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M1.305 10.743c38.666-5.455 74.79-7.723 113.777-8.439 28.811-.529 60.79-1.676 89.318 1.327 5.714.29 10.933 1.283 17.323 2.43"
+            stroke="url(#team_underline_gradient)"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          >
+          </path>
+          <defs>
+            <linearGradient
+              id="team_underline_gradient"
+              x1="19.042"
+              y1="4.035"
+              x2="42.836"
+              y2="66.946"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0.2" stop-color="var(--color-primary)"></stop>
+              <stop offset="1" stop-color="var(--color-primary-content)" stop-opacity="0.35"></stop>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      vorstellen zu dürfen:
+    </h2>
+    <div class="flex w-full">
+      <Image
+        class="hidden h-full w-full rounded-3xl object-cover shadow-[0_20px_50px_rgba(2,6,23,0.35)] md:inline"
+        tabindex="-1"
+        aria-hidden="true"
+        width={500}
+        height={500}
+        src={team1}
+        alt="Team der Tierarztpraxis Fellfreunde am Rhein"
+        format="webp"
+      />
+      <div class="cs-content relative bottom-25 left-5 h-auto">
+        <span
+          class="decoration-primary-content mb-12 inline-flex text-2xl font-bold underline underline-offset-6"
+        >
+          Dr. Mala Lubudu
+        </span>
+        <div class="text-base-content/80 space-y-5 text-lg leading-relaxed">
+          <p>
+            Dr. Mala Lubudu ist unsere leitende Tierärztin und bringt die herzliche Gelassenheit
+            ihrer Heimat am Viktoriasee in den Praxisalltag. Sie begleitet Tier und Mensch mit Ruhe,
+            Humor und einem unermüdlichen Blick für Details.
           </p>
-        )
-      }
-    </header>
+          <p>
+            Aufgewachsen in Nairobi, studierte sie Veterinärmedizin in Kapstadt und vertiefte sich
+            in Zusatzqualifikationen für Zahnheilkunde, Notfall- sowie Ernährungsmedizin. Von dieser
+            Kombination profitieren vor allem chronisch kranke Tiere und Vierbeiner, die
+            ganzheitliche Betreuung brauchen.
+          </p>
+          <p>
+            Ihr Herz schlägt besonders für sensible Hunde, energiegeladene Maine-Coon Katzen und
+            jedes Kaninchen, das eine Extraportion Fürsorge verdient. Mit viel Geduld schafft sie
+            Vertrauen – auch bei schüchternen oder traumatisierten Fellnasen.
+          </p>
+          <p>
+            Außerhalb der Praxis organisiert sie ehrenamtliche Impfkampagnen in
+            deutsch-afrikanischen Partnerstädten, hält Workshops für Schulkinder über tiergerechten
+            Umgang und bloggt über interkulturelle Tiermedizin. Zum Abschalten wandert sie am Rhein
+            entlang, kocht afrikanisch-europäische Fusionsmenüs, trommelt auf ihrer Djembe und
+            trainiert mit Therapiebegleithündin Kira neue Tricks.
+          </p>
+        </div>
 
-    <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-      {
-        teamMembers.map((member) => (
-          <article class="group border-base-200 bg-base-100 relative flex flex-col overflow-hidden rounded-3xl border shadow-lg transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="relative aspect-[4/5] overflow-hidden">
-              {/* <Image
-                loading="lazy"
-                class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-              /> */}
-            </div>
-            <div class="flex flex-1 flex-col gap-2 px-6 py-6 text-center">
-              <h3 class="font-header text-base-content text-xl font-semibold">{member.name}</h3>
-              <p class="text-primary text-sm font-medium tracking-wide uppercase">{member.role}</p>
-              {member.bio && (
-                <p class="text-base-content/70 text-sm leading-relaxed">{member.bio}</p>
-              )}
-            </div>
-          </article>
-        ))
-      }
+        <!--Floating Graphic-->
+        <img
+          class="cs-floater"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/seeds.svg"
+          alt="person"
+          width="193"
+          height="197"
+        />
+      </div>
+    </div>
+    <div class="cs-info">
+      <picture class="cs-picture">
+        <!--Mobile Image-->
+        <source
+          media="(max-width: 600px)"
+          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/team2.jpg"
+        />
+        <!--Tablet and above Image-->
+        <source
+          media="(min-width: 601px)"
+          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/team2.jpg"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/team2.jpg"
+          alt="person"
+          width="522"
+          height="696"
+        />
+      </picture>
+      <div class="cs-content">
+        <span class="cs-header">Guy Hawkins</span>
+        <p class="cs-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quo in tenetur eveniet iste
+          voluptates vel, molestiae id ab nisi, nihil ipsam voluptas, sapiente doloribus facere
+          earum vitae provident! Aperiam modi cupiditate facere eos consectetur illo necessitatibus.
+          Deleniti corrupti molestias mollitia ipsam eius, vel dolorum quaerat totam recusandae eum
+          voluptas quisquam harum accusantium blanditiis, reprehenderit, a aperiam nihil. Doloremque
+          eius placeat alias excepturi esse cupiditate? Illum iure reprehenderit expedita, incidunt
+          optio non quae harum molestiae quas sit. Dicta, ullam tempo
+        </p>
+        <p class="cs-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quo in tenetur eveniet iste
+          voluptates vel, molestiae id ab nisi, nihil ipsam voluptas, sapiente doloribus facere
+          earum vitae provident! Aperiam modi cupiditate facere eos consectetur illo necessitatibus.
+          Deleniti corrupti molestias mollitia ipsam eius, vel dolorum quaerat totam recusandae eum
+          voluptas quisquam harum accusantium blanditiis, reprehenderit, a aperiam nihil. Doloremque
+          eius placeat alias excepturi esse cupiditate? Illum iure reprehenderit expedita, incidunt
+          optio non quae harum molestiae quas sit. Dicta, ullam tempo
+        </p>
+        <!--Floating Graphic-->
+        <img
+          class="cs-floater"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/seeds.svg"
+          alt="person"
+          width="193"
+          height="197"
+        />
+      </div>
+    </div>
+    <div class="cs-info">
+      <picture class="cs-picture">
+        <!--Mobile Image-->
+        <source
+          media="(max-width: 600px)"
+          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/team3.jpg"
+        />
+        <!--Tablet and above Image-->
+        <source
+          media="(min-width: 601px)"
+          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/team3.jpg"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/team3.jpg"
+          alt="person"
+          width="522"
+          height="696"
+        />
+      </picture>
+      <div class="cs-content">
+        <span class="cs-header">Cameron Williamson</span>
+        <p class="cs-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quo in tenetur eveniet iste
+          voluptates vel, molestiae id ab nisi, nihil ipsam voluptas, sapiente doloribus facere
+          earum vitae provident! Aperiam modi cupiditate facere eos consectetur illo necessitatibus.
+          Deleniti corrupti molestias mollitia ipsam eius, vel dolorum quaerat totam recusandae eum
+          voluptas quisquam harum accusantium blanditiis, reprehenderit, a aperiam nihil. Doloremque
+          eius placeat alias excepturi esse cupiditate? Illum iure reprehenderit expedita, incidunt
+          optio non quae harum molestiae quas sit. Dicta, ullam tempo
+        </p>
+        <p class="cs-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quo in tenetur eveniet iste
+          voluptates vel, molestiae id ab nisi, nihil ipsam voluptas, sapiente doloribus facere
+          earum vitae provident! Aperiam modi cupiditate facere eos consectetur illo necessitatibus.
+          Deleniti corrupti molestias mollitia ipsam eius, vel dolorum quaerat totam recusandae eum
+          voluptas quisquam harum accusantium blanditiis, reprehenderit, a aperiam nihil. Doloremque
+          eius placeat alias excepturi esse cupiditate? Illum iure reprehenderit expedita, incidunt
+          optio non quae harum molestiae quas sit. Dicta, ullam tempo
+        </p>
+        <!--Floating Graphic-->
+        <img
+          class="cs-floater"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/seeds.svg"
+          alt="person"
+          width="193"
+          height="197"
+        />
+      </div>
+    </div>
+    <div class="cs-info">
+      <picture class="cs-picture">
+        <!--Mobile Image-->
+        <source
+          media="(max-width: 600px)"
+          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/team4.jpg"
+        />
+        <!--Tablet and above Image-->
+        <source
+          media="(min-width: 601px)"
+          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/team4.jpg"
+        />
+        <img
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/team4.jpg"
+          alt="person"
+          width="522"
+          height="696"
+        />
+      </picture>
+      <div class="cs-content">
+        <span class="cs-header">Kristin Watson</span>
+        <p class="cs-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quo in tenetur eveniet iste
+          voluptates vel, molestiae id ab nisi, nihil ipsam voluptas, sapiente doloribus facere
+          earum vitae provident! Aperiam modi cupiditate facere eos consectetur illo necessitatibus.
+          Deleniti corrupti molestias mollitia ipsam eius, vel dolorum quaerat totam recusandae eum
+          voluptas quisquam harum accusantium blanditiis, reprehenderit, a aperiam nihil. Doloremque
+          eius placeat alias excepturi esse cupiditate? Illum iure reprehenderit expedita, incidunt
+          optio non quae harum molestiae quas sit. Dicta, ullam tempo
+        </p>
+        <p class="cs-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error quo in tenetur eveniet iste
+          voluptates vel, molestiae id ab nisi, nihil ipsam voluptas, sapiente doloribus facere
+          earum vitae provident! Aperiam modi cupiditate facere eos consectetur illo necessitatibus.
+          Deleniti corrupti molestias mollitia ipsam eius, vel dolorum quaerat totam recusandae eum
+          voluptas quisquam harum accusantium blanditiis, reprehenderit, a aperiam nihil. Doloremque
+          eius placeat alias excepturi esse cupiditate? Illum iure reprehenderit expedita, incidunt
+          optio non quae harum molestiae quas sit. Dicta, ullam tempo
+        </p>
+        <!--Floating Graphic-->
+        <img
+          class="cs-floater"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/seeds.svg"
+          alt="person"
+          width="193"
+          height="197"
+        />
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   /*-- -------------------------- -->
-<---         Meet Team          -->
+<---          About             -->
 <--- -------------------------- -*/
 
   /* Mobile - 360px */
   @media only screen and (min-width: 0rem) {
-    #meet-436 {
+    #about-1451 {
       padding: var(--sectionPadding);
     }
-    #meet-436 .cs-container {
+    #about-1451 .cs-container {
       width: 100%;
-      /* changes to 1280px at tablet */
-      max-width: 34.375rem;
+      /* changes to 1280px at large desktop */
+      max-width: 59rem;
       margin: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* 48px - 64px */
-      gap: clamp(3rem, 6vw, 4rem);
+      /* 48px - 100px */
+      gap: clamp(3rem, 6vw, 6.25rem);
+      position: relative;
+      z-index: 1;
     }
-    #meet-436 .cs-content {
-      /* set text align to left if content needs to be left aligned */
-      text-align: center;
+    #about-1451 .cs-content {
       width: 100%;
+      /* padding left and right added on tablet */
+      padding: 0 0 4rem 0;
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+    #about-1451 .cs-info {
+      width: 100%;
+      /* 16px - 48px */
+      padding: 0 clamp(1rem, 5vw, 3rem);
+      /* prevents padding from affecting height and width */
+      box-sizing: border-box;
       display: flex;
       flex-direction: column;
-      /* centers content horizontally, set to flex-start to left align */
-      align-items: center;
-    }
-
-    #meet-436 .cs-card-group {
-      width: 100%;
-      padding: 0;
-      margin: 0;
-      /* 24px - 40px, accounts for the translate amount on the list items */
-      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      /* 8px - 20px */
-      column-gap: clamp(0.5rem, 1.5vw, 1.25rem);
-      row-gap: 0.75rem;
-    }
-    #meet-436 .cs-item {
-      text-align: center;
-      list-style: none;
-      width: 48%;
-      padding-bottom: 1.5rem;
-      border-radius: 0.75rem;
-      background-color: #fff;
-      box-shadow: 0px 24px 54px rgba(87, 107, 147, 0.12);
-      border: 1px solid #b4b2c7;
+      align-items: flex-start;
+      /* 16px - 20px */
+      gap: clamp(1rem, 2vw, 1.25rem);
       position: relative;
+      z-index: 1;
     }
-    #meet-436 .cs-item:before {
-      /* hover box */
+    #about-1451 .cs-info:before {
+      /* grey background, moves to the cs-content at tablet */
       content: '';
-      width: 99%;
-      height: 99%;
-      border: 4px solid var(--primary);
-      border-radius: 0.75rem;
-      background: transparent;
-      pointer-events: none;
-      opacity: 0;
+      width: 100%;
+      height: 85%;
+
+      opacity: 1;
       position: absolute;
       display: block;
-      z-index: 10;
-      /* next three lines are old school way of centering something */
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      transition:
-        transform 0.3s,
-        width 0.3s,
-        height 0.3s,
-        opacity 0.3s;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
     }
-    #meet-436 .cs-item:hover:before {
-      opacity: 1;
+    #about-1451 .cs-header {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      background-color: var(--color-info);
+      background-color: color-mix(in oklch, var(--color-info) 25%, var(--color-base-100));
+      color: var(--color-info-content);
+      font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      margin: 0 0 clamp(1rem, 2vw, 1.75rem);
+      box-shadow: 0 18px 36px -18px var(--color-info);
+      box-shadow: 0 18px 36px -18px color-mix(in oklch, var(--color-info) 55%, transparent);
     }
-    #meet-436 .cs-item:hover .cs-picture img {
-      transform: scale(1.1);
+    #about-1451 .cs-text {
+      /* 14px - 16px */
+      font-size: clamp(0.875rem, 1.5vw, 1rem);
+      max-width: 43.75rem;
     }
-    #meet-436 .cs-item:nth-of-type(2),
-    #meet-436 .cs-item:nth-of-type(4) {
-      /* 24px - 40px */
-      transform: translateY(clamp(1.5rem, 4.2vw, 2.5rem));
+    #about-1451 .cs-text {
+      /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
+      margin-bottom: 1rem;
     }
-    #meet-436 .cs-picture {
-      width: 100%;
-      /* height divided by width */
-      aspect-ratio: 1.26033058;
-      margin-bottom: 1.5rem;
-      /* clips corners of image */
-      overflow: hidden;
-      border-radius: 0.75rem 0.75rem 0 0;
-      border-bottom: 1px solid #b4b2c7;
-      position: relative;
+    #about-1451 .cs-text:last-of-type {
+      margin-bottom: 0rem;
+    }
+    #about-1451 .cs-picture {
+      /* width and height changes at tablet */
+      width: 85%;
+      max-width: 21.875rem;
+      height: 20.625rem;
       display: block;
+      position: relative;
+      z-index: 10;
     }
-    #meet-436 .cs-picture img {
+    #about-1451 .cs-picture img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* positions the top of the image to line up wiht the top of the parent */
+      object-position: top;
       position: absolute;
       top: 0;
       left: 0;
-      height: 100%;
-      width: 100%;
-      /* makes it behave like a background image */
-      object-fit: cover;
-      /* places the top of the image at the top of the picture element */
-      object-position: top;
-      transition: transform 0.6s;
     }
-    #meet-436 .cs-name {
-      /* 16px - 25px */
-      font-size: clamp(1rem, 2vw, 1.5625rem);
-      line-height: 1.2em;
-      font-weight: 700;
-      width: 90%;
-      margin: 0 auto 0.25rem;
-      color: var(--headerColor);
-      display: block;
-    }
-    #meet-436 .cs-job {
-      /* 14px - 16px */
-      font-size: clamp(0.875rem, 1.5vw, 1rem);
-      line-height: 1.5em;
-      width: 90%;
-      margin: 0 auto;
-      color: var(--primary);
-      display: block;
-    }
-    #meet-436 .cs-leaves {
+    #about-1451 .cs-floater {
+      /* 100px - 192px */
+      width: clamp(6.25rem, 15vw, 12rem);
+      height: auto;
       display: none;
+      position: absolute;
+      right: 3.125rem;
+      top: -4.6875rem;
     }
   }
   /* Tablet - 768px */
   @media only screen and (min-width: 48rem) {
-    #meet-436 .cs-container {
-      max-width: 80rem;
+    #about-1451 .cs-info {
+      flex-direction: row;
+      padding: 0;
     }
-    #meet-436 .cs-card-group {
-      flex-wrap: nowrap;
+    #about-1451 .cs-info:nth-of-type(even) .cs-content {
+      padding-left: 2.25rem;
+      padding-right: 1.25rem;
     }
-    #meet-436 .cs-item {
-      width: 100%;
+    #about-1451 .cs-info:nth-of-type(even) .cs-content:before {
+      left: 0;
+      right: auto;
     }
-  }
-  /* Large Desktop - 1600px */
-  @media only screen and (min-width: 93.75rem) {
-    #meet-436 {
-      /* prevents overflow issues from the leaves sitting outside the #meet container */
-      overflow: hidden;
-      position: relative;
+    #about-1451 .cs-info:nth-of-type(even) .cs-picture {
+      /* sends it to the right in the 2nd position */
+      order: 2;
     }
-    #meet-436 .cs-leaves {
-      display: block;
+    #about-1451 .cs-info:before {
+      display: none;
+    }
+    #about-1451 .cs-content {
+      /* 40px - 148px */
+      margin-top: clamp(2.5rem, 7vw, 7.8125rem);
+      /* 32px - 148px */
+      padding: clamp(2rem, 10vw, 9.375rem) 2.25rem 4rem 1.25rem;
+    }
+    #about-1451 .cs-content:before {
+      /* grey background */
+      content: '';
+      width: 120%;
+      height: 100%;
+      opacity: 1;
       position: absolute;
+      display: block;
+      bottom: 0;
+      right: 0;
       z-index: -1;
     }
-    #meet-436 .cs-leaf1 {
-      width: 30.5625rem;
-      height: auto;
-      left: 0;
-      bottom: 7.5rem;
+    #about-1451 .cs-picture {
+      /* width and height changes again on larger desktop */
+      width: 38%;
+      max-width: 16.25rem;
+      /* 260px - 348px */
+      height: clamp(16.25rem, 36vw, 21.75rem);
     }
-    #meet-436 .cs-leaf2 {
-      width: 44.5625rem;
+    #about-1451 .cs-floater {
+      display: block;
+    }
+  }
+  /* Large Desktop 1300px */
+  @media only screen and (min-width: 81.25rem) {
+    #about-1451 .cs-container {
+      max-width: 80rem;
+    }
+    #about-1451 .cs-info {
+      align-items: stretch;
+    }
+    #about-1451 .cs-picture {
       height: auto;
-      bottom: 0;
-      /* makes the left edge of the img rest at the center line of the contsiner */
-      left: 50%;
-      /* push 500px away from the center line */
-      margin-left: 31.25rem;
+      min-height: 43.5rem;
+      width: 32.625rem;
+      max-width: 32.625rem;
+      margin-bottom: 4rem;
+      /* prevents flexbox from squishing it */
+      flex: none;
+    }
+  }
+  /* Larger Desktop 1600px */
+  @media only screen and (min-width: 100rem) {
+    #about-1451 .cs-info:nth-of-type(even) .cs-picture {
+      margin-left: 0;
+    }
+    #about-1451 .cs-picture {
+      margin-left: -5.5rem;
     }
   }
 </style>
