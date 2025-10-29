@@ -1,108 +1,75 @@
+---
+import { HeartHandshake } from '@lucide/astro';
+import { CalendarCheck2 } from '@lucide/astro';
+import { Speech } from '@lucide/astro';
+import { Podcast } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import praxisImage from '../../assets/images/praxis.png';
+---
+
 <!-- ============================================ --><!--                  Why Choose Us               --><!-- ============================================ -->
 <section id="why-2392">
   <div class="cs-container">
     <div class="cs-wrapper">
-      <picture class="cs-picture">
-        <!--Mobile Image-->
-        <source
-          media="(max-width: 600px)"
-          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/people9.jpg"
-        />
-        <!--Tablet and above Image-->
-        <source
-          media="(min-width: 601px)"
-          srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/people9.jpg"
-        />
-        <img
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/people9.jpg"
-          alt="people"
-          width="586"
-          height="690"
-        />
-      </picture>
+      <Image
+        src={praxisImage}
+        alt="Tierärztin untersucht einen Hund in der Tierarztpraxis Fellfreunde am Rhein."
+        class="cs-picture"
+        format="webp"
+      />
       <div class="cs-content">
-        <span class="cs-topper">Our Features</span>
-        <h2 class="cs-title">Care That Transforms Lives</h2>
-        <p class="cs-text">
-          Our mission goes beyond conversation; we aim to empower you to progress with purpose,
-          insight, and empathy. Together, we’ll navigate your journey, ensuring you feel supported
-          and understood every step of the way.
+        <h2 class="text-primary-content p-4 pl-0 text-3xl/tight">Warum Fellfreunde am Rhein ?</h2>
+        <p class="text-md/relaxed text mb-4">
+          Für uns zählt nicht nur die Behandlung, sondern die Beziehung zu jedem Tier. Wir nehmen
+          uns Zeit, Charakter, Gewohnheiten und Bedürfnisse kennenzulernen – ob bei Routinechecks,
+          kleinen Wehwehchen oder großen Therapien.
         </p>
-        <a href="" class="cs-button-solid">Start Your Journey Today</a>
+        <p class="ctext-md/relaxed">
+          Dieses Vertrauen wächst mit jeder Begegnung. So können wir Veränderungen schneller
+          erkennen, Behandlungen vorausschauend planen und langfristig dafür sorgen, dass Ihre
+          Fellfreunde sich gut aufgehoben fühlen.
+        </p>
+        <a href="/kontakt" class="cs-button-solid">Jetzt Kennenlerntermin vereinbaren</a>
       </div>
     </div>
     <ul class="cs-card-group">
-      <li class="cs-item">
-        <img
-          class="cs-icon"
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/therapy1.svg"
-          alt="icon"
-          width="120"
-          height="120"
-        />
+      <li class="cs-item bg-info/10">
+        <HeartHandshake color="orange" size="52" />
         <div class="cs-flex">
-          <h3 class="cs-h3">Licensed Expertise</h3>
+          <h3 class="cs-h3">Langfristige Begleitung</h3>
           <p class="cs-item-text">
-            Our dedicated therapists focus on trauma recovery and emotional wellness, providing
-            personalized support to help you heal and thrive in your journey to well-being.
+            Sie treffen vertraute Gesichter: Unsere Tierärzt:innen begleiten Ihre Tiere dauerhaft
+            und kennen ihre Vorgeschichte, Vorlieben und sensible Punkte.
           </p>
         </div>
       </li>
-      <li class="cs-item">
-        <img
-          class="cs-icon"
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/therapy2.svg"
-          alt="icon"
-          width="120"
-          height="120"
-        />
+      <li class="cs-item cs-item bg-info/10">
+        <CalendarCheck2 color="orange" size="52" />
         <div class="cs-flex">
-          <h3 class="cs-h3">Consistent Availability</h3>
+          <h3 class="cs-h3">Individuelle Therapiepläne</h3>
           <p class="cs-item-text">
-            No more waiting—get matched with a professional and begin your sessions in just a few
-            days, ensuring a swift start to your journey.
+            Aus Anamnese, Diagnostik und Alltagseindrücken entwickeln wir maßgeschneiderte
+            Therapien, die langfristig wirken und sich flexibel anpassen lassen.
           </p>
         </div>
       </li>
-      <li class="cs-item">
-        <img
-          class="cs-icon"
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/therapy3.svg"
-          alt="icon"
-          width="120"
-          height="120"
-        />
+      <li class="cs-item cs-item bg-info/10">
+        <Speech color="orange" size="52" />
         <div class="cs-flex">
-          <h3 class="cs-h3">Goal-Oriented Process</h3>
+          <h3 class="cs-h3">Stressfreie Kennenlerntermine</h3>
           <p class="cs-item-text">
-            We assist you in recognizing and monitoring tangible, measurable progress, ensuring that
-            you can see how far you've come in your journey.
+            Wir planen genügend Zeit, arbeiten mit Ruhe und positiver Bestärkung und schaffen so
+            Besuche, bei denen sich Tiere langsam öffnen dürfen.
           </p>
         </div>
       </li>
-      <li class="cs-item">
-        <img
-          class="cs-icon"
-          loading="lazy"
-          decoding="async"
-          src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/therapy4.svg"
-          alt="icon"
-          width="120"
-          height="120"
-        />
+      <li class="cs-item cs-item bg-info/10">
+        <Podcast color="orange" size="52" />
         <div class="cs-flex">
-          <h3 class="cs-h3">Client-First Experience</h3>
+          <h3 class="cs-h3">Klare Kommunikation</h3>
           <p class="cs-item-text">
-            From our initial intake process to scheduling, every aspect is designed with your needs
-            in mind, ensuring a seamless and supportive experience.
+            Wir erklären jede Empfehlung verständlich, teilen Fortschritte transparent und stimmen
+            weitere Schritte gemeinsam mit Ihnen ab.
           </p>
         </div>
       </li>
@@ -230,7 +197,7 @@
       /* 24px - 32px */
       padding: clamp(1.5rem, 3vw, 2rem);
       border-radius: 1rem;
-      background-color: #fff;
+
       /* prevents padding and border from affecting height and width */
       box-sizing: border-box;
       grid-column: span 12;
