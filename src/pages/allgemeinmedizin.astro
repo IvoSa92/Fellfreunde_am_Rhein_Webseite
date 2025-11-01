@@ -1,7 +1,9 @@
 ---
 import ServiceLayout from '../layouts/ServiceLayout.astro';
-import MedizinHero from '../components/sections/MedizinHero.astro';
-import AllgemeinCards from '../components/sections/AllgemeinCards.astro';
+import MedizinHero from '../components/sections/Allgemeinmedizin/MedizinHero.astro';
+import AllgemeinCards from '../components/sections/Allgemeinmedizin/AllgemeinCards.astro';
+import Schwerpunkte from '../components/sections/Allgemeinmedizin/Schwerpunkte.astro';
+import FAQ from '../components/sections/Allgemeinmedizin/FAQ.astro';
 ---
 
 <ServiceLayout
@@ -10,4 +12,6 @@ import AllgemeinCards from '../components/sections/AllgemeinCards.astro';
 >
   <MedizinHero />
   <AllgemeinCards />
+  <Schwerpunkte />
+  <FAQ />
 </ServiceLayout>

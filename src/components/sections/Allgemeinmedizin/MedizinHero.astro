@@ -1,45 +1,85 @@
 ---
-import { Image } from 'astro:assets';
-import emfpang from '../../assets/images/empfang.png';
+import Image from 'astro/components/Image.astro';
+import hero from '../../../assets/images/allgemein-hero.png';
+import cat from '../../../assets/images/pfoten.png';
+
+const {
+  h1Text = 'Allgemeinmedizin für die Gesundheit Ihres Lieblings',
+  paragraphText = 'Wir begleiten Ihr Tier von der Welpenzeit bis ins Seniorenalter mit gründlichen Vorsorgeuntersuchungen, Impfungen und individueller Beratung. Mit moderner Diagnostik und viel Einfühlungsvermögen schaffen wir die Basis für ein gesundes, glückliches Tierleben.',
+  imageSrc = hero,
+  altText = 'Tierarzt untersucht eine Katze',
+} = Astro.props;
 ---
 
-<section id="hero-ueber-uns" class="relative overflow-hidden">
-  <div
-    id="hero-2410"
-    class="cs-container mx-auto mt-26 flex w-full max-w-7xl flex-col items-stretch gap-24 px-6 py-12 lg:flex-row lg:gap-16 lg:px-12"
-    role="region"
-    aria-label="Hero: Über uns"
-  >
-    <div class="contents lg:flex lg:w-1/2 lg:flex-col lg:justify-center lg:gap-10 lg:text-left">
-      <h1
-        class="order-1 text-center text-4xl/tight tracking-[0.2rem] sm:text-5xl/tight lg:order-1 lg:text-left lg:text-6xl/tight"
-      >
-        Unser Team für die Gesundheit Ihrer Fellfreunde
-      </h1>
-      <p
-        class="text-base-content/80 order-3 mx-auto mt-6 w-full text-center text-base leading-relaxed sm:text-lg lg:order-2 lg:mx-0 lg:mt-0 lg:max-w-none lg:text-left lg:text-xl"
-      >
-        Hinter Fellfreunde am Rhein steht ein eingespieltes Team aus Tierärzt:innen,
-        tiermedizinischen Fachangestellten und Praxismanagement. Wir verbinden moderne Diagnostik,
-        kontinuierliche Fortbildung und viel Empathie – damit Sie und Ihr Tier sich in jeder Phase
-        gut aufgehoben fühlen.
+<!-- ============================================ --><!--                    Hero                      --><!-- ============================================ -->
+<section id="allgemeinmedizin-hero">
+  <div class="mx-auto flex w-full max-w-screen-xl items-center justify-center gap-16 py-28">
+    <div class="flex flex-col gap-12">
+      <h1 class="text-6xl/tight">{h1Text}</h1>
+      <p class="text-base-content/90 text-lg leading-relaxed">
+        {paragraphText}
       </p>
-    </div>
+      <button class="btn btn-primary w-1/2">Jetzt Vorsorge-Termin sichern</button>
 
-    <div
-      class="border-primary/50 relative order-2 w-full overflow-hidden rounded-2xl border-8 shadow-lg lg:w-1/2 lg:rounded-3xl"
-    >
       <Image
-        class="h-full w-full object-cover"
-        tabindex="-1"
-        aria-hidden="true"
-        src={emfpang}
-        alt="Dame im Empfangsbereich der Tierarztpraxis"
-        format="webp"
+        class="-translate-x-12 -translate-y-12"
+        src={cat}
+        alt="Katze hinterlässt Pfotenabdrücke"
+        width="1000"
+        height="200"
       />
     </div>
+    <!--Hero Image-->
+    <Image
+      src={imageSrc}
+      alt={altText}
+      width={600}
+      height={730}
+      format="webp"
+      class="relative left-26 rounded-4xl shadow-lg"
+    />
+    <!--Circle Background-->
+    <!--Download the SVG from the CDN by copy ad pasting its link into your browser and saving it. Then the cs-circle fill property should override it and set it to the primary color of your site-->
+    <img
+      class="absolute -z-10"
+      decoding="async"
+      fetchpriority="high"
+      src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/noise-bg.svg"
+      alt="graphic"
+      width="758"
+      height="758"
+    />
   </div>
 </section>
+<!--White curve-->
+<svg
+  class="cs-wave -mb-16"
+  width="1920"
+  height="167"
+  viewBox="0 0 1920 167"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M1920 167H0V0C111.116 45.3334 456.485 136 951 136C1445.52 136 1803.21 45.3334 1920 0V167Z"
+    fill="white"
+  >
+  </path>
+</svg>
+<svg
+  class="cs-wave mt-12 rotate-180"
+  width="1920"
+  height="167"
+  viewBox="0 0 1920 167"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M1920 167H0V0C111.116 45.3334 456.485 136 951 136C1445.52 136 1803.21 45.3334 1920 0V167Z"
+    fill="white"
+  >
+  </path>
+</svg>
 
 <style>
   /*-- -------------------------- -->
@@ -51,9 +91,9 @@ import emfpang from '../../assets/images/empfang.png';
     #hero-2410 {
       /* 180px - 200px top */
       /* 60px - 120px bottom */
-      padding: clamp(6rem, 6vw, 4rem) 1rem clamp(1rem, 4vw, 2rem);
+      padding: clamp(11.25rem, 16.82vw, 12.5rem) 1rem clamp(3.75rem, 8vw, 7.5rem);
       /* clips the svg wave from overflowing */
-
+      overflow: hidden;
       position: relative;
       z-index: 1;
     }
@@ -216,7 +256,7 @@ import emfpang from '../../assets/images/empfang.png';
       bottom: 0;
       left: 0;
     }
-    #hero-ueber-uns .cs-wave {
+    #hero-2410 .cs-wave {
       width: 100%;
       height: auto;
       display: block;
