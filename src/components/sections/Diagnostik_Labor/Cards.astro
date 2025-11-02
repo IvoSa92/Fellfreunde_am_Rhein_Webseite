@@ -1,0 +1,66 @@
+---
+import CardsTemplate from '../../ServiceTemplates/CardsTemplate.astro';
+import vorsorge from '../../../assets/images/vorsorge-logo.png';
+import akut from '../../../assets/images/akut-logo.png';
+import zahn from '../../../assets/images/zahn-logo.png';
+import beratung from '../../../assets/images/beratung-logo.png';
+
+const cards = [
+  {
+    title: 'Labordiagnostik',
+    description: 'Umfassende Blut-, Urin- und Kotanalysen für präzise Diagnosen.',
+    features: [
+      'Blutbild & Organwerte',
+      'Urinanalyse',
+      'Kotuntersuchungen',
+      'Hormondiagnostik',
+    ],
+    image: vorsorge,
+    imageAlt: 'Labordiagnostik',
+  },
+  {
+    title: 'Bildgebende Verfahren',
+    description: 'Modernste Technologie für einen Blick ins Innere Ihres Tieres.',
+    features: [
+      'Digitales Röntgen',
+      'Ultraschall',
+      'Endoskopie',
+      'EKG & Herzdiagnostik',
+    ],
+    image: akut,
+    imageAlt: 'Bildgebende Verfahren',
+  },
+  {
+    title: 'Mikrobiologie & Parasitologie',
+    description: 'Präzise Erreger- und Parasitennachweise für gezielte Therapien.',
+    features: [
+      'Bakterienkulturen',
+      'Resistenztests',
+      'Parasitennachweise',
+      'Pilzdiagnostik',
+    ],
+    image: zahn,
+    imageAlt: 'Mikrobiologie & Parasitologie',
+  },
+  {
+    title: 'Schnelltests & Notfalldiagnostik',
+    description: 'Sofortige Ergebnisse für dringende medizinische Entscheidungen.',
+    features: [
+      'Schnelltests vor Ort',
+      'Notfall-Blutanalyse',
+      'Infektionsscreening',
+      'Gerinnungsdiagnostik',
+    ],
+    image: beratung,
+    imageAlt: 'Schnelltests & Notfalldiagnostik',
+  },
+];
+---
+
+<CardsTemplate
+  title="Leistungen im Überblick"
+  description="Moderne Diagnostik ist der Schlüssel zu einer erfolgreichen Behandlung. Mit unserem hausinternen Labor und modernster Gerätetechnik können wir die meisten Untersuchungen direkt vor Ort durchführen. Das bedeutet schnelle Ergebnisse, kurze Wartezeiten und eine zeitnahe Therapie für Ihr Tier."
+  cards={cards}
+  sectionId="diagnostik-services"
+/>
+

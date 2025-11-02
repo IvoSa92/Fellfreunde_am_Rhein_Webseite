@@ -1,0 +1,39 @@
+---
+import FAQTemplate from '../../ServiceTemplates/FAQTemplate.astro';
+
+const fragen = [
+  {
+    question: 'Wie lange dauert es, bis Laborergebnisse vorliegen?',
+    answer:
+      'Das hängt von der Art der Untersuchung ab. <strong>Routineblutbilder und Organwerte</strong> aus unserem hauseigenen Labor liegen meist innerhalb von <strong>15-30 Minuten</strong> vor. Bei komplexeren Analysen, die wir an Speziallabore senden, erhalten wir die Ergebnisse in der Regel <strong>am selben oder nächsten Tag</strong>. In <strong>Notfällen</strong> nutzen wir Schnelltests, die innerhalb von <strong>5-10 Minuten</strong> erste wichtige Werte liefern. Wir informieren Sie immer vorab über die zu erwartende Wartezeit.',
+  },
+  {
+    question: 'Muss mein Tier für Blutuntersuchungen nüchtern sein?',
+    answer:
+      'Für die meisten Blutuntersuchungen ist <strong>Nüchternheit nicht zwingend erforderlich</strong>. Bei speziellen Untersuchungen wie <strong>Glukose-, Fettstoffwechsel- oder Leberwerten</strong> empfehlen wir jedoch eine <strong>Nüchternheit von 12 Stunden</strong>. Wasser darf Ihr Tier jederzeit trinken. Bei der Terminvereinbarung informieren wir Sie genau, ob und wie lange Ihr Tier nüchtern sein sollte. Im Zweifelsfall ist es besser, mit nüchternem Tier zu kommen – notwendige Untersuchungen können dann in jedem Fall durchgeführt werden.',
+  },
+  {
+    question: 'Ist eine Röntgenuntersuchung gefährlich für mein Tier?',
+    answer:
+      'Nein, moderne Röntgenuntersuchungen sind sehr sicher. Wir verwenden ein <strong>digitales Röntgensystem</strong>, das mit minimaler Strahlenbelastung hochauflösende Bilder liefert – die Strahlendosis ist deutlich niedriger als bei herkömmlichen Geräten. Für die meisten Aufnahmen ist keine <strong>Narkose notwendig</strong>, bei ängstlichen oder schmerzhaften Tieren kann eine leichte Sedierung die Untersuchung erleichtern. Die Vorteile einer präzisen Diagnose überwiegen das minimale Risiko bei weitem. Wir röntgen nur, wenn es medizinisch sinnvoll ist.',
+  },
+  {
+    question: 'Wie läuft eine Ultraschalluntersuchung ab?',
+    answer:
+      'Die Ultraschalluntersuchung ist völlig <strong>schmerzfrei und ohne Strahlenbelastung</strong>. Ihr Tier liegt entspannt auf einer weichen Unterlage, während wir mit dem Ultraschallkopf über die Haut gleiten. Meist ist nur eine <strong>kleine Stelle am Bauch zu rasieren</strong>, damit der Schallkopf guten Kontakt hat. Das Ultraschallgel ist hautverträglich und lässt sich leicht wieder entfernen. Die Untersuchung dauert je nach Fragestellung <strong>10-20 Minuten</strong>. In den meisten Fällen ist <strong>keine Sedierung</strong> notwendig. Sie können gerne bei Ihrem Tier bleiben und auf dem Monitor mitverfolgen, was wir sehen.',
+  },
+  {
+    question: 'Können Sie auch Allergietests durchführen?',
+    answer:
+      'Ja, wir bieten verschiedene <strong>Allergiediagnostik-Verfahren</strong> an. Bei Verdacht auf Futtermittelallergien empfehlen wir zunächst eine <strong>Eliminationsdiät</strong> mit anschließender Provokation – das ist der zuverlässigste Weg. Für <strong>Umweltallergien</strong> (Pollen, Milben, Schimmelpilze) können wir Bluttests durchführen, die spezifische IgE-Antikörper nachweisen. Diese Tests helfen uns, eine <strong>individuelle Therapie</strong> zu entwickeln, etwa durch Vermeidung von Allergenen oder eine Hyposensibilisierung. Wir beraten Sie ausführlich über Sinn, Ablauf und Aussagekraft der verschiedenen Testverfahren.',
+  },
+  {
+    question: 'Was kostet eine diagnostische Untersuchung?',
+    answer:
+      'Die Kosten hängen vom Umfang der Untersuchung ab. Ein <strong>einfaches Blutbild</strong> kostet etwa 30-50€, während <strong>umfassende Organprofile</strong> zwischen 80-150€ liegen. <strong>Röntgenaufnahmen</strong> kosten je nach Anzahl und Region 60-120€, eine <strong>Ultraschalluntersuchung</strong> liegt bei 80-150€. <strong>Schnelltests</strong> für Infektionskrankheiten kosten zwischen 25-60€ pro Test. Wir besprechen vorab mit Ihnen, welche Untersuchungen sinnvoll sind und erstellen auf Wunsch einen Kostenvoranschlag. Viele diagnostische Leistungen werden von <strong>Tierkrankenversicherungen</strong> übernommen.',
+  },
+];
+---
+
+<FAQTemplate fragen={fragen} title="FAQ - Häufig gestellte Fragen" sectionId="diagnostik-faq" />
+

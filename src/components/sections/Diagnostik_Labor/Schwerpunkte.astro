@@ -1,0 +1,40 @@
+---
+import SchwerpunkteTemplate from '../../ServiceTemplates/SchwerpunkteTemplate.astro';
+import laborImage from '../../../assets/images/labor.png';
+import roentgenImage from '../../../assets/images/physio.png';
+import schnelltestImage from '../../../assets/images/notfallmedizin.png';
+
+const schwerpunkte = [
+  {
+    title: 'Labordiagnostik',
+    description:
+      'Unser modernes hauseigenes Labor ermöglicht schnelle und präzise Analysen direkt vor Ort. Ob Blutbild, Organwerte, Schilddrüsenfunktion oder Infektionsmarker – innerhalb kürzester Zeit erhalten wir aussagekräftige Ergebnisse, die eine fundierte Diagnose ermöglichen. Bei komplexeren Fragestellungen arbeiten wir mit spezialisierten Partnerlaboren zusammen, die noch am selben Tag Befunde liefern. Urin- und Kotuntersuchungen runden unser Spektrum ab und helfen bei der Diagnose von Nieren-, Blasen- und Magen-Darm-Erkrankungen sowie Parasitenbefall. Mit regelmäßigen Laborkontrollen können wir auch den Verlauf chronischer Erkrankungen präzise überwachen.',
+    image: laborImage,
+    imageAlt: 'Labordiagnostik bei Tieren',
+  },
+  {
+    title: 'Bildgebende Diagnostik',
+    description:
+      'Was von außen nicht sichtbar ist, machen wir mit modernster Bildgebung sichtbar. Unser digitales Röntgensystem liefert hochauflösende Bilder bei minimaler Strahlenbelastung – ideal zur Diagnose von Knochenbrüchen, Gelenkerkrankungen oder Fremdkörpern. Mit Ultraschall untersuchen wir schonend und schmerzfrei innere Organe wie Herz, Leber, Nieren und Blase. So erkennen wir Tumore, Flüssigkeitsansammlungen oder Herzerkrankungen frühzeitig. Für die Herzdiagnostik setzen wir modernste EKG-Technik ein, um Herzrhythmusstörungen präzise zu erfassen. Bei Bedarf führen wir auch endoskopische Untersuchungen durch, um Magen, Darm oder Atemwege direkt einzusehen.',
+    image: roentgenImage,
+    imageAlt: 'Bildgebende Diagnostik bei Tieren',
+  },
+  {
+    title: 'Schnelldiagnostik & Notfallanalytik',
+    description:
+      'In Notfallsituationen zählt jede Minute. Mit unseren Schnelltestsystemen erhalten wir innerhalb von Minuten lebenswichtige Informationen über Organfunktionen, Infektionen oder Vergiftungen. Ob Pankreatitis, Nierenversagen oder Herzinsuffizienz – kritische Werte sind sofort verfügbar und ermöglichen schnelle therapeutische Entscheidungen. Auch Infektionskrankheiten wie Parvovirose, Leukose oder Borreliose können wir unmittelbar nachweisen. Unsere Notfalldiagnostik umfasst außerdem Gerinnungsanalysen vor Operationen und bei Blutungsverdacht. So können wir in jeder Situation schnell und sicher handeln, um das Leben Ihres Tieres zu retten.',
+    image: schnelltestImage,
+    imageAlt: 'Schnelldiagnostik & Notfallanalytik bei Tieren',
+  },
+];
+---
+
+<SchwerpunkteTemplate
+  title="Unsere Schwerpunkte in der Diagnostik & Labor"
+  description="Präzise Diagnostik ist die Grundlage jeder erfolgreichen Behandlung. Mit unserem hauseigenen Labor, modernster Bildgebung und Schnelltestsystemen können wir die meisten Untersuchungen direkt vor Ort durchführen. Das bedeutet kurze Wartezeiten, schnelle Ergebnisse und eine zeitnahe, zielgerichtete Therapie für Ihr Tier."
+  schwerpunkte={schwerpunkte}
+  sectionId="diagnostik-schwerpunkte"
+  imageWidth={400}
+  imageHeight={400}
+/>
+

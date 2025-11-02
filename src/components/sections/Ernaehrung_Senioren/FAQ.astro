@@ -1,0 +1,39 @@
+---
+import FAQTemplate from '../../ServiceTemplates/FAQTemplate.astro';
+
+const fragen = [
+  {
+    question: 'Welches Futter ist das richtige für mein Tier?',
+    answer:
+      'Das richtige Futter hängt von vielen Faktoren ab: <strong>Alter, Rasse, Gewicht, Aktivität</strong> und Gesundheitszustand. Grundsätzlich sollte es <strong>hochwertige Proteine, ausgewogene Nährstoffe</strong> und keine unnötigen Zusatzstoffe enthalten. <strong>Welpen und Jungtiere</strong> benötigen energie- und nährstoffreiches Wachstumsfutter, <strong>erwachsene Tiere</strong> eine ausgewogene Erhaltungsnahrung und <strong>Senioren</strong> leichteres, gelenkunterstützendes Futter. Bei <strong>Unverträglichkeiten oder Erkrankungen</strong> sind spezielle Diäten notwendig. Wir analysieren die individuellen Bedürfnisse Ihres Tieres und empfehlen passende Futtersorten – ob Trocken-, Nass-, BARF- oder selbst gekochte Rationen.',
+  },
+  {
+    question: 'Wie erkenne ich, ob mein Tier übergewichtig ist?',
+    answer:
+      'Ein gesundes Tier hat eine <strong>sichtbare Taille</strong>, die Rippen sind fühlbar, aber nicht sichtbar. Bei <strong>Übergewicht</strong> sind die Rippen schwer zu ertasten, der Bauch hängt herab und die Taille ist nicht erkennbar. Auch <strong>reduzierte Bewegungsfreude, schnelles Hecheln</strong> und Trägheit können Hinweise sein. Übergewicht belastet Gelenke, Herz und Stoffwechsel und verkürzt die Lebenserwartung. Bei der Untersuchung bewerten wir den <strong>Body Condition Score</strong> und wiegen Ihr Tier. Gemeinsam entwickeln wir dann einen realistischen <strong>Abnahmeplan</strong> mit angepasster Fütterung und Bewegung – ohne Hungern oder Jojo-Effekt.',
+  },
+  {
+    question: 'Ab wann gilt mein Tier als Senior?',
+    answer:
+      'Das hängt von <strong>Größe und Rasse</strong> ab. <strong>Kleine Hunde und Katzen</strong> gelten ab etwa <strong>10-12 Jahren</strong> als Senioren, <strong>mittelgroße Hunde ab 8-10 Jahren</strong> und <strong>große Rassen bereits ab 6-7 Jahren</strong>. Anzeichen des Alterns sind <strong>graues Fell, reduzierte Aktivität</strong>, steifere Bewegungen, <strong>vermehrtes Schlafen</strong> und eventuell nachlassendes Seh- oder Hörvermögen. Ab diesem Alter empfehlen wir <strong>halbjährliche Seniorenchecks</strong> mit Blutuntersuchung, um altersbedingte Erkrankungen wie Nieren-, Herz- oder Schilddrüsenprobleme frühzeitig zu erkennen. Mit rechtzeitiger Vorsorge können wir die Lebensqualität lange erhalten.',
+  },
+  {
+    question: 'Was gehört zu einem Seniorencheck?',
+    answer:
+      'Ein umfassender Seniorencheck umfasst eine <strong>gründliche körperliche Untersuchung</strong> mit besonderem Augenmerk auf Herz, Lunge, Gelenke und Zähne. Wir führen eine <strong>Blutuntersuchung</strong> durch, die Nieren-, Leber-, Schilddrüsenwerte und Blutzucker prüft. Eine <strong>Urinanalyse</strong> gibt Aufschluss über Nierenfunktion und Harnwegsgesundheit. Bei Bedarf ergänzen wir den Check um <strong>Röntgen, Ultraschall oder Blutdruckmessung</strong>. Wir besprechen Ernährung, Bewegung, Schmerzmanagement und Lebensqualität. Ziel ist es, <strong>altersbedingte Veränderungen</strong> frühzeitig zu erkennen und gegenzusteuern – für mehr beschwerdefreie Jahre.',
+  },
+  {
+    question: 'Kann ich mein Tier barfen?',
+    answer:
+      'Ja, <strong>BARF (biologisch artgerechte Rohfütterung)</strong> kann eine gute Option sein, erfordert aber fundiertes Wissen. Eine ausgewogene Rohfütterung muss <strong>Fleisch, Innereien, Knochen, Gemüse</strong> und notwendige Zusätze wie Öle, Mineralien und Vitamine enthalten. Fehler in der Zusammensetzung können zu <strong>Mangelerscheinungen oder Überversorgung</strong> führen – besonders bei Kalzium, Phosphor oder Vitaminen. Wir beraten Sie gerne zu <strong>korrekten BARF-Rationen</strong>, erstellen individuelle Futterpläne und überwachen durch Blutuntersuchungen die Nährstoffversorgung. Wichtig: Bei <strong>immungeschwächten Tieren, Welpen oder Senioren</strong> ist Vorsicht geboten wegen Infektionsrisiken durch rohes Fleisch.',
+  },
+  {
+    question: 'Was kostet eine Ernährungsberatung?',
+    answer:
+      'Eine <strong>ausführliche Ernährungsberatung</strong> mit Analyse der aktuellen Fütterung, Bedarfsberechnung und Erstellung eines individuellen Futterplans kostet etwa <strong>50-80€</strong>. <strong>Kurzberatungen</strong> im Rahmen einer normalen Untersuchung sind oft ohne zusätzliche Kosten möglich. Ein <strong>Seniorencheck</strong> mit Blutuntersuchung, Urinanalyse und ausführlicher Beratung liegt bei <strong>120-180€</strong>. <strong>Spezielle Diätpläne</strong> bei Erkrankungen oder BARF-Beratungen können je nach Aufwand variieren. Viele dieser Leistungen werden von <strong>Tierkrankenversicherungen</strong> übernommen. Gute Ernährungsberatung ist eine Investition in die langfristige Gesundheit Ihres Tieres.',
+  },
+];
+---
+
+<FAQTemplate fragen={fragen} title="FAQ - Häufig gestellte Fragen" sectionId="ernaehrung-faq" />
+

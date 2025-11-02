@@ -1,0 +1,39 @@
+---
+import FAQTemplate from '../../ServiceTemplates/FAQTemplate.astro';
+
+const fragen = [
+  {
+    question: 'Wann sollte ich mit meinem Tier in die Notaufnahme?',
+    answer:
+      'Ein Notfall liegt vor, wenn <strong>akute Lebensgefahr</strong> besteht oder Ihr Tier stark leidet. Rufen Sie sofort an oder kommen Sie direkt bei: <strong>schweren Verletzungen mit Blutungen</strong>, Unfällen, <strong>Atemnot oder Erstickungsgefahr</strong>, Bewusstlosigkeit oder Krampfanfällen, <strong>starken Schmerzen</strong>, Verdacht auf Vergiftung, <strong>anhaltendem Erbrechen oder Durchfall</strong> mit Kreislaufproblemen, <strong>aufgeblähtem, hartem Bauch</strong> (Magendrehungsverdacht), plötzlicher Lähmung oder <strong>Nicht-Urinieren über 24 Stunden</strong>. Bei Unsicherheit: Lieber einmal zu viel anrufen als zu spät kommen. Wir beraten Sie am Telefon.',
+  },
+  {
+    question: 'Sind Sie 24 Stunden erreichbar?',
+    answer:
+      'Unsere <strong>Notfallversorgung</strong> ist während der erweiterten Öffnungszeiten verfügbar. Außerhalb dieser Zeiten arbeiten wir mit einem <strong>tierärztlichen Notdienst-Netzwerk</strong> zusammen, das rund um die Uhr erreichbar ist. Die <strong>Notdienstnummer</strong> finden Sie auf unserem Anrufbeantworter, unserer Website und an der Praxistür. In lebensbedrohlichen Situationen außerhalb unserer Zeiten wenden Sie sich bitte direkt an die Notfallklinik, deren Kontaktdaten wir Ihnen bereitstellen. Bei <strong>bekannten Notfallpatienten</strong> in unserer Intensivbetreuung sind wir selbstverständlich auch nachts erreichbar.',
+  },
+  {
+    question: 'Was sollte ich im Notfall mitbringen?',
+    answer:
+      'Bringen Sie wenn möglich mit: den <strong>Impfpass</strong> und <strong>aktuelle Befunde</strong>, eine Liste der <strong>aktuellen Medikamente</strong>, bei Vergiftungsverdacht die <strong>Verpackung der vermuteten Substanz</strong> oder Erbrochenes, eine <strong>Transportbox oder Decke</strong> für kleine Tiere. Wichtiger als vollständige Unterlagen ist aber: <strong>Kommen Sie schnell!</strong> Bei schweren Verletzungen stabilisieren Sie Ihr Tier so gut wie möglich – bei Blutungen Druck auf die Wunde, bei Knochenbrüchen Ruhigstellung. Versuchen Sie nicht, Ihr Tier zu stark zu bewegen. Bleiben Sie so ruhig wie möglich – Ihre Angst überträgt sich auf Ihr Tier.',
+  },
+  {
+    question: 'Wie läuft die Erstversorgung im Notfall ab?',
+    answer:
+      'Bei Ankunft wird Ihr Tier sofort <strong>triagiert</strong> – wir bewerten die Dringlichkeit und handeln entsprechend. <strong>Lebensgefährliche Zustände</strong> werden sofort behandelt: Stabilisierung von Kreislauf und Atmung, Schmerzlinderung, Anlegen von Venenzugängen. Parallel erfolgt eine <strong>Notfalldiagnostik</strong> – Blutuntersuchung, Röntgen, Ultraschall. Wir informieren Sie über Zustand, Prognose und notwendige Maßnahmen. Bei Bedarf wird Ihr Tier <strong>sofort operiert oder intensivmedizinisch betreut</strong>. In kritischen Situationen müssen Entscheidungen schnell getroffen werden – wir beziehen Sie soweit möglich ein, handeln aber im Notfall immer im besten Interesse Ihres Tieres.',
+  },
+  {
+    question: 'Wie lange muss mein Tier auf der Intensivstation bleiben?',
+    answer:
+      'Das hängt vom <strong>Schweregrad der Erkrankung</strong> ab. Nach Notoperationen bleiben Patienten mindestens <strong>24 Stunden zur Überwachung</strong>. Bei schweren Erkrankungen wie Organversagen, Vergiftungen oder Schockzuständen kann die Intensivbetreuung <strong>mehrere Tage</strong> dauern. Sobald sich der Zustand stabilisiert hat, wird Ihr Tier auf die <strong>Normalstation</strong> verlegt. Sie erhalten <strong>tägliche Updates</strong> über Fortschritte und können nach Absprache besuchen. Die Entlassung erfolgt erst, wenn wir sicher sind, dass Ihr Tier stabil genug für die häusliche Pflege ist – mit detailliertem Nachsorgeplan und 24h-Notfallnummer.',
+  },
+  {
+    question: 'Was kostet eine Notfallbehandlung?',
+    answer:
+      'Notfallbehandlungen sind aufwendig und entsprechend kostenintensiv. Eine <strong>einfache Notfallversorgung</strong> beginnt bei etwa 150-300€. <strong>Komplexe Notfälle</strong> mit Intensivbetreuung, Operationen und mehrtägiger Überwachung können mehrere tausend Euro kosten. Wir informieren Sie so früh wie möglich über die <strong>voraussichtlichen Kosten</strong> und erstellen bei stabilem Zustand einen Kostenvoranschlag. In akut lebensbedrohlichen Situationen muss aber zunächst <strong>gehandelt</strong> werden – über Kosten sprechen wir, sobald Ihr Tier stabil ist. Viele <strong>Tierkrankenversicherungen</strong> decken Notfallbehandlungen ab. Wir beraten Sie auch zu Finanzierungsmöglichkeiten.',
+  },
+];
+---
+
+<FAQTemplate fragen={fragen} title="FAQ - Häufig gestellte Fragen" sectionId="notfall-faq" />
+

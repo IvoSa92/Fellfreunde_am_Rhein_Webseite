@@ -1,0 +1,39 @@
+---
+import FAQTemplate from '../../ServiceTemplates/FAQTemplate.astro';
+
+const fragen = [
+  {
+    question: 'Wann ist Physiotherapie für mein Tier sinnvoll?',
+    answer:
+      'Physiotherapie hilft in vielen Situationen: Nach <strong>Operationen</strong> (Kreuzband, Hüft-OP, Frakturen) zur schnelleren Genesung und vollständigen Funktionswiederherstellung. Bei <strong>Arthrose und chronischen Gelenkerkrankungen</strong> zur Schmerzlinderung und Mobilitätserhaltung. Nach <strong>Verletzungen</strong> oder bei neurologischen Problemen wie <strong>Bandscheibenvorfällen</strong> oder Lähmungen. Für <strong>übergewichtige Tiere</strong> zur schonenden Bewegungsförderung. Bei <strong>Senioren</strong> zur Erhaltung von Muskulatur, Balance und Lebensqualität. Auch präventiv bei <strong>Sporthunden</strong> oder Tieren mit Gelenkdysplasien kann Physiotherapie sinnvoll sein. Wir beraten Sie gerne individuell.',
+  },
+  {
+    question: 'Wie läuft eine Physiotherapie-Sitzung ab?',
+    answer:
+      'Die erste Sitzung beginnt mit einer <strong>ausführlichen Anamnese und Untersuchung</strong>. Wir analysieren Gangbild, Beweglichkeit, Muskulatur und Schmerzpunkte. Darauf basierend erstellen wir einen <strong>individuellen Therapieplan</strong>. Eine typische Behandlung dauert <strong>30-45 Minuten</strong> und umfasst manuelle Techniken, Massagen, passive und aktive Bewegungsübungen. Wir arbeiten mit <strong>positiver Verstärkung</strong> und passen Tempo und Intensität an Ihr Tier an. Zwischen den Behandlungen geben wir Ihnen <strong>Heimübungen</strong> mit, die Sie selbst durchführen können. Der Erfolg zeigt sich meist nach <strong>3-5 Sitzungen</strong>, bei chronischen Problemen kann eine langfristige Betreuung sinnvoll sein.',
+  },
+  {
+    question: 'Wie oft muss mein Tier zur Physiotherapie?',
+    answer:
+      'Die Häufigkeit hängt von Diagnose und Therapieziel ab. Nach <strong>Operationen</strong> empfehlen wir in der Frühphase <strong>2-3 Behandlungen pro Woche</strong>, dann zunehmend seltener. Bei <strong>chronischen Erkrankungen</strong> wie Arthrose kann eine wöchentliche oder zweiwöchentliche Behandlung sinnvoll sein. In der <strong>Erhaltungsphase</strong> reichen oft monatliche Sitzungen. Wichtig sind auch die <strong>Heimübungen</strong>, die Sie täglich mit Ihrem Tier machen sollten – sie sind genauso wichtig wie die Praxisbehandlung. Wir passen die Frequenz flexibel an den Therapieverlauf an und besprechen das gemeinsam mit Ihnen.',
+  },
+  {
+    question: 'Kann Physiotherapie Schmerzmittel ersetzen?',
+    answer:
+      'Physiotherapie kann Schmerzen deutlich reduzieren und in manchen Fällen die <strong>Schmerzmitteldosis verringern</strong>, sollte aber nicht als alleinige Therapie bei starken Schmerzen gesehen werden. Am wirksamsten ist eine <strong>multimodale Schmerztherapie</strong>: Medikamente zur akuten Schmerzlinderung, kombiniert mit Physiotherapie zur langfristigen Verbesserung. Durch <strong>Muskelaufbau, verbesserte Beweglichkeit</strong> und Entzündungsreduktion kann Physiotherapie dazu beitragen, dass weniger Schmerzmittel benötigt werden. Das reduziert Nebenwirkungen und verbessert die Lebensqualität nachhaltig. Wir arbeiten eng mit dem behandelnden Tierarzt zusammen und passen die Medikation bei Bedarf an.',
+  },
+  {
+    question: 'Können auch alte Tiere noch von Physiotherapie profitieren?',
+    answer:
+      'Ja, absolut! Gerade <strong>ältere Tiere mit Arthrose, Muskelschwund</strong> oder Mobilitätsproblemen profitieren enorm von Physiotherapie. Wir passen die Behandlung an das <strong>individuelle Alter und die Kondition</strong> an – sanft, schonend, aber effektiv. Regelmäßige Physiotherapie kann <strong>Schmerzen lindern, Muskulatur erhalten</strong>, die Balance verbessern und Stürze verhindern. Viele Seniorentiere werden durch Physiotherapie wieder <strong>aktiver, lebensfreudiger</strong> und können länger ein selbstständiges Leben führen. Balance- und Koordinationstraining ist besonders wertvoll. Es ist nie zu spät, mit Physiotherapie zu beginnen – auch im hohen Alter lässt sich die Lebensqualität noch deutlich verbessern.',
+  },
+  {
+    question: 'Was kostet Physiotherapie für Tiere?',
+    answer:
+      'Eine <strong>Erstuntersuchung mit Therapieplanerstellung</strong> kostet etwa 60-80€. <strong>Einzelbehandlungen (30-45 Min.)</strong> liegen zwischen 40-60€. Oft sind <strong>Behandlungspakete</strong> (5 oder 10 Sitzungen) günstiger im Durchschnitt. Spezielle Therapien wie <strong>Lymphdrainage oder Narbenbehandlung</strong> können etwas teurer sein. Bei chronischen Erkrankungen übernehmen viele <strong>Tierkrankenversicherungen</strong> einen Teil oder die vollen Kosten der Physiotherapie – besonders bei OP-Nachsorge. Wir stellen detaillierte Rechnungen aus und unterstützen Sie bei der Abrechnung. Eine Investition in Physiotherapie zahlt sich langfristig aus – durch bessere Beweglichkeit, weniger Schmerzmittel und höhere Lebensqualität.',
+  },
+];
+---
+
+<FAQTemplate fragen={fragen} title="FAQ - Häufig gestellte Fragen" sectionId="physiotherapie-faq" />
+

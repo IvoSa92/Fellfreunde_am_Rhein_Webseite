@@ -1,0 +1,40 @@
+---
+import SchwerpunkteTemplate from '../../ServiceTemplates/SchwerpunkteTemplate.astro';
+import physioImage from '../../../assets/images/physio.png';
+import rehaImage from '../../../assets/images/team.png';
+import schmerzImage from '../../../assets/images/allgemein-hero.png';
+
+const schwerpunkte = [
+  {
+    title: 'Manuelle Therapie & Physiotherapie',
+    description:
+      'Physiotherapie für Tiere ist weit mehr als „ein bisschen Massage". Mit gezielten manuellen Techniken lösen wir Verspannungen, verbessern die Gelenkbeweglichkeit und fördern die Durchblutung. Therapeutische Massagen lindern Schmerzen, entspannen die Muskulatur und beschleunigen Heilungsprozesse. Lymphdrainage reduziert Schwellungen nach Operationen oder Verletzungen. Passive Bewegungsübungen erhalten die Gelenkfunktion auch bei bewegungseingeschränkten Tieren. Mit Dehnungen und Mobilisationstechniken arbeiten wir gegen Versteifungen und Kontrakturen. Jede Behandlung wird individuell auf Ihr Tier, seine Erkrankung und seinen Charakter abgestimmt. Manche Tiere genießen die Therapie von Anfang an, andere brauchen Zeit – wir nehmen uns diese Zeit und arbeiten mit positiver Verstärkung und viel Geduld.',
+    image: physioImage,
+    imageAlt: 'Manuelle Therapie & Physiotherapie bei Tieren',
+  },
+  {
+    title: 'Post-Operative Rehabilitation',
+    description:
+      'Nach Operationen – besonders nach orthopädischen Eingriffen wie Kreuzbandrissen, Hüft-OPs oder Frakturen – ist professionelle Rehabilitation entscheidend für den Heilungserfolg. Wir beginnen bereits wenige Tage nach der OP mit kontrollierter Frühmobilisation, um Muskelabbau zu verhindern und die Heilung zu fördern. Mit gezieltem Muskelaufbautraining stärken wir die Muskulatur rund um das betroffene Gelenk. Gangschulungsprogramme helfen, physiologische Bewegungsmuster wiederzuerlernen und Schonhaltungen zu vermeiden. Narbenbehandlung sorgt für geschmeidige, flexible Narbengewebe ohne Verwachsungen. Der Therapieplan wird kontinuierlich an den Fortschritt angepasst – von passiven Bewegungen über aktive Übungen bis hin zu Ausdauer- und Koordinationstraining. Unser Ziel: vollständige Wiederherstellung der Funktion.',
+    image: rehaImage,
+    imageAlt: 'Post-Operative Rehabilitation bei Tieren',
+  },
+  {
+    title: 'Schmerztherapie & chronische Erkrankungen',
+    description:
+      'Chronische Schmerzen – etwa durch Arthrose, Bandscheibenvorfälle oder neurologische Erkrankungen – beeinträchtigen die Lebensqualität massiv. Wir setzen auf multimodale Schmerztherapie: medikamentöse Behandlung kombiniert mit Physiotherapie, Gewichtsmanagement und Bewegungsoptimierung. Gelenkinjektionen mit Hyaluronsäure oder PRP (plättchenreiches Plasma) können Entzündungen reduzieren und Knorpel schützen. Mit gezielter Bewegungstherapie halten wir Gelenke mobil, stärken die stabilisierende Muskulatur und verhindern Schonhaltungen. Wärmeanwendungen entspannen verspannte Muskulatur, Kältetherapie reduziert akute Entzündungen. Auch Akupunktur kann bei chronischen Schmerzen hilfreich sein. Unser Ziel ist nicht nur Schmerzlinderung, sondern nachhaltige Verbesserung der Beweglichkeit und Lebensfreude – auch im hohen Alter.',
+    image: schmerzImage,
+    imageAlt: 'Schmerztherapie & chronische Erkrankungen bei Tieren',
+  },
+];
+---
+
+<SchwerpunkteTemplate
+  title="Unsere Schwerpunkte in der Physiotherapie & Rehabilitation"
+  description="Bewegung ist Lebensqualität. Mit gezielter Physiotherapie, individuellen Reha-Programmen und multimodaler Schmerztherapie helfen wir Ihrem Tier, nach Operationen, Verletzungen oder bei chronischen Erkrankungen wieder mobil und schmerzfrei zu werden."
+  schwerpunkte={schwerpunkte}
+  sectionId="physiotherapie-schwerpunkte"
+  imageWidth={400}
+  imageHeight={400}
+/>
+

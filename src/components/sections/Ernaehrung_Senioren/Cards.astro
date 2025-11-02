@@ -1,0 +1,66 @@
+---
+import CardsTemplate from '../../ServiceTemplates/CardsTemplate.astro';
+import vorsorge from '../../../assets/images/vorsorge-logo.png';
+import akut from '../../../assets/images/akut-logo.png';
+import zahn from '../../../assets/images/zahn-logo.png';
+import beratung from '../../../assets/images/beratung-logo.png';
+
+const cards = [
+  {
+    title: 'Individuelle Ernährungsberatung',
+    description: 'Maßgeschneiderte Fütterungspläne für jede Lebensphase und Situation.',
+    features: [
+      'Welpen- & Jungtierernährung',
+      'Gewichtsmanagement',
+      'Allergie- & Ausschlussdiäten',
+      'Futterumstellung',
+    ],
+    image: vorsorge,
+    imageAlt: 'Individuelle Ernährungsberatung',
+  },
+  {
+    title: 'Diätetik bei Erkrankungen',
+    description: 'Therapeutische Ernährung zur Unterstützung der Behandlung.',
+    features: [
+      'Nierendiät',
+      'Lebererkrankungen',
+      'Magen-Darm-Probleme',
+      'Diabetes-Management',
+    ],
+    image: zahn,
+    imageAlt: 'Diätetik bei Erkrankungen',
+  },
+  {
+    title: 'Seniorenbetreuung',
+    description: 'Umfassende Versorgung für ältere Tiere mit besonderen Bedürfnissen.',
+    features: [
+      'Altersgerechte Ernährung',
+      'Schmerzmanagement',
+      'Mobilitätserhaltung',
+      'Regelmäßige Seniorenchecks',
+    ],
+    image: beratung,
+    imageAlt: 'Seniorenbetreuung',
+  },
+  {
+    title: 'Vitalität & Prävention',
+    description: 'Vorsorge für ein gesundes Altern und langanhaltende Lebensqualität.',
+    features: [
+      'Nahrungsergänzung',
+      'Gelenkschutz',
+      'Immunsystem-Support',
+      'Altersvorsorge-Programme',
+    ],
+    image: akut,
+    imageAlt: 'Vitalität & Prävention',
+  },
+];
+---
+
+<CardsTemplate
+  title="Leistungen im Überblick"
+  description="Gute Ernährung und aufmerksame Seniorenbetreuung sind die Grundpfeiler für ein gesundes, langes Tierleben. Wir beraten Sie individuell zu allen Fragen rund um Fütterung, Gewicht und altersgerechte Pflege – damit Ihr Tier in jeder Lebensphase bestmöglich versorgt ist."
+  cards={cards}
+  sectionId="ernaehrung-services"
+/>
+

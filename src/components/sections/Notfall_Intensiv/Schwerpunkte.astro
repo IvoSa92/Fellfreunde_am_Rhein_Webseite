@@ -1,0 +1,39 @@
+---
+import SchwerpunkteTemplate from '../../ServiceTemplates/SchwerpunkteTemplate.astro';
+import notfallImage from '../../../assets/images/notfallmedizin.png';
+import intensivImage from '../../../assets/images/team.png';
+import diagnostikImage from '../../../assets/images/labor.png';
+
+const schwerpunkte = [
+  {
+    title: 'Akute Notfallversorgung',
+    description:
+      'Wenn jede Sekunde zählt, ist unser Notfallteam zur Stelle. Bei Unfällen, schweren Verletzungen, Vergiftungen, Atemnot oder Kreislaufversagen handeln wir sofort und systematisch. Nach der ersten Stabilisierung führen wir eine zielgerichtete Notfalldiagnostik durch, um die genaue Ursache zu ermitteln. Ob innere Blutungen, Magendrehung, akute Organversagen oder Schockzustände – wir verfügen über die Expertise und Ausstattung, um kritische Patienten zu retten. Unsere Notfallmedizin umfasst Infusionstherapie, Sauerstoffversorgung, Notfallmedikation und sofortige chirurgische Eingriffe. Wir kommunizieren transparent mit Ihnen über Zustand, Prognose und notwendige Maßnahmen, auch in den schwierigsten Momenten.',
+    image: notfallImage,
+    imageAlt: 'Akute Notfallversorgung bei Tieren',
+  },
+  {
+    title: 'Intensivmedizin & Monitoring',
+    description:
+      'Nach der Stabilisierung beginnt die intensive Überwachungsphase. Kritisch kranke Patienten werden rund um die Uhr betreut und kontinuierlich überwacht – Herzfrequenz, Atmung, Sauerstoffsättigung, Blutdruck und Körpertemperatur werden permanent kontrolliert. Bei Bedarf erfolgt künstliche Beatmung, parenterale Ernährung über Venenkatheter und individuell angepasste Medikation. Unser Intensivbereich ist mit modernster Überwachungstechnik, Infusionspumpen und Notfallequipment ausgestattet. Wir behandeln postoperative Komplikationen, schwere Infektionen, Organversagen und neurologische Notfälle. Regelmäßige Laborkontrollen und Anpassungen der Therapie gehören selbstverständlich dazu. Sie werden täglich über den Zustand Ihres Tieres informiert und können nach Absprache auch Besuchszeiten wahrnehmen.',
+    image: intensivImage,
+    imageAlt: 'Intensivmedizin & Monitoring bei Tieren',
+  },
+  {
+    title: 'Notfalldiagnostik & Entscheidungsfindung',
+    description:
+      'In Notfallsituationen müssen Diagnosen innerhalb von Minuten gestellt werden. Unser Notfalllabor liefert Blutbilder, Gerinnungswerte, Nieren- und Leberwerte sowie Elektrolyte in weniger als 10 Minuten. Digitales Röntgen zeigt Frakturen, Fremdkörper oder innere Verletzungen sofort, Ultraschall deckt Blutungen, Organrupturen oder Flüssigkeitsansammlungen auf. EKG und Blutdruckmessung geben Aufschluss über Herz-Kreislauf-Funktion. Basierend auf diesen Befunden treffen wir fundierte Entscheidungen über die weitere Behandlung – ob konservativ, chirurgisch oder intensivmedizinisch. Unsere langjährige Erfahrung ermöglicht es uns, auch in komplexen Fällen schnell die richtige Strategie zu wählen und umzusetzen.',
+    image: diagnostikImage,
+    imageAlt: 'Notfalldiagnostik & Entscheidungsfindung bei Tieren',
+  },
+];
+---
+
+<SchwerpunkteTemplate
+  title="Unsere Schwerpunkte in der Notfall- & Intensivversorgung"
+  description="Notfallmedizin ist Teamarbeit unter Zeitdruck. Mit strukturiertem Vorgehen, modernster Technik und jahrelanger Erfahrung retten wir Leben. Von der ersten Stabilisierung über die Intensivbetreuung bis zur vollständigen Genesung – wir lassen Sie und Ihr Tier nicht allein."
+  schwerpunkte={schwerpunkte}
+  sectionId="notfall-schwerpunkte"
+  imageWidth={400}
+  imageHeight={400}
+/>

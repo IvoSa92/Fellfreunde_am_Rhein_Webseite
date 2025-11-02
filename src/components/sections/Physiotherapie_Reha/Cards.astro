@@ -1,0 +1,66 @@
+---
+import CardsTemplate from '../../ServiceTemplates/CardsTemplate.astro';
+import vorsorge from '../../../assets/images/vorsorge-logo.png';
+import akut from '../../../assets/images/akut-logo.png';
+import zahn from '../../../assets/images/zahn-logo.png';
+import beratung from '../../../assets/images/beratung-logo.png';
+
+const cards = [
+  {
+    title: 'Manuelle Therapie & Massage',
+    description: 'Gezielte Behandlung zur Schmerzlinderung und Bewegungsverbesserung.',
+    features: [
+      'Manuelle Therapie',
+      'Therapeutische Massage',
+      'Lymphdrainage',
+      'Dehnung & Mobilisation',
+    ],
+    image: vorsorge,
+    imageAlt: 'Manuelle Therapie & Massage',
+  },
+  {
+    title: 'Post-Operative Rehabilitation',
+    description: 'Optimale Genesung nach Operationen und Verletzungen.',
+    features: [
+      'Frühmobilisation',
+      'Muskelaufbau',
+      'Gangschulung',
+      'Narbenbehandlung',
+    ],
+    image: akut,
+    imageAlt: 'Post-Operative Rehabilitation',
+  },
+  {
+    title: 'Schmerztherapie & Arthrose',
+    description: 'Multimodale Behandlung chronischer Schmerzen und Gelenkerkrankungen.',
+    features: [
+      'Schmerzmanagement',
+      'Arthrose-Therapie',
+      'Gelenkinjektionen',
+      'Bewegungstherapie',
+    ],
+    image: zahn,
+    imageAlt: 'Schmerztherapie & Arthrose',
+  },
+  {
+    title: 'Geriatrie & Seniorentherapie',
+    description: 'Erhaltung von Mobilität und Lebensqualität im Alter.',
+    features: [
+      'Seniorenfitness',
+      'Balance-Training',
+      'Muskelerhalt',
+      'Schmerzprävention',
+    ],
+    image: beratung,
+    imageAlt: 'Geriatrie & Seniorentherapie',
+  },
+];
+---
+
+<CardsTemplate
+  title="Leistungen im Überblick"
+  description="Physiotherapie und Rehabilitation sind wichtige Bestandteile moderner Tiermedizin. Mit gezielten Behandlungen, individuellen Therapieplänen und viel Geduld helfen wir Ihrem Tier, Schmerzen zu überwinden, Beweglichkeit zurückzugewinnen und die Lebensqualität nachhaltig zu verbessern."
+  cards={cards}
+  sectionId="physiotherapie-services"
+/>
+

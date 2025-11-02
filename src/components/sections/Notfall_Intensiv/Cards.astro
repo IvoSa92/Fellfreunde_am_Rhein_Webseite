@@ -1,0 +1,66 @@
+---
+import CardsTemplate from '../../ServiceTemplates/CardsTemplate.astro';
+import vorsorge from '../../../assets/images/vorsorge-logo.png';
+import akut from '../../../assets/images/akut-logo.png';
+import zahn from '../../../assets/images/zahn-logo.png';
+import beratung from '../../../assets/images/beratung-logo.png';
+
+const cards = [
+  {
+    title: 'Akute Notfallversorgung',
+    description: 'Sofortige Stabilisierung und Behandlung in lebensbedrohlichen Situationen.',
+    features: [
+      'Unfälle & Verletzungen',
+      'Vergiftungen',
+      'Atemnot & Kreislaufversagen',
+      'Magendrehung',
+    ],
+    image: akut,
+    imageAlt: 'Akute Notfallversorgung',
+  },
+  {
+    title: 'Intensivmedizin',
+    description: 'Kontinuierliche Überwachung und Behandlung kritisch kranker Patienten.',
+    features: [
+      '24h-Überwachung',
+      'Infusionstherapie',
+      'Beatmungsunterstützung',
+      'Schmerzmanagement',
+    ],
+    image: vorsorge,
+    imageAlt: 'Intensivmedizin',
+  },
+  {
+    title: 'Notfalldiagnostik',
+    description: 'Schnelle Diagnostik für sofortige Behandlungsentscheidungen.',
+    features: [
+      'Notfall-Labor',
+      'Röntgen & Ultraschall',
+      'EKG & Blutdruckmessung',
+      'Schnelltests',
+    ],
+    image: zahn,
+    imageAlt: 'Notfalldiagnostik',
+  },
+  {
+    title: 'Post-Intensiv-Betreuung',
+    description: 'Schonende Nachsorge und Rehabilitation nach kritischen Phasen.',
+    features: [
+      'Engmaschige Kontrollen',
+      'Medikamentenmanagement',
+      'Ernährungsunterstützung',
+      'Verhaltensmonitoring',
+    ],
+    image: beratung,
+    imageAlt: 'Post-Intensiv-Betreuung',
+  },
+];
+---
+
+<CardsTemplate
+  title="Leistungen im Überblick"
+  description="In Notfällen ist schnelles, professionelles Handeln überlebenswichtig. Unser Notfall- und Intensivteam verfügt über langjährige Erfahrung, modernste Ausstattung und die nötige Expertise, um auch in kritischsten Situationen die bestmögliche Versorgung zu gewährleisten."
+  cards={cards}
+  sectionId="notfall-services"
+/>
+

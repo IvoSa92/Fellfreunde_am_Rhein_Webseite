@@ -1,0 +1,40 @@
+---
+import SchwerpunkteTemplate from '../../ServiceTemplates/SchwerpunkteTemplate.astro';
+import ernaehrungImage from '../../../assets/images/ernaehrung.png';
+import seniorenImage from '../../../assets/images/team.png';
+import diaetImage from '../../../assets/images/allgemein-hero.png';
+
+const schwerpunkte = [
+  {
+    title: 'Individuelle Ernährungsberatung',
+    description:
+      'Die richtige Ernährung ist weit mehr als nur Sattwerden – sie ist die Basis für Gesundheit, Vitalität und Wohlbefinden. Jedes Tier hat individuelle Bedürfnisse, die sich nach Rasse, Alter, Aktivitätslevel und Gesundheitszustand richten. Wir analysieren gemeinsam mit Ihnen die aktuelle Fütterung, ermitteln den Nährstoffbedarf und erstellen einen maßgeschneiderten Ernährungsplan. Ob Welpe im Wachstum, aktiver Hund, wählerische Katze oder Tier mit Übergewicht – wir finden die optimale Lösung. Dabei berücksichtigen wir Ihre Wünsche, das Budget und die Vorlieben Ihres Tieres. Auch bei Futterallergien, Unverträglichkeiten oder chronischen Erkrankungen entwickeln wir gemeinsam einen Weg, der Ihrem Tier guttut und praktikabel im Alltag ist.',
+    image: ernaehrungImage,
+    imageAlt: 'Individuelle Ernährungsberatung für Tiere',
+  },
+  {
+    title: 'Seniorenbetreuung',
+    description:
+      'Mit zunehmendem Alter ändern sich die Bedürfnisse Ihres Tieres. Ältere Hunde und Katzen benötigen eine angepasste Ernährung mit weniger Kalorien, aber mehr hochwertigen Proteinen und Gelenkunterstützung. Seniorenchecks helfen uns, altersbedingte Erkrankungen wie Nieren-, Herz- oder Gelenkprobleme frühzeitig zu erkennen. Wir überwachen Gewicht, Vitalität und Blutwerte engmaschig und passen die Behandlung bei Bedarf an. Schmerzmanagement, Bewegungstherapie und die Erhaltung der Lebensqualität stehen im Mittelpunkt unserer Seniorenbetreuung. Wir begleiten Sie und Ihr Tier einfühlsam durch diese Lebensphase und sorgen dafür, dass die goldenen Jahre würdevoll und komfortabel bleiben.',
+    image: seniorenImage,
+    imageAlt: 'Seniorenbetreuung für Tiere',
+  },
+  {
+    title: 'Diätetik bei Erkrankungen',
+    description:
+      'Bei vielen Erkrankungen ist die Ernährung ein zentraler Baustein der Therapie. Nierendiäten reduzieren die Belastung geschwächter Nieren und verlangsamen das Fortschreiten der Erkrankung. Bei Lebererkrankungen setzen wir auf leicht verdauliche, hochwertige Proteine und spezielle Nährstoffe zur Leberregeneration. Magen-Darm-Probleme erfordern schonende, gut verträgliche Kost, oft kombiniert mit einer Ausschlussdiät zur Allergiediagnostik. Diabetische Tiere profitieren von kohlenhydratarmer, proteinreicher Ernährung mit gleichmäßiger Energieversorgung. Wir erklären Ihnen genau, warum bestimmte Futtersorten sinnvoll sind, wie Sie die Diät praktisch umsetzen und überwachen den Therapieerfolg regelmäßig. Mit der richtigen Ernährung lässt sich die Lebensqualität erheblich verbessern.',
+    image: diaetImage,
+    imageAlt: 'Diätetik bei Erkrankungen',
+  },
+];
+---
+
+<SchwerpunkteTemplate
+  title="Unsere Schwerpunkte in der Ernährung & Seniorenberatung"
+  description="Ernährung und Alter sind zwei zentrale Faktoren für die Gesundheit Ihres Tieres. Mit fundierter Beratung, individuellen Ernährungsplänen und einfühlsamer Seniorenbetreuung begleiten wir Sie durch alle Lebensphasen – für ein langes, vitales und glückliches Tierleben."
+  schwerpunkte={schwerpunkte}
+  sectionId="ernaehrung-schwerpunkte"
+  imageWidth={400}
+  imageHeight={400}
+/>
+
