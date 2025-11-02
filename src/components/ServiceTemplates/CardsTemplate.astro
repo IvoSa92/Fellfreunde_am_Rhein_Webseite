@@ -1,0 +1,242 @@
+---
+import { Image } from 'astro:assets';
+import placeholderImageSrc from '../../assets/images/placeholder.svg';
+
+type ImageMetadata = import('astro').ImageMetadata;
+
+interface CardItem {
+  title: string;
+  description: string;
+  features: string[];
+  image?: ImageMetadata;
+  imageAlt?: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  cards: CardItem[];
+  sectionId?: string;
+}
+
+const {
+  title = '',
+  description = '',
+  cards,
+  sectionId = 'services',
+} = Astro.props;
+
+const displayCards = cards;
+---
+
+<!-- ============================================ --><!--                  Services                    --><!-- ============================================ -->
+<section id={sectionId}>
+  <div
+    class="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center gap-16 py-16"
+  >
+    <div class="flex flex-col items-center gap-4">
+      <h2
+        class="font-header text-base-content w-full text-center text-3xl leading-tight font-extrabold tracking-[0.2rem] text-balance md:text-5xl md:tracking-normal"
+      >
+        {title}
+      </h2>
+      <p
+        class="text-base-content/80 text-md mt-5 max-w-3xl text-center leading-relaxed text-pretty md:max-w-2xl md:text-lg"
+      >
+        {description}
+      </p>
+    </div>
+    <ul class="grid grid-cols-1 grid-rows-4 gap-8 md:grid-cols-2 md:grid-rows-2">
+      {displayCards.map((card) => (
+          <li class="card bg-info/10 border-primary/20 relative w-auto border shadow-md transition duration-200 hover:-translate-y-1 hover:shadow-lg">
+            <div class="card-body pr-44">
+              <h3 class="decoration-primary-content mb-6 text-2xl font-bold whitespace-nowrap underline underline-offset-4">
+                {card.title}
+              </h3>
+              <p class="mb-4 text-lg">{card.description}</p>
+              <ul class="list-none">
+                {card.features.map((feature) => (
+                  <li class="before:text-accent text-lg before:mr-2 before:content-['✓']">
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              {card.image && (
+                <Image
+                  src={card.image}
+                  alt={card.imageAlt || card.title}
+                  width={100}
+                  height={100}
+                  class="absolute right-8 bottom-8"
+                />
+              )}
+            </div>
+          </li>
+        ))
+      }
+
+      <style>
+        /*-- -------------------------- -->
+<---         Services           -->
+<--- -------------------------- -*/
+
+        /* Mobile - 360px */
+        @media only screen and (min-width: 0rem) {
+          #services-1975 {
+            padding: var(--sectionPadding);
+            overflow: hidden;
+            position: relative;
+          }
+          #services-1975::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+
+            opacity: 0.05;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+          }
+          #services-1975 .cs-container {
+            width: 100%;
+            max-width: 80rem;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 48px - 64px */
+            gap: clamp(3rem, 6vw, 4rem);
+          }
+          #services-1975 .cs-content {
+            /* set text align to left if content needs to be left aligned */
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            /* centers content horizontally, set to flex-start to left align */
+            align-items: center;
+          }
+          #services-1975 .cs-card-group {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            /* 16px - 20px */
+            gap: clamp(1rem, 2vw, 1.25rem);
+          }
+          #services-1975 .cs-item {
+            text-align: left;
+            list-style: none;
+            width: 100%;
+            margin: 0 auto;
+            /* prevents padding and border from affecting height and width */
+            /* 16px - 32px */
+            padding: clamp(1rem, 4vw, 2rem);
+            box-sizing: border-box;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            grid-column: span 12;
+            grid-row: span 1;
+            position: relative;
+            z-index: 1;
+            transition: border-color 0.3s;
+          }
+          #services-1975 .cs-item:hover {
+            border-color: var(--primary);
+          }
+          #services-1975 .cs-item:hover .cs-h3 {
+            color: var(--secondary);
+          }
+          #services-1975 .cs-flex {
+            display: flex;
+            flex-direction: column;
+          }
+          #services-1975 .cs-h3 {
+            /* 20px - 25px */
+            font-size: clamp(1.25rem, 2.5vw, 1.5625rem);
+            font-weight: 700;
+            line-height: 1.2em;
+            text-align: inherit;
+            margin: 0 0 1rem 0;
+            color: var(--headerColor);
+            transition: color 0.3s;
+          }
+          #services-1975 .cs-item-text {
+            font-size: 1rem;
+            line-height: 1.5em;
+            margin: 0;
+            margin-bottom: 1.5rem;
+            padding: 0;
+            color: var(--bodyTextColor);
+          }
+          #services-1975 .cs-link {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.2em;
+            text-align: inherit;
+            text-decoration: none;
+            max-width: fit-content;
+            margin-top: auto;
+            color: var(--primary);
+            border-bottom: 1px solid var(--primary);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+          }
+          #services-1975 .cs-picture {
+            margin: 2rem 0 0 0;
+            padding: 3.625rem 0 0 7.1875rem;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+          }
+          #services-1975 .cs-picture:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary);
+            opacity: 0.05;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+          }
+          #services-1975 .cs-picture img {
+            width: 100%;
+            height: auto;
+            max-width: max-content;
+            display: flex;
+          }
+        }
+        /* Tablet - 768px */
+        @media only screen and (min-width: 48rem) {
+          #services-1975 .cs-content {
+            width: 55%;
+          }
+          #services-1975 .cs-item {
+            grid-column: span 6;
+          }
+          #services-1975 .cs-picture {
+            padding: 2.3125rem 0 0 6.1875rem;
+          }
+        }
+        /* Large Desktop - 1300px */
+        @media only screen and (min-width: 81.25rem) {
+          #services-1975 .cs-item {
+            grid-column: span 3;
+          }
+          #services-1975 .cs-picture {
+            padding: 2.3125rem 0 0 3.75rem;
+          }
+        }
+      </style>
+    </ul>
+  </div>
+</section>

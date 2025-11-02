@@ -1,0 +1,74 @@
+---
+import { Image } from 'astro:assets';
+import placeholderImageSrc from '../../assets/images/placeholder.svg';
+
+type ImageMetadata = import('astro').ImageMetadata;
+
+interface SchwerpunktItem {
+  title: string;
+  description: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  schwerpunkte: SchwerpunktItem[];
+  sectionId?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+}
+
+const {
+  title = '',
+  description = '',
+  schwerpunkte,
+  sectionId = 'schwerpunkte',
+  imageWidth = 400,
+  imageHeight = 400,
+} = Astro.props;
+---
+
+<section id={sectionId} class="pt-32">
+  <div class="bg-info/10 border-info/20 mx-auto w-full max-w-screen-xl rounded-2xl border-6 py-16">
+    <div class="ml-16 flex flex-col items-start justify-center gap-4 pb-8">
+      <h2
+        class="font-header text-base-content decoration-primary-content pb-4 text-3xl/tight text-balance underline underline-offset-6 sm:text-4xl/tight"
+      >
+        {title}
+      </h2>
+      <p class="text-base-content/80 text-md max-w-4xl leading-relaxed text-pretty">
+        {description}
+      </p>
+    </div>
+    <div class="divider px-16"></div>
+    <div class="flex flex-col items-center justify-center">
+      <!-- Feature Card 1 -->
+      {
+        schwerpunkte.map((schwerpunkt, index) => (
+          <>
+            <div
+              class={`flex items-center p-12 ${index === 1 ? 'flex-row-reverse gap-8' : 'gap-4'}`}
+            >
+              <div class="flex flex-1 flex-col gap-2">
+                <h3 class="pb-4 text-2xl font-bold">{schwerpunkt.title}</h3>
+                <p class="text-base-content/80 text-md pr-12 leading-relaxed text-pretty">
+                  {schwerpunkt.description}
+                </p>
+              </div>
+              <Image
+                src={schwerpunkt.image || placeholderImageSrc}
+                alt={schwerpunkt.imageAlt || ''}
+                width={imageWidth}
+                height={imageHeight}
+                class="placeholder-image rounded-2xl"
+              />
+            </div>
+            {index < schwerpunkte.length - 1 && <div class="divider px-16" />}
+          </>
+        ))
+      }
+    </div>
+  </div>
+</section>

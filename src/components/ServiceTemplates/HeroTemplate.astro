@@ -1,0 +1,126 @@
+---
+import { Image } from 'astro:assets';
+import placeholderImageSrc from '../../assets/images/placeholder.svg';
+
+type ImageMetadata = import('astro').ImageMetadata;
+
+interface Props {
+  h1Text?: string;
+  paragraphText?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  imageSrc?: ImageMetadata;
+  imageAlt?: string;
+  decorativeImage?: ImageMetadata;
+  decorativeImageAlt?: string;
+  showWaves?: boolean;
+  sectionId?: string;
+  heroImageWidth?: number;
+  heroImageHeight?: number;
+  decorativeImageWidth?: number;
+  decorativeImageHeight?: number;
+}
+
+const {
+  h1Text = '',
+  paragraphText = '',
+  buttonText = '',
+  buttonLink,
+  imageSrc,
+  imageAlt = '',
+  decorativeImage,
+  decorativeImageAlt = '',
+  showWaves = true,
+  sectionId = 'hero',
+  heroImageWidth = 600,
+  heroImageHeight = 730,
+  decorativeImageWidth = 1000,
+  decorativeImageHeight = 200,
+} = Astro.props;
+---
+
+<!-- ============================================ --><!--                    Hero                      --><!-- ============================================ -->
+<section id={sectionId}>
+  <div class="mx-auto flex w-full max-w-screen-xl items-center justify-center gap-16 py-28">
+    <div class="flex flex-col gap-12">
+      <h1 class="text-6xl/tight">{h1Text}</h1>
+      <p class="text-base-content/90 text-lg leading-relaxed">
+        {paragraphText}
+      </p>
+      {
+        buttonLink ? (
+          <a href={buttonLink} class="btn btn-primary w-1/2">
+            {buttonText}
+          </a>
+        ) : (
+          <button class="btn btn-primary w-1/2">{buttonText}</button>
+        )
+      }
+
+      {
+        decorativeImage && (
+          <Image
+            class="-translate-x-12 -translate-y-12"
+            src={decorativeImage}
+            alt={decorativeImageAlt}
+            width={decorativeImageWidth}
+            height={decorativeImageHeight}
+          />
+        )
+      }
+    </div>
+    <!--Hero Image-->
+    <Image
+      src={imageSrc || placeholderImageSrc}
+      alt={imageAlt}
+      width={heroImageWidth}
+      height={heroImageHeight}
+      format="webp"
+      class="relative left-26 rounded-4xl shadow-lg"
+    />
+    <!--Circle Background-->
+    <!--Download the SVG from the CDN by copy ad pasting its link into your browser and saving it. Then the cs-circle fill property should override it and set it to the primary color of your site-->
+    <img
+      class="absolute -z-10"
+      decoding="async"
+      fetchpriority="high"
+      src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Graphics/noise-bg.svg"
+      alt="graphic"
+      width="758"
+      height="758"
+    />
+  </div>
+</section>
+<!--White curve-->
+{
+  showWaves && (
+    <>
+      <svg
+        class="cs-wave -mb-16"
+        width="1920"
+        height="167"
+        viewBox="0 0 1920 167"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1920 167H0V0C111.116 45.3334 456.485 136 951 136C1445.52 136 1803.21 45.3334 1920 0V167Z"
+          fill="white"
+        />
+      </svg>
+      <svg
+        class="cs-wave mt-12 rotate-180"
+        width="1920"
+        height="167"
+        viewBox="0 0 1920 167"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1920 167H0V0C111.116 45.3334 456.485 136 951 136C1445.52 136 1803.21 45.3334 1920 0V167Z"
+          fill="white"
+        />
+      </svg>
+    </>
+  )
+}

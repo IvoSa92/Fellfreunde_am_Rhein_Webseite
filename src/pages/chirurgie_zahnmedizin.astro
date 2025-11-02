@@ -1,0 +1,20 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import ChirurgieHero from '../components/sections/Chirurgie_Zahnmedizin/Hero.astro';
+import ChirurgieCards from '../components/sections/Chirurgie_Zahnmedizin/Cards.astro';
+import ChirurgieSchwerpunkte from '../components/sections/Chirurgie_Zahnmedizin/Schwerpunkte.astro';
+import ChirurgieFAQ from '../components/sections/Chirurgie_Zahnmedizin/FAQ.astro';
+import ChirurgieCTA from '../components/sections/Chirurgie_Zahnmedizin/CTA.astro';
+import ctaImage from '../assets/images/cta-chirurgie-zahnmedizin.png';
+---
+
+<ServiceLayout
+  title="Chirurgie & Zahnmedizin – Fellfreunde am Rhein"
+  description="Spezialisierte Behandlung für Ihr Haustier. Unsere Chirurgie- & Zahnmedizin-Dienstleistungen gewährleisten die Gesundheit und das Wohlbefinden Ihres Tieres."
+>
+  <ChirurgieHero />
+  <ChirurgieCards />
+  <ChirurgieSchwerpunkte />
+  <ChirurgieFAQ />
+  <ChirurgieCTA />
+</ServiceLayout>

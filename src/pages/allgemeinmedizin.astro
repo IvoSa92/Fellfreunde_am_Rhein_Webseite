@@ -4,6 +4,8 @@ import MedizinHero from '../components/sections/Allgemeinmedizin/MedizinHero.ast
 import AllgemeinCards from '../components/sections/Allgemeinmedizin/AllgemeinCards.astro';
 import Schwerpunkte from '../components/sections/Allgemeinmedizin/Schwerpunkte.astro';
 import FAQ from '../components/sections/Allgemeinmedizin/FAQ.astro';
+import CTA from '../components/sections/Allgemeinmedizin/CTA.astro';
+import ctaImage from '../assets/images/cta-allgemeinmedizin.png';
 ---
 
 <ServiceLayout
@@ -14,4 +16,5 @@ import FAQ from '../components/sections/Allgemeinmedizin/FAQ.astro';
   <AllgemeinCards />
   <Schwerpunkte />
   <FAQ />
+  <CTA image={ctaImage} imageAlt="Katze hinterlässt Pfotenabdrücke" />
 </ServiceLayout>

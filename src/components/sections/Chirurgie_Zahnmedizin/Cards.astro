@@ -1,0 +1,60 @@
+---
+import CardsTemplate from '../../ServiceTemplates/CardsTemplate.astro';
+import vorsorge from '../../../assets/images/vorsorge-logo.png';
+import akut from '../../../assets/images/akut-logo.png';
+import zahn from '../../../assets/images/zahn-logo.png';
+import beratung from '../../../assets/images/beratung-logo.png';
+
+const cards = [
+  {
+    title: 'Weichteilchirurgie',
+    description: 'Routineeingriffe und komplexe Operationen mit höchster Präzision.',
+    features: [
+      'Kastrationen & Sterilisationen',
+      'Tumorentfernungen',
+      'Bauchchirurgie',
+      'Hautchirurgie & Wundversorgung',
+    ],
+    image: vorsorge,
+    imageAlt: 'Weichteilchirurgie',
+  },
+  {
+    title: 'Zahnchirurgie & Dentalhygiene',
+    description: 'Professionelle Zahnbehandlung für ein gesundes Gebiss.',
+    features: [
+      'Zahnextraktionen',
+      'Professionelle Zahnreinigung',
+      'Parodontalbehandlung',
+      'Zahnsteinentfernung',
+    ],
+    image: zahn,
+    imageAlt: 'Zahnchirurgie & Dentalhygiene',
+  },
+  {
+    title: 'Notfall- & Unfallchirurgie',
+    description: 'Schnelle chirurgische Hilfe in kritischen Situationen.',
+    features: ['Notoperationen', 'Frakturversorgung', 'Magendrehung', 'Unfallverletzungen'],
+    image: akut,
+    imageAlt: 'Notfall- & Unfallchirurgie',
+  },
+  {
+    title: 'Nachsorge & Schmerzmanagement',
+    description: 'Optimale Betreuung für eine schnelle und sichere Genesung.',
+    features: [
+      'Post-operative Überwachung',
+      'Wundkontrollen',
+      'Schmerztherapie',
+      'Ernährungsberatung nach OP',
+    ],
+    image: beratung,
+    imageAlt: 'Nachsorge & Schmerzmanagement',
+  },
+];
+---
+
+<CardsTemplate
+  title="Leistungen im Überblick"
+  description="Unsere chirurgischen und zahnmedizinischen Leistungen umfassen alle wichtigen Eingriffe von Routineoperationen bis zu komplexen Notfällen. Mit modernster Ausstattung, schonenden Narkoseverfahren und erfahrenen Tierärzten gewährleisten wir höchste Sicherheit und bestmögliche Ergebnisse für Ihr Tier."
+  cards={cards}
+  sectionId="chirurgie-services"
+/>

@@ -1,0 +1,38 @@
+---
+import FAQTemplate from '../../ServiceTemplates/FAQTemplate.astro';
+
+const fragen = [
+  {
+    question: 'Wie bereite ich mein Tier auf eine Operation vor?',
+    answer:
+      'Eine gute Vorbereitung ist wichtig für einen reibungslosen Ablauf. Ihr Tier sollte <strong>12 Stunden vor der OP nüchtern</strong> sein – das bedeutet keine feste Nahrung, aber <strong>Wasser ist bis 2 Stunden vorher erlaubt</strong>. Bringen Sie bei Bedarf die <strong>aktuelle Medikation</strong> und den Impfpass mit. Bei einem <strong>Vorgespräch</strong> klären wir alle medizinischen Fragen, führen eine gründliche Voruntersuchung durch und informieren Sie detailliert über den Ablauf. Bei älteren Tieren oder Risikopatienten empfehlen wir eine <strong>Blutuntersuchung</strong> zur Absicherung vor der Narkose.',
+  },
+  {
+    question: 'Ist die Narkose für mein Tier sicher?',
+    answer:
+      'Ja, moderne Narkoseverfahren sind sehr sicher. Wir verwenden <strong>schonende Inhalationsnarkosen</strong>, die individuell auf Ihr Tier abgestimmt werden. Während der gesamten Operation wird Ihr Tier <strong>kontinuierlich überwacht</strong> – wir kontrollieren Herzfrequenz, Atmung, Sauerstoffsättigung und Körpertemperatur. Unser erfahrenes Team sorgt dafür, dass Ihr Tier jederzeit optimal versorgt ist. Bei <strong>Risikopatienten</strong> führen wir vorab Blutuntersuchungen durch, um die Narkosefähigkeit zu prüfen und das Risiko zu minimieren.',
+  },
+  {
+    question: 'Wie lange dauert die Erholung nach einer Operation?',
+    answer:
+      'Die Erholungszeit hängt stark von der <strong>Art des Eingriffs</strong> ab. Nach einer <strong>Routinekastration</strong> erholen sich die meisten Tiere innerhalb von 7-10 Tagen vollständig, während <strong>komplexe Operationen</strong> 2-3 Wochen oder länger benötigen können. Wichtig ist <strong>Ruhe und Schonung</strong> – vermeiden Sie anstrengende Aktivitäten, Springen und wildes Spielen. Die <strong>Wunde muss trocken</strong> und sauber gehalten werden. Wir vereinbaren <strong>Nachsorgetermine</strong> zur Wundkontrolle und entfernen nach 10-14 Tagen die Fäden. Bei Auffälligkeiten kontaktieren Sie uns bitte sofort.',
+  },
+  {
+    question: 'Wann sollte mein Tier eine professionelle Zahnreinigung bekommen?',
+    answer:
+      'Eine professionelle Zahnreinigung ist notwendig, wenn sich <strong>deutlicher Zahnstein</strong> gebildet hat oder das Zahnfleisch entzündet ist. Häufige Anzeichen sind <strong>Mundgeruch, gerötetes Zahnfleisch</strong>, Schwierigkeiten beim Fressen oder <strong>vermehrtes Sabbern</strong>. Idealerweise sollten Tiere ab dem <strong>3. Lebensjahr jährlich</strong> zur Zahnkontrolle kommen. Bei Rassen mit erhöhtem Risiko (kleine Hunderassen, Katzen) können häufigere Kontrollen sinnvoll sein. Die Zahnreinigung erfolgt unter <strong>schonender Narkose</strong>, da nur so gründlich gearbeitet werden kann.',
+  },
+  {
+    question: 'Wie erkenne ich, ob mein Tier Zahnschmerzen hat?',
+    answer:
+      'Tiere zeigen Zahnschmerzen oft subtil. Achten Sie auf <strong>veränderte Fressgewohnheiten</strong> – zögerliches Fressen, Fallenlassen von Futter oder einseitiges Kauen. Weitere Anzeichen sind <strong>starker Mundgeruch, vermehrtes Sabbern</strong>, Pföteln am Maul, <strong>gerötetes oder blutendes Zahnfleisch</strong>, Rückzug, oder <strong>Verhaltensänderungen</strong> wie Gereiztheit. Manche Tiere fressen weiter, obwohl sie Schmerzen haben – regelmäßige Zahnkontrollen sind daher unverzichtbar. Bei <strong>Verdacht auf Zahnschmerzen</strong> vereinbaren Sie bitte zeitnah einen Termin.',
+  },
+  {
+    question: 'Was kostet eine Operation?',
+    answer:
+      'Die Kosten variieren stark je nach <strong>Art und Umfang</strong> des Eingriffs. Eine <strong>Routinekastration</strong> liegt zwischen 150-350€, während <strong>komplexe Operationen</strong> wie Tumorentfernungen oder Notfalleingriffe entsprechend mehr kosten. Die <strong>professionelle Zahnreinigung</strong> kostet je nach Aufwand zwischen 200-400€. Wir erstellen vor jedem größeren Eingriff einen <strong>detaillierten Kostenvoranschlag</strong>, der alle Positionen transparent auflistet. Viele Eingriffe werden von <strong>Tierkrankenversicherungen</strong> übernommen – wir unterstützen Sie gerne bei der Abrechnung.',
+  },
+];
+---
+
+<FAQTemplate fragen={fragen} title="FAQ - Häufig gestellte Fragen" sectionId="chirurgie-faq" />

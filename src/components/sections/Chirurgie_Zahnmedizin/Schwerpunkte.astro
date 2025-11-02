@@ -1,0 +1,39 @@
+---
+import SchwerpunkteTemplate from '../../ServiceTemplates/SchwerpunkteTemplate.astro';
+import chirurgieImage from '../../../assets/images/physio.png';
+import notfallImage from '../../../assets/images/notfallmedizin.png';
+import zahnImage from '../../../assets/images/zahnmedizin.png';
+
+const schwerpunkte = [
+  {
+    title: 'Weichteilchirurgie',
+    description:
+      'Von der Routinekastration bis zur komplexen Tumoroperation – wir führen alle weichteilchirurgischen Eingriffe mit höchster Präzision und Sorgfalt durch. Mit modernster OP-Ausstattung, schonenden Narkoseverfahren und sterilen Operationsbedingungen gewährleisten wir maximale Sicherheit für Ihr Tier. Ob Kastrationen, Sterilisationen, Tumorentfernungen, Bauchchirurgie oder Hautoperationen – unser erfahrenes Team begleitet Sie und Ihr Tier vom Vorgespräch über die Operation bis zur vollständigen Genesung. Jeder Eingriff wird sorgfältig geplant und individuell auf die Bedürfnisse Ihres Tieres abgestimmt.',
+    image: chirurgieImage,
+    imageAlt: 'Weichteilchirurgie bei Tieren',
+  },
+  {
+    title: 'Zahnchirurgie & Dentalhygiene',
+    description:
+      'Zahnprobleme gehören zu den häufigsten, aber oft übersehenen Gesundheitsproblemen bei Haustieren. Unbehandelt können sie zu chronischen Schmerzen, Organschäden und massiven Einschränkungen der Lebensqualität führen. Wir bieten das komplette Spektrum der Zahnmedizin: von der professionellen Zahnreinigung mit Ultraschall über Parodontalbehandlungen bis hin zu chirurgischen Zahnextraktionen. Unter schonender Narkose entfernen wir Zahnstein gründlich, behandeln Zahnfleischentzündungen und ziehen geschädigte Zähne, wenn nötig. Mit regelmäßiger Dentalkontrolle und individueller Beratung zur Zahnpflege erhalten wir die Mundgesundheit Ihres Tieres nachhaltig.',
+    image: zahnImage,
+    imageAlt: 'Zahnchirurgie & Dentalhygiene bei Tieren',
+  },
+  {
+    title: 'Notfall- & Unfallchirurgie',
+    description:
+      'In lebensbedrohlichen Situationen zählt jede Minute. Unser Team ist auf die schnelle chirurgische Versorgung von Notfällen spezialisiert und steht bereit, wenn es darauf ankommt. Bei Unfällen, Magendrehungen, inneren Verletzungen oder Frakturen handeln wir sofort und entschieden. Mit umfassender Notfalldiagnostik, modernster Überwachungstechnik und chirurgischer Expertise stabilisieren wir kritische Patienten und führen lebensrettende Operationen durch. Auch in der Nachsorge lassen wir Sie nicht allein – intensive Überwachung, Schmerzmanagement und engmaschige Kontrollen gehören selbstverständlich dazu. Ihr Tier ist in größter Not in den besten Händen.',
+    image: notfallImage,
+    imageAlt: 'Notfall- & Unfallchirurgie bei Tieren',
+  },
+];
+---
+
+<SchwerpunkteTemplate
+  title="Unsere Schwerpunkte in der Chirurgie & Zahnmedizin"
+  description="In unserer chirurgischen Abteilung verbinden wir modernste Technik mit jahrelanger Erfahrung und tiermedizinischer Expertise. Unsere drei Kernbereiche – Weichteilchirurgie, Zahnmedizin und Notfallchirurgie – decken das gesamte Spektrum operativer Eingriffe ab. Mit schonenden Narkoseverfahren, sterilen OP-Bedingungen und umfassender Nachsorge stellen wir sicher, dass Ihr Tier in jeder Phase optimal betreut wird."
+  schwerpunkte={schwerpunkte}
+  sectionId="chirurgie-schwerpunkte"
+  imageWidth={400}
+  imageHeight={400}
+/>

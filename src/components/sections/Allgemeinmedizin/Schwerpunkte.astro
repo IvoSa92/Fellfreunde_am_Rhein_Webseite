@@ -1,180 +1,39 @@
 ---
-import { Image } from 'astro:assets';
+import SchwerpunkteTemplate from '../../ServiceTemplates/SchwerpunkteTemplate.astro';
+import vorsorgeImage from '../../../assets/images/allgemein-hero.png';
+import akutImage from '../../../assets/images/notfallmedizin.png';
+import zahnImage from '../../../assets/images/zahnmedizin.png';
+
+const schwerpunkte = [
+  {
+    title: 'Vorsorge & Gesundheitschecks',
+    description:
+      'Die beste Medizin ist die, die gar nicht erst nötig wird. Mit regelmäßigen Vorsorgeuntersuchungen schaffen wir die Grundlage für ein langes, gesundes Tierleben. Wir nehmen uns Zeit für gründliche Gesundheitschecks, führen Blut- und Urinanalysen durch und entwickeln gemeinsam mit Ihnen individuelle Präventionspläne. Von der ersten Impfung beim Welpen bis zur altersgerechten Betreuung Ihrer Senioren – wir begleiten Ihr Tier in jeder Lebensphase mit kompetenter, vorausschauender Fürsorge.',
+    image: vorsorgeImage,
+    imageAlt: 'Vorsorgeuntersuchung bei Tieren',
+  },
+  {
+    title: 'Akutbehandlung',
+    description:
+      'Wenn Ihr Tier Schmerzen hat, ungewöhnlich wirkt oder sich verletzt hat, sind wir schnell zur Stelle. Unsere erfahrenen Tierärzte versorgen Ihr Tier kompetent und einfühlsam in jeder dringenden Situation. Mit modernster Diagnostik erkennen wir schnell die Ursache und leiten sofort die passende Behandlung ein – sei es bei akuten Erkrankungen, Verletzungen oder Notfällen. Sie können sich darauf verlassen, dass wir alles tun, um Ihrem Vierbeiner schnell wieder auf die Beine zu helfen.',
+    image: akutImage,
+    imageAlt: 'Akutbehandlung bei Tieren',
+  },
+  {
+    title: 'Zahnmedizin',
+    description:
+      'Gesunde Zähne sind weit mehr als ein schönes Lächeln – sie sind essentiell für das gesamte Wohlbefinden Ihres Tieres. Zahnprobleme können zu Schmerzen, Entzündungen und sogar zu schwerwiegenden Folgeerkrankungen führen. Wir bieten professionelle Zahnbehandlungen, von der regelmäßigen Kontrolle bis zur schonenden Zahnsteinentfernung unter Narkose. Mit unserer Expertise erkennen wir Probleme frühzeitig und können Ihr Tier so vor unnötigem Leid bewahren. Denn ein gesundes Gebiss bedeutet Lebensqualität.',
+    image: zahnImage,
+    imageAlt: 'Zahnmedizin bei Tieren',
+  },
+];
 ---
 
-<section id="schwerpunkte" class="pt-32">
-  <div class="bg-info/10 border-info/20 mx-auto w-full max-w-screen-xl rounded-2xl border-6 py-16">
-    <div class="ml-16 flex flex-col items-start justify-center gap-4 pb-8">
-      <h2
-        class="font-header text-base-content pb-4 decoration-primary-content text-3xl/tight text-balance underline underline-offset-6 sm:text-4xl/tight"
-      >
-        Unsere Schwerpunkte in der Allgemeinmedizin
-      </h2>
-      <p class="text-base-content/80 text-md leading-relaxed text-pretty max-w-4xl">
-        In unserer Allgemeinmedizin-Praxis legen wir besonderen Wert auf drei zentrale Bereiche, die
-        das gesundheitliche Wohlergehen Ihrer Tiere umfassend abdecken: Von der regelmäßigen
-        Vorsorge und gründlichen Gesundheitschecks über schnelle Akutbehandlungen bis hin zur
-        professionellen Zahnmedizin – wir begleiten Ihr Tier in jeder Lebensphase mit kompetenter,
-        einfühlsamer Betreuung.
-      </p>
-    </div>
-    <div class="divider px-16"></div>
-    <div class="flex flex-col items-center justify-center">
-      <!-- Feature Card 1 -->
-      <div class="flex items-center gap-4 p-12">
-        <div class="flex flex-1 flex-col gap-2">
-          <h3 class="text-2xl font-bold pb-4">Vorsorge & Gesundheitschecks</h3>
-          <p class="text-base-content/80 text-md leading-relaxed text-pretty pr-12">
-            Die beste Medizin ist die, die gar nicht erst nötig wird. Mit regelmäßigen
-            Vorsorgeuntersuchungen schaffen wir die Grundlage für ein langes, gesundes Tierleben.
-            Wir nehmen uns Zeit für gründliche Gesundheitschecks, führen Blut- und Urinanalysen
-            durch und entwickeln gemeinsam mit Ihnen individuelle Präventionspläne. Von der ersten
-            Impfung beim Welpen bis zur altersgerechten Betreuung Ihrer Senioren – wir begleiten
-            Ihr Tier in jeder Lebensphase mit kompetenter, vorausschauender Fürsorge.
-          </p>
-        </div>
-    <Image src="https://placehold.co/600x400" alt="Vorsorgeuntersuchung bei Tieren" width="500" height="500" class="rounded-2xl" />
-      </div>
-<div class="divider px-16"></div>
-      <!-- Feature Card 2 -->
-      <div class="flex flex-row-reverse items-center gap-4 p-12">
-        <div class="flex flex-1 flex-col gap-2">
-          <h3 class="text-2xl font-bold pl-12 pb-4">Akutbehandlung</h3>
-          <p class="text-base-content/80 text-md leading-relaxed text-pretty pl-12">
-            Wenn Ihr Tier Schmerzen hat, ungewöhnlich wirkt oder sich verletzt hat, sind wir schnell
-            zur Stelle. Unsere erfahrenen Tierärzte versorgen Ihr Tier kompetent und einfühlsam in
-            jeder dringenden Situation. Mit modernster Diagnostik erkennen wir schnell die Ursache
-            und leiten sofort die passende Behandlung ein – sei es bei akuten Erkrankungen,
-            Verletzungen oder Notfällen. Sie können sich darauf verlassen, dass wir alles tun, um
-            Ihrem Vierbeiner schnell wieder auf die Beine zu helfen.
-          </p>
-        </div>
-        <Image src="https://placehold.co/600x400" alt="Vorsorgeuntersuchung bei Tieren" width="500" height="500" class="rounded-2xl" />
-
-      </div>
-<div class="divider px-16"></div>
-      <!-- Feature Card 3 -->
-      <div class="flex items-center gap-4 p-12">
-        <div class="flex flex-1 flex-col gap-2 ">
-          <h3 class="text-2xl font-bold pb-4">Zahnmedizin</h3>
-          <p class="text-base-content/80 text-md leading-relaxed text-pretty pr-12">
-            Gesunde Zähne sind weit mehr als ein schönes Lächeln – sie sind essentiell für das
-            gesamte Wohlbefinden Ihres Tieres. Zahnprobleme können zu Schmerzen, Entzündungen und
-            sogar zu schwerwiegenden Folgeerkrankungen führen. Wir bieten professionelle
-            Zahnbehandlungen, von der regelmäßigen Kontrolle bis zur schonenden Zahnsteinentfernung
-            unter Narkose. Mit unserer Expertise erkennen wir Probleme frühzeitig und können Ihr
-            Tier so vor unnötigem Leid bewahren. Denn ein gesundes Gebiss bedeutet Lebensqualität.
-          </p>
-        </div>
-        <Image src="https://placehold.co/600x400" alt="Zahnmedizin bei Tieren" width="500" height="500" class="rounded-2xl" />
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-  /*-- -------------------------- -->
-    <---     Feature Cards         -->
-    <--- -------------------------- -*/
-
-  /* Mobile */
-  @media only screen and (min-width: 0rem) {
-    #sbs-2376 {
-      padding: var(--sectionPadding);
-      background-color: #fbf9f5;
-      box-sizing: border-box;
-    }
-    #sbs-2376 .cs-container {
-      width: 100%;
-      max-width: 80rem;
-      margin: auto;
-      padding: clamp(2rem, 8vw, 6.25rem) clamp(1rem, 3vw, 4rem);
-      background-color: #fff;
-      border-radius: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: clamp(2.5rem, 5vw, 3rem);
-    }
-    #sbs-2376 .cs-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(2rem, 4vw, 3rem);
-      width: 100%;
-    }
-    #sbs-2376 .cs-feature-card {
-      display: flex;
-      flex-direction: column;
-      gap: clamp(1.5rem, 3vw, 2rem);
-      padding: clamp(2rem, 5vw, 3rem);
-      background-color: #fbf9f5;
-      border-radius: 1rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    #sbs-2376 .cs-feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-    #sbs-2376 .cs-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    #sbs-2376 .cs-h3 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      line-height: 1.3em;
-      font-weight: 700;
-      margin: 0;
-      color: var(--headerColor);
-    }
-    #sbs-2376 .cs-text {
-      font-size: clamp(1rem, 2vw, 1.125rem);
-      line-height: 1.7em;
-      color: var(--bodyTextColor);
-      margin: 0;
-    }
-    #sbs-2376 .cs-picture {
-      width: 100%;
-      height: 50vw;
-      max-height: 400px;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      display: block;
-      order: -1;
-    }
-    #sbs-2376 .cs-picture img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-  }
-  /* Tablet - 768px */
-  @media only screen and (min-width: 48rem) {
-    #sbs-2376 .cs-feature-card {
-      flex-direction: row;
-      align-items: center;
-      gap: clamp(2rem, 4vw, 3rem);
-    }
-    #sbs-2376 .cs-feature-card.cs-reverse {
-      flex-direction: row-reverse;
-    }
-    #sbs-2376 .cs-content {
-      flex: 1;
-    }
-    #sbs-2376 .cs-picture {
-      width: 45%;
-      max-width: 400px;
-      height: auto;
-      aspect-ratio: 4/3;
-      order: 0;
-    }
-  }
-  /* Desktop - 1024px */
-  @media only screen and (min-width: 64rem) {
-    #sbs-2376 .cs-feature-card {
-      gap: clamp(2.5rem, 5vw, 4rem);
-    }
-</style>
+<SchwerpunkteTemplate
+  title="Unsere Schwerpunkte in der Allgemeinmedizin"
+  description="In unserer Allgemeinmedizin-Praxis legen wir besonderen Wert auf drei zentrale Bereiche, die das gesundheitliche Wohlergehen Ihrer Tiere umfassend abdecken: Von der regelmäßigen Vorsorge und gründlichen Gesundheitschecks über schnelle Akutbehandlungen bis hin zur professionellen Zahnmedizin – wir begleiten Ihr Tier in jeder Lebensphase mit kompetenter, einfühlsamer Betreuung."
+  schwerpunkte={schwerpunkte}
+  sectionId="schwerpunkte"
+  imageWidth={400}
+  imageHeight={400}
+/>
