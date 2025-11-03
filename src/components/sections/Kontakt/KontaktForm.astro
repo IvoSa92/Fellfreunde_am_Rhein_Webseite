@@ -1,0 +1,246 @@
+---
+import { Image } from 'astro:assets';
+import kontaktImage from '../../../assets/images/empfang.png';
+---
+
+<section class="bg-base-100 mx-auto max-w-screen-xl px-6 pt-32 pb-12">
+  <div class="flex flex-col gap-12 lg:flex-row lg:items-stretch lg:gap-16">
+    <!-- Left Section: Text + Image -->
+    <div class="flex flex-1 flex-col gap-8">
+      <!-- Text Content -->
+      <div class="flex flex-col gap-6">
+        <span class="text-primary text-md font-bold tracking-wider uppercase">KONTAKT</span>
+        <h2 class="text-4xl leading-tight font-bold lg:text-5xl">Wir sind für Sie da</h2>
+        <p class="text-base-content/80 max-w-lg text-base leading-relaxed">
+          Haben Sie Fragen oder möchten einen Termin vereinbaren? Kontaktieren Sie uns gerne –
+          telefonisch, per E-Mail oder über unser Kontaktformular. Wir freuen uns auf Sie und Ihren
+          Vierbeiner!
+        </p>
+      </div>
+
+      <!-- Image -->
+      <div class="w-full flex-1 overflow-hidden rounded-2xl">
+        <Image
+          src={kontaktImage}
+          alt="Contact image"
+          class="h-full w-full object-cover"
+          format="webp"
+        />
+      </div>
+    </div>
+
+    <!-- Right Section: Contact Cards + Form -->
+    <div class="flex flex-1 flex-col gap-8 lg:gap-24">
+      <!-- Contact Information Cards -->
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <!-- Phone Card -->
+        <div
+          class="bg-base-200/80 flex min-w-0 flex-col items-start gap-4 rounded-2xl p-5 shadow-sm"
+        >
+          <svg
+            class="text-primary h-12 w-12 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+            >
+            </path>
+          </svg>
+          <div class="flex w-full min-w-0 flex-col gap-1">
+            <h3 class="text-base-content font-bold">Telefon</h3>
+            <a
+              href="tel:+4922112345678"
+              class="text-base-content/80 hover:text-warning break-words"
+            >
+              0221 / 123 456 78
+            </a>
+          </div>
+        </div>
+
+        <!-- Location Card -->
+        <div
+          class="bg-base-200/80 flex min-w-0 flex-col items-start gap-4 rounded-2xl p-5 shadow-sm"
+        >
+          <svg
+            class="text-primary h-12 w-12 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            >
+            </path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            >
+            </path>
+          </svg>
+          <div class="flex w-full min-w-0 flex-col gap-1">
+            <h3 class="text-base-content font-bold">Standort</h3>
+            <a href="#" target="_blank" class="text-base-content/80 hover:text-warning break-words">
+              Jestetten
+            </a>
+          </div>
+        </div>
+
+        <!-- Email Card -->
+        <div
+          class="bg-base-200/80 flex min-w-0 flex-col items-start gap-4 rounded-2xl p-5 shadow-sm"
+        >
+          <svg
+            class="text-primary h-12 w-12 flex-shrink-0"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+            >
+            </path>
+          </svg>
+          <div class="flex w-full min-w-0 flex-col gap-1">
+            <h3 class="text-base-content font-bold">E-Mail</h3>
+            <a
+              href="mailto:kontakt@fellfreunde.de"
+              class="text-base-content/80 hover:text-warning break-words"
+            >
+              kontakt@fellfreunde.de
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <form
+        id="kontakt-form"
+        name="Contact Form"
+        method="post"
+        class="bg-info/10 grid flex-1 grid-cols-1 gap-3 rounded-2xl p-6 shadow-sm md:grid-cols-2 md:p-8"
+        style="grid-template-rows: auto auto auto auto auto auto 1fr auto;"
+      >
+        <!-- Vorname -->
+        <label class="flex flex-col gap-1 md:col-span-1">
+          <input
+            type="text"
+            id="vorname"
+            name="vorname"
+            placeholder="Vorname"
+            required
+            class="text-base-content focus:ring-warning/50 h-14 rounded-lg border-none bg-[#faf2e9] px-4 text-base placeholder:text-[#4c4a48] focus:ring-2 focus:outline-none"
+          />
+        </label>
+
+        <!-- Nachname -->
+        <label class="flex flex-col gap-1 md:col-span-1">
+          <input
+            type="text"
+            id="nachname"
+            name="nachname"
+            placeholder="Nachname"
+            required
+            class="text-base-content focus:ring-warning/50 h-14 rounded-lg border-none bg-[#faf2e9] px-4 text-base placeholder:text-[#4c4a48] focus:ring-2 focus:outline-none"
+          />
+        </label>
+
+        <!-- Email -->
+        <label class="flex flex-col gap-1 md:col-span-1">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="E-Mail-Adresse"
+            required
+            class="text-base-content focus:ring-warning/50 h-14 rounded-lg border-none bg-[#faf2e9] px-4 text-base placeholder:text-[#4c4a48] focus:ring-2 focus:outline-none"
+          />
+        </label>
+
+        <!-- Phone -->
+        <label class="flex flex-col gap-1 md:col-span-1">
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Telefonnummer"
+            required
+            class="text-base-content focus:ring-warning/50 h-14 rounded-lg border-none bg-[#faf2e9] px-4 text-base placeholder:text-[#4c4a48] focus:ring-2 focus:outline-none"
+          />
+        </label>
+
+        <!-- Name des Tieres -->
+        <label class="flex flex-col gap-1 md:col-span-1">
+          <input
+            type="text"
+            id="tiername"
+            name="tiername"
+            placeholder="Name Ihres Tieres"
+            class="text-base-content focus:ring-warning/50 h-14 rounded-lg border-none bg-[#faf2e9] px-4 text-base placeholder:text-[#4c4a48] focus:ring-2 focus:outline-none"
+          />
+        </label>
+
+        <!-- Services -->
+        <label class="flex flex-col gap-1 md:col-span-1">
+          <select
+            id="services"
+            name="services"
+            required
+            class="text-base-content focus:ring-warning/50 h-14 rounded-lg border-none bg-[#faf2e9] px-4 text-base focus:ring-2 focus:outline-none"
+          >
+            <option value="" disabled selected>Gewünschte Leistung</option>
+            <option value="allgemeinmedizin">Allgemeinmedizin</option>
+            <option value="chirurgie">Chirurgie & Zahnmedizin</option>
+            <option value="diagnostik">Diagnostik & Labor</option>
+            <option value="ernaehrung">Ernährungsberatung</option>
+            <option value="notfall">Notfall & Intensivversorgung</option>
+            <option value="physiotherapie">Physiotherapie & Reha</option>
+            <option value="sonstiges">Sonstiges</option>
+          </select>
+        </label>
+
+        <!-- Message Textarea -->
+        <label class="flex flex-1 flex-col gap-1 md:col-span-2">
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Ihre Nachricht..."
+            required
+            rows="5"
+            class="text-base-content focus:ring-warning/50 min-h-[120px] flex-1 rounded-lg border-none bg-[#faf2e9] px-4 py-4 text-base placeholder:text-[#4c4a48] focus:ring-2 focus:outline-none"
+          >
+          </textarea>
+        </label>
+
+        <!-- Submit Button -->
+        <div class="mt-auto md:col-span-2">
+          <button
+            type="submit"
+            class="group bg-primary text-base-content focus:ring-warning/20 relative w-full overflow-hidden rounded-lg px-6 py-4 text-base font-bold transition-all hover:cursor-pointer hover:text-white focus:ring-2 focus:outline-none md:w-auto"
+          >
+            <span class="relative z-10 transition-colors duration-300">Nachricht senden</span>
+            <span
+              class="bg-primary-content/20 absolute inset-0 h-full w-0 transition-all duration-300 group-hover:w-full"
+            >
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
