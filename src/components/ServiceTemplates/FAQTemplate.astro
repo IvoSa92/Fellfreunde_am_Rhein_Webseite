@@ -18,7 +18,7 @@ const firstColumn = fragen.slice(0, midpoint);
 const secondColumn = fragen.slice(midpoint);
 ---
 
-<section id={sectionId} class="pb-32">
+<section id={sectionId} class="px-4 pb-32">
   <svg
     class="cs-wave -mb-16"
     width="1920"
@@ -62,7 +62,7 @@ const secondColumn = fragen.slice(midpoint);
             const textAlignClass = index === 0 ? 'text-justify' : '';
 
             return (
-              <div class="faq-card hover:bg-primary/10 flex flex-col items-start justify-start rounded-lg border border-slate-200 bg-white p-3 hover:cursor-pointer">
+              <div class="faq-card hover:bg-info/20 border-info flex flex-col items-start justify-start rounded-lg border bg-white p-3 hover:cursor-pointer">
                 <button
                   type="button"
                   aria-disabled="false"
@@ -119,7 +119,7 @@ const secondColumn = fragen.slice(midpoint);
             const textAlignClass = index === 0 ? 'text-justify' : '';
 
             return (
-              <div class="faq-card hover:bg-primary/10 flex flex-col items-start justify-start rounded-lg border border-slate-200 bg-white p-3 hover:cursor-pointer">
+              <div class="faq-card hover:bg-info/20 border-info flex flex-col items-start justify-start rounded-lg border bg-white p-3 hover:cursor-pointer">
                 <button
                   type="button"
                   aria-disabled="false"

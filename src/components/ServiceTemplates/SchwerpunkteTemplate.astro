@@ -40,7 +40,7 @@ const {
       >
         {title}
       </h2>
-      <p class="text-base-content/80 text-md max-w-4xl leading-relaxed text-pretty">
+      <p class="text-base-content/80 max-w-4xl text-lg leading-relaxed text-pretty">
         {description}
       </p>
     </div>
@@ -51,11 +51,11 @@ const {
         schwerpunkte.map((schwerpunkt, index) => (
           <>
             <div
-              class={`flex flex-col items-center gap-4 p-6 md:flex-row md:items-stretch md:gap-8 md:p-12 ${index === 1 ? 'md:flex-row-reverse' : ''}`}
+              class={`flex flex-col items-center gap-8 p-6 md:flex-row md:items-stretch md:gap-8 md:p-12 ${index === 1 ? 'md:flex-row-reverse' : ''}`}
             >
               <div class="flex w-full flex-col items-start justify-center gap-2 md:w-auto md:max-w-md">
-                <h3 class="pb-4 text-left text-2xl font-bold">{schwerpunkt.title}</h3>
-                <p class="text-base-content/80 text-md text-left leading-relaxed text-pretty">
+                <h3 class="pb-4 text-left text-3xl font-bold">{schwerpunkt.title}</h3>
+                <p class="text-base-content/80 text-left text-lg leading-relaxed text-pretty">
                   {schwerpunkt.description}
                 </p>
               </div>
