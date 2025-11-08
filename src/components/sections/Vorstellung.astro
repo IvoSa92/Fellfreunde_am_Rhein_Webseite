@@ -100,14 +100,18 @@ const hotspots = [
             format="webp"
           />
           {
-            hotspots.map((spot) => (
+            hotspots.map((spot, index) => (
               <button
                 class="group absolute size-20 -translate-x-1/2 -translate-y-1/2 bg-transparent group-hover:opacity-100 hover:scale-105 lg:opacity-0"
                 style={`top:${spot.top};left:${spot.left};height:${spot.height};transition: opacity 500ms ease ${spot.delay}, transform 300ms ease 0s;`}
                 aria-label={`${spot.name} – ${spot.role}`}
               >
                 <span
-                  class="bg-secondary/70 text-base-content absolute bottom-full left-1/2 mb-2 -translate-x-1/2 rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap shadow-lg transition-opacity duration-500 group-hover:opacity-100 sm:opacity-100 lg:opacity-0"
+                  class={`bg-secondary/70 text-base-content absolute left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-sm font-medium whitespace-nowrap shadow-lg transition-opacity duration-500 group-hover:opacity-100 sm:opacity-100 lg:opacity-0 ${
+                    index === 1 || index === 3
+                      ? 'top-full mt-2 sm:top-auto sm:bottom-full sm:mt-0 sm:mb-2'
+                      : 'bottom-full mb-2'
+                  }`}
                   style={`transition-delay:${spot.delay};`}
                 >
                   {spot.name}
@@ -120,12 +124,12 @@ const hotspots = [
 
       {
         highlights.length > 0 && (
-          <div class="order-3 flex flex-wrap gap-4 lg:order-none lg:col-start-1 lg:row-start-2">
+          <div class="order-3 flex flex-col flex-wrap items-center gap-4 sm:flex-row lg:order-none lg:col-start-1 lg:row-start-2">
             {highlights.map((item) => (
-              <div class="badge badge-xl bg-base-200/70 text-base-content p-4">
-                <span class="font-semibold">{item.title}</span>
+              <div class="bg-base-200/70 text-base-content flex w-4/5 flex-col items-center gap-1 rounded-xl px-4 py-3 text-center sm:w-auto sm:flex-row sm:gap-2 sm:px-5 sm:py-3">
+                <span class="text-sm font-semibold sm:text-base">{item.title}</span>
                 {item.description && (
-                  <span class="text-base-content/70 ml-2 text-sm">{item.description}</span>
+                  <span class="text-base-content/70 text-xs sm:text-sm">{item.description}</span>
                 )}
               </div>
             ))}

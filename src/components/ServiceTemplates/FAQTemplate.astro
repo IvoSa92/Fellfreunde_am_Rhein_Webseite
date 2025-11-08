@@ -10,11 +10,7 @@ interface Props {
   sectionId?: string;
 }
 
-const {
-  fragen = [],
-  title = 'FAQ - Häufig gestellte Fragen',
-  sectionId = 'faq',
-} = Astro.props;
+const { fragen = [], title = 'FAQ - Häufig gestellte Fragen', sectionId = 'faq' } = Astro.props;
 
 // Split fragen into two columns (first half and second half)
 const midpoint = Math.ceil(fragen.length / 2);

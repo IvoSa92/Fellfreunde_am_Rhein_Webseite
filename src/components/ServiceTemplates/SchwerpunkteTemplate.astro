@@ -32,9 +32,9 @@ const {
 
 <section id={sectionId} class="pt-32">
   <div
-    class="bg-info/10 border-info/20 rounded-b-8xl mx-auto w-full max-w-screen-xl rounded-2xl border-6 py-16"
+    class="bg-info/10 border-info/20 rounded-b-8xl mx-auto w-full max-w-screen-xl rounded-2xl border-6 px-4 py-16 md:px-16"
   >
-    <div class="ml-16 flex flex-col items-start justify-center gap-4 pb-8">
+    <div class="flex flex-col items-start justify-center gap-4 px-6 pb-8 md:px-16">
       <h2
         class="font-header text-base-content decoration-primary-content pb-4 text-3xl/tight text-balance underline underline-offset-6 sm:text-4xl/tight"
       >
@@ -44,30 +44,33 @@ const {
         {description}
       </p>
     </div>
-    <div class="divider px-16"></div>
+    <div class="divider px-4 md:px-16"></div>
     <div class="flex flex-col items-center justify-center">
       <!-- Feature Card 1 -->
       {
         schwerpunkte.map((schwerpunkt, index) => (
           <>
             <div
-              class={`flex items-center p-12 ${index === 1 ? 'flex-row-reverse gap-8' : 'gap-4'}`}
+              class={`flex flex-col items-center gap-4 p-6 md:flex-row md:items-stretch md:gap-8 md:p-12 ${index === 1 ? 'md:flex-row-reverse' : ''}`}
             >
-              <div class="flex flex-1 flex-col gap-2">
-                <h3 class="pb-4 text-2xl font-bold">{schwerpunkt.title}</h3>
-                <p class="text-base-content/80 text-md pr-12 leading-relaxed text-pretty">
+              <div class="flex w-full flex-col items-start justify-center gap-2 md:w-auto md:max-w-md">
+                <h3 class="pb-4 text-left text-2xl font-bold">{schwerpunkt.title}</h3>
+                <p class="text-base-content/80 text-md text-left leading-relaxed text-pretty">
                   {schwerpunkt.description}
                 </p>
               </div>
-              <Image
-                src={schwerpunkt.image || placeholderImageSrc}
-                alt={schwerpunkt.imageAlt || ''}
-                width={imageWidth}
-                height={imageHeight}
-                class="placeholder-image rounded-2xl"
-              />
+              <div class="w-full flex-shrink-0 md:w-auto">
+                <Image
+                  src={schwerpunkt.image || placeholderImageSrc}
+                  alt={schwerpunkt.imageAlt || ''}
+                  width={imageWidth}
+                  height={imageHeight}
+                  format="webp"
+                  class="placeholder-image h-full w-full max-w-xs rounded-2xl object-cover md:h-auto md:w-auto md:max-w-none"
+                />
+              </div>
             </div>
-            {index < schwerpunkte.length - 1 && <div class="divider px-16" />}
+            {index < schwerpunkte.length - 1 && <div class="divider px-4 md:px-16" />}
           </>
         ))
       }
