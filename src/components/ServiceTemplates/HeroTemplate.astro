@@ -40,29 +40,31 @@ const {
 ---
 
 <!-- ============================================ --><!--                    Hero                      --><!-- ============================================ -->
-<section id={sectionId} class="w-full">
+<section id={sectionId} class="w-full pt-12">
   <div
-    class="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center gap-16 px-6 py-28 md:flex-row md:gap-24"
+    class="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center gap-12 px-6 py-16 sm:gap-16 sm:py-20 md:flex-row md:gap-24 md:py-28"
   >
-    <div class="flex flex-col gap-12">
-      <h1 class="text-6xl/tight">{h1Text}</h1>
-      <p class="text-base-content/90 text-lg leading-relaxed">
+    <div class="flex flex-col gap-8 text-center md:gap-12 md:text-left">
+      <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight">{h1Text}</h1>
+      <p class="text-base-content/90 text-base leading-relaxed sm:text-lg">
         {paragraphText}
       </p>
       {
         buttonLink ? (
-          <a href={buttonLink} class="btn btn-primary w-1/2">
+          <a href={buttonLink} class="btn btn-primary mx-auto w-full sm:w-2/3 md:mx-0 md:w-1/2">
             {buttonText}
           </a>
         ) : (
-          <button class="btn btn-primary w-1/2">{buttonText}</button>
+          <button class="btn btn-primary mx-auto w-full sm:w-2/3 md:mx-0 md:w-1/2">
+            {buttonText}
+          </button>
         )
       }
 
       {
         decorativeImage && (
           <Image
-            class="-translate-x-12 -translate-y-12"
+            class="hidden md:block md:-translate-x-12 md:-translate-y-12"
             src={decorativeImage}
             alt={decorativeImageAlt}
             width={decorativeImageWidth}
@@ -78,10 +80,8 @@ const {
       width={heroImageWidth}
       height={heroImageHeight}
       format="webp"
-      class="relative rounded-3xl shadow-lg md:w-1/2"
+      class="relative w-full rounded-3xl shadow-lg md:w-1/2"
     />
-    <!--Circle Background-->
-    <!--Download the SVG from the CDN by copy ad pasting its link into your browser and saving it. Then the cs-circle fill property should override it and set it to the primary color of your site-->
     <img
       class="absolute -z-10 max-w-full"
       decoding="async"
@@ -98,7 +98,7 @@ const {
   showWaves && (
     <>
       <svg
-        class="cs-wave -mb-16 w-full"
+        class="cs-wave -mb-34 w-full md:-mb-12"
         width="1920"
         height="167"
         viewBox="0 0 1920 167"
@@ -111,7 +111,7 @@ const {
         />
       </svg>
       <svg
-        class="cs-wave mt-12 w-full rotate-180"
+        class="cs-wave w-full rotate-180"
         width="1920"
         height="167"
         viewBox="0 0 1920 167"
