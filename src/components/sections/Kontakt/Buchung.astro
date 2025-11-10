@@ -1,0 +1,129 @@
+---
+// src/components/sections/Kontakt/Buchung.astro
+---
+
+<section class="mx-auto max-w-screen-xl px-6 py-16">
+  <div class="flex flex-col gap-8">
+    <!-- Header -->
+    <div class="text-center">
+      <h2 class="text-4xl font-bold">Termin online buchen</h2>
+      <p class="text-base-content/80 mt-4 text-lg">
+        Wählen Sie die gewünschte Behandlung und buchen Sie direkt online
+      </p>
+    </div>
+
+    <!-- Service Cards -->
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <!-- 30 Min Termin -->
+      <div class="card bg-base-200 shadow-lg transition hover:shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title text-primary-content text-2xl">Vorstellungstermin</h3>
+          <p class="text-base-content/70">
+            Erster Besuch in unserer Praxis - lernen Sie uns kennen
+          </p>
+          <div class="mt-4 flex items-center gap-2">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              >
+              </path>
+            </svg>
+            <span class="text-lg font-semibold">30 Minuten</span>
+          </div>
+          <button
+            data-cal-link="fellfreunde/30min"
+            data-cal-namespace="termin30"
+            data-cal-config='{"layout":"month_view"}'
+            class="btn btn-primary btn-lg mt-6"
+          >
+            Termin wählen
+          </button>
+        </div>
+      </div>
+
+      <!-- 15 Min Termin -->
+      <div class="card bg-base-200 shadow-lg transition hover:shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title text-info text-2xl">Behandlungstermin</h3>
+          <p class="text-base-content/70">Schnelle Fragen zu Ernährung, Verhalten oder Pflege</p>
+          <div class="mt-4 flex items-center gap-2">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+              >
+              </path>
+            </svg>
+            <span class="text-lg font-semibold">60 Minuten</span>
+          </div>
+          <button
+            data-cal-link="fellfreunde/15min"
+            data-cal-namespace="termin15"
+            data-cal-config='{"layout":"month_view"}'
+            class="btn bg-info/20 btn-lg hover:bg-info/30 mt-6"
+          >
+            Termin wählen
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cal.com Embed Script - NUR EINMAL! -->
+<script is:inline>
+  (function (C, A, L) {
+    let p = function (a, ar) {
+      a.q.push(ar);
+    };
+    let d = C.document;
+    C.Cal =
+      C.Cal ||
+      function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement('script')).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () {
+            p(api, arguments);
+          };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === 'string') {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ['initNamespace', namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+  })(window, 'https://app.cal.com/embed/embed.js', 'init');
+
+  // Initialize beide Termine (aber Modal öffnet nur bei Klick!)
+  Cal('init', 'termin30', { origin: 'https://app.cal.com' });
+  Cal('init', 'termin15', { origin: 'https://app.cal.com' });
+
+  // Configure UI
+  Cal.ns['termin30']('ui', {
+    hideEventTypeDetails: false,
+    layout: 'month_view',
+    theme: 'light',
+  });
+
+  Cal.ns['termin15']('ui', {
+    hideEventTypeDetails: false,
+    layout: 'month_view',
+    theme: 'light',
+  });
+</script>

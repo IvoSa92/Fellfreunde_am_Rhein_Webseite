@@ -230,10 +230,15 @@ import kontaktImage from '../../../assets/images/empfang.png';
         <!-- Submit Button -->
         <div class="mt-auto md:col-span-2">
           <button
+            id="kontakt-submit"
             type="submit"
-            class="group bg-primary text-base-content focus:ring-warning/20 relative w-full overflow-hidden rounded-lg px-6 py-4 text-base font-bold transition-all hover:cursor-pointer hover:text-white focus:ring-2 focus:outline-none md:w-auto"
+            class="group bg-primary text-base-content focus:ring-warning/20 relative w-full min-w-64 overflow-hidden rounded-lg px-6 py-4 text-base font-bold transition-all hover:cursor-pointer hover:text-white focus:ring-2 focus:outline-none md:w-auto"
           >
-            <span class="relative z-10 transition-colors duration-300">Nachricht senden</span>
+            <span id="kontakt-submit-text" class="relative z-10 transition-all duration-300">
+              Nachricht senden
+            </span>
+            <span id="kontakt-submit-loading" class="loading loading-dots loading-md hidden"></span>
+
             <span
               class="bg-primary-content/20 absolute inset-0 h-full w-0 transition-all duration-300 group-hover:w-full"
             >
@@ -244,3 +249,150 @@ import kontaktImage from '../../../assets/images/empfang.png';
     </div>
   </div>
 </section>
+
+<script>
+  class ContactFormManager {
+    private form: HTMLFormElement;
+    private submitButton: HTMLButtonElement;
+    private submitText: HTMLElement;
+    private submitLoading: HTMLElement;
+
+    private readonly LOADING_DURATION = 2000;
+    private readonly SUCCESS_DURATION = 3000;
+    private readonly SUCCESS_CLASSES = ['bg-[#628273]', 'text-white'];
+    private readonly PRIMARY_CLASSES = ['bg-primary'];
+
+    constructor(formId: string) {
+      const form = document.getElementById(formId) as HTMLFormElement;
+      const submitButton = document.getElementById('kontakt-submit') as HTMLButtonElement;
+      const submitText = document.getElementById('kontakt-submit-text') as HTMLElement;
+      const submitLoading = document.getElementById('kontakt-submit-loading') as HTMLElement;
+
+      if (!form || !submitButton || !submitText || !submitLoading) {
+        throw new Error('Kontaktformular-Elemente nicht gefunden');
+      }
+
+      this.form = form;
+      this.submitButton = submitButton;
+      this.submitText = submitText;
+      this.submitLoading = submitLoading;
+
+      this.init();
+    }
+
+    private init(): void {
+      this.form.addEventListener('submit', this.handleSubmit.bind(this));
+    }
+
+    private async handleSubmit(e: Event): Promise<void> {
+      e.preventDefault();
+
+      try {
+        this.setLoadingState(true);
+
+        const formData = new FormData(this.form);
+        const data = Object.fromEntries(formData);
+        console.log('📤 Form Daten:', data);
+
+        const success = await this.submitData(formData);
+
+        if (success) {
+          this.showSuccess();
+          this.form.reset();
+          setTimeout(() => this.resetButton(), this.SUCCESS_DURATION);
+        }
+      } catch (error) {
+        console.error('❌ Fehler beim Absenden:', error);
+        this.showError();
+      }
+    }
+
+    private setLoadingState(isLoading: boolean): void {
+      if (isLoading) {
+        this.submitText.classList.add('hidden');
+        this.submitLoading.classList.remove('hidden');
+        this.submitButton.disabled = true;
+      } else {
+        this.submitText.classList.remove('hidden');
+        this.submitLoading.classList.add('hidden');
+        this.submitButton.disabled = false;
+      }
+    }
+
+    private showSuccess(): void {
+      this.setLoadingState(false);
+      this.submitText.textContent = '✓ Nachricht gesendet';
+      this.submitButton.classList.add(...this.SUCCESS_CLASSES);
+      this.submitButton.classList.remove(...this.PRIMARY_CLASSES);
+      console.log('✅ Formular erfolgreich abgesendet');
+    }
+
+    private showError(): void {
+      this.setLoadingState(false);
+      this.submitText.textContent = '✗ Fehler beim Senden';
+      this.submitButton.classList.add('bg-error', 'text-white');
+      this.submitButton.classList.remove(...this.PRIMARY_CLASSES);
+      setTimeout(() => this.resetButton(), 5000);
+    }
+
+    private resetButton(): void {
+      this.submitText.textContent = 'Nachricht senden';
+      this.submitButton.classList.remove(...this.SUCCESS_CLASSES, 'bg-error', 'text-white');
+      this.submitButton.classList.add(...this.PRIMARY_CLASSES);
+      this.submitButton.disabled = false;
+    }
+
+    private async submitData(formData: FormData): Promise<boolean> {
+      return new Promise((resolve) => {
+        setTimeout(() => resolve(true), this.LOADING_DURATION);
+      });
+    }
+
+    public fillWithTestData(data: Record<string, string>): void {
+      Object.entries(data).forEach(([key, value]) => {
+        const input = this.form.querySelector(`[name="${key}"]`) as
+          | HTMLInputElement
+          | HTMLSelectElement
+          | HTMLTextAreaElement;
+        if (input) input.value = value;
+      });
+      console.log('✓ Formular mit Test-Daten ausgefüllt');
+    }
+  }
+
+  let formManager: ContactFormManager;
+
+  function initForm() {
+    try {
+      formManager = new ContactFormManager('kontakt-form');
+      console.log('✅ Kontaktformular initialisiert');
+    } catch (error) {
+      console.error('❌ Fehler bei Initialisierung:', error);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initForm);
+  } else {
+    initForm();
+  }
+
+  if (import.meta.env.DEV) {
+    document.addEventListener('keydown', (e) => {
+      if (e.metaKey && e.shiftKey && e.key === 'o') {
+        e.preventDefault();
+        formManager?.fillWithTestData({
+          vorname: 'Max',
+          nachname: 'Mustermann',
+          email: 'max.mustermann@example.com',
+          phone: '0123456789',
+          tiername: 'Bello',
+          services: 'allgemeinmedizin',
+          message: 'Ich habe eine Frage zum Tierarzt',
+        });
+      }
+    });
+
+    console.log('🔧 Dev-Mode: Drücke Cmd+Shift+O zum Befüllen');
+  }
+</script>
