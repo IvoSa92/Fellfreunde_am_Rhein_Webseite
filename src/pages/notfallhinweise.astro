@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NotfallHero from '../components/sections/Notfallhinweise/Hero.astro';
+import NotfallContent from '../components/sections/Notfallhinweise/Content.astro';
+import NotfallCards from '../components/sections/Notfallhinweise/Cards.astro';
+import NotfallFAQ from '../components/sections/Notfallhinweise/FAQ.astro';
+---
+
+<BaseLayout
+  title="Notfallhinweise – Fellfreunde am Rhein"
+  description="Wichtige Hinweise und Informationen für tiermedizinische Notfälle. Was tun im Ernstfall? Hier finden Sie die wichtigsten Tipps."
+>
+  <NotfallHero />
+  <NotfallCards />
+  <NotfallContent />
+  <NotfallFAQ />
+</BaseLayout>
+

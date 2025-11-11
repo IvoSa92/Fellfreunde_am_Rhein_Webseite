@@ -1,17 +1,20 @@
 ---
 import HeroTemplate from '../../ServiceTemplates/HeroTemplate.astro';
 import hero from '../../../assets/images/physio_hero.png';
-import cat from '../../../assets/images/pfoten.png';
+import cat from '../../../assets/images/physio_deco.png';
 ---
 
 <HeroTemplate
   h1Text="Physiotherapie & Reha für mehr Bewegungsfreude"
   paragraphText="Bewegung ist Leben – und bei Einschränkungen leidet die Lebensqualität. Mit gezielter Physiotherapie, Schmerztherapie und individuellen Reha-Programmen helfen wir Ihrem Tier, Mobilität zurückzugewinnen, Schmerzen zu lindern und wieder aktiv am Leben teilzuhaben."
   buttonText="Therapie-Termin vereinbaren"
+  buttonLink="/kontakt"
   imageSrc={hero}
   imageAlt="Physiotherapie bei Tieren"
   decorativeImage={cat}
-  decorativeImageAlt="Katze hinterlässt Pfotenabdrücke"
+  decorativeImageAlt="Physiotherapie Deko"
+  decorativeImageWidth={300}
+  decorativeImageHeight={300}
   showWaves={true}
   sectionId="physiotherapie-reha-hero"
 />

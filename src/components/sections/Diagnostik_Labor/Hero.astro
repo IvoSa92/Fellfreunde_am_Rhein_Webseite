@@ -1,17 +1,20 @@
 ---
 import HeroTemplate from '../../ServiceTemplates/HeroTemplate.astro';
 import hero from '../../../assets/images/labor_hero.png';
-import cat from '../../../assets/images/pfoten.png';
+import cat from '../../../assets/images/labor_deco.png';
 ---
 
 <HeroTemplate
   h1Text="Diagnostik & Labor für präzise Befunde"
   paragraphText="Mit modernster Labortechnik und bildgebenden Verfahren ermitteln wir schnell und zuverlässig die Ursachen von Beschwerden. Unsere umfassende Diagnostik bildet die Grundlage für eine gezielte Behandlung und gibt Ihnen Sicherheit über den Gesundheitszustand Ihres Tieres."
   buttonText="Diagnostik-Termin vereinbaren"
+  buttonLink="/kontakt"
   imageSrc={hero}
   imageAlt="Tierärzte bei der Labordiagnostik"
   decorativeImage={cat}
-  decorativeImageAlt="Katze hinterlässt Pfotenabdrücke"
+  decorativeImageAlt="Labor Deko"
+  decorativeImageWidth={200}
+  decorativeImageHeight={200}
   showWaves={true}
   sectionId="diagnostik-labor-hero"
 />

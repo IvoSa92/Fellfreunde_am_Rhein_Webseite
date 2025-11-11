@@ -1,0 +1,274 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<section class="bg-base-100 py-16 md:py-24">
+  <div class="mx-auto max-w-screen-xl px-6">
+    <div class="mb-16 text-center">
+      <span class="text-primary mb-4 block text-sm font-bold tracking-wider uppercase">
+        Erste Hilfe
+      </span>
+      <h2 class="text-3xl font-bold sm:text-4xl lg:text-5xl">Was Sie im Notfall tun sollten</h2>
+    </div>
+
+    <div class="grid gap-12 lg:grid-cols-2">
+      <!-- Allgemeine Notfall-Maßnahmen -->
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title mb-6 text-2xl">Allgemeine Notfall-Maßnahmen</h3>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="badge badge-primary badge-lg shrink-0">1</div>
+              <div>
+                <h4 class="mb-2 font-bold">Ruhe bewahren</h4>
+                <p class="text-base-content/80 text-sm">
+                  Ihr Tier spürt Ihre Aufregung. Bleiben Sie so ruhig wie möglich, um die Situation
+                  nicht zu verschlimmern.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="badge badge-primary badge-lg shrink-0">2</div>
+              <div>
+                <h4 class="mb-2 font-bold">Tierarzt kontaktieren</h4>
+                <p class="text-base-content/80 text-sm">
+                  Rufen Sie uns sofort an und beschreiben Sie die Symptome. Wir bereiten alles für
+                  Ihre Ankunft vor.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="badge badge-primary badge-lg shrink-0">3</div>
+              <div>
+                <h4 class="mb-2 font-bold">Tier sichern</h4>
+                <p class="text-base-content/80 text-sm">
+                  Auch zahme Tiere können bei Schmerzen beißen oder kratzen. Schützen Sie sich und
+                  Ihr Tier.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="badge badge-primary badge-lg shrink-0">4</div>
+              <div>
+                <h4 class="mb-2 font-bold">Vorsichtiger Transport</h4>
+                <p class="text-base-content/80 text-sm">
+                  Bewegen Sie das Tier so wenig wie möglich. Bei Verdacht auf Knochenbrüche eine
+                  feste Unterlage verwenden.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="badge badge-primary badge-lg shrink-0">5</div>
+              <div>
+                <h4 class="mb-2 font-bold">Informationen sammeln</h4>
+                <p class="text-base-content/80 text-sm">
+                  Merken Sie sich Zeitpunkt, Symptome und mögliche Ursachen. Diese Infos helfen uns
+                  bei der Diagnose.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Was Sie NICHT tun sollten -->
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title text-error mb-6 text-2xl">Was Sie NICHT tun sollten</h3>
+          <div class="space-y-4">
+            <div class="alert alert-error">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                >
+                </path>
+              </svg>
+              <div class="text-error-content">
+                <h4 class="font-bold">Keine Medikamente ohne Rücksprache</h4>
+                <p class="text-sm">
+                  Geben Sie niemals Humanmedikamente! Viele sind für Tiere giftig.
+                </p>
+              </div>
+            </div>
+
+            <div class="alert alert-error">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                >
+                </path>
+              </svg>
+              <div class="text-error-content">
+                <h4 class="font-bold">Nicht abwarten bei Vergiftungen</h4>
+                <p class="text-sm">Bei Vergiftungen gilt: Sofort handeln! Jede Minute zählt.</p>
+              </div>
+            </div>
+
+            <div class="alert alert-error">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                >
+                </path>
+              </svg>
+              <div class="text-error-content">
+                <h4 class="font-bold">Kein Erbrechen erzwingen</h4>
+                <p class="text-sm">
+                  Bei Vergiftungen nicht eigenständig Erbrechen auslösen – kann mehr schaden als
+                  helfen!
+                </p>
+              </div>
+            </div>
+
+            <div class="alert alert-error">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                >
+                </path>
+              </svg>
+              <div class="text-error-content">
+                <h4 class="font-bold">Keine eiskalten Bäder bei Hitzschlag</h4>
+                <p class="text-sm">
+                  Mit lauwarmem Wasser kühlen, nicht eiskalt – sonst droht ein Schock!
+                </p>
+              </div>
+            </div>
+
+            <div class="alert alert-error">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                >
+                </path>
+              </svg>
+              <div class="text-error-content">
+                <h4 class="font-bold">Blutungen nicht abbinden</h4>
+                <p class="text-sm">
+                  Druckverband statt Abbinden! Abbinden kann zu Gewebeschäden führen.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notfall-Checkliste -->
+    <div class="mt-16">
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <h3 class="card-title mb-6 text-2xl">
+            Notfall-Checkliste: Das gehört in Ihre Tier-Hausapotheke
+          </h3>
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div>
+              <h4 class="text-primary-content mb-3 font-extrabold underline">Verbandsmaterial</h4>
+              <ul class="text-base-content/80 space-y-2 text-sm">
+                <li>✓ Sterile Kompressen</li>
+                <li>✓ Mullbinden</li>
+                <li>✓ Verbandwatte</li>
+                <li>✓ Selbsthaftende Binden</li>
+                <li>✓ Pflaster & Klebeband</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="text-primary-content mb-3 font-extrabold underline">
+                Instrumente & Hilfsmittel
+              </h4>
+              <ul class="text-base-content/80 space-y-2 text-sm">
+                <li>✓ Fieberthermometer (digital)</li>
+                <li>✓ Pinzette & Zeckenzange</li>
+                <li>✓ Schere (abgerundet)</li>
+                <li>✓ Einweghandschuhe</li>
+                <li>✓ Taschenlampe</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="text-primary-content mb-3 font-extrabold underline">Weitere Utensilien</h4>
+              <ul class="text-base-content/80 space-y-2 text-sm">
+                <li>✓ Desinfektionsmittel</li>
+                <li>✓ Wundspray</li>
+                <li>✓ Decke/Handtücher</li>
+                <li>✓ Notfallnummern (laminiert)</li>
+                <li>✓ Maulkorb/Halskragen</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="alert alert-info">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              class="h-6 w-6 shrink-0 stroke-current"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              >
+              </path>
+            </svg>
+            <div class="text-info-content">
+              <h4 class="font-bold">Wichtiger Hinweis</h4>
+              <p class="text-sm">
+                Medikamente nur nach Rücksprache mit uns! Bewahren Sie alle verschriebenen
+                Medikamente gut auf und notieren Sie Ablaufdaten.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

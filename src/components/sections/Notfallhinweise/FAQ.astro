@@ -1,0 +1,43 @@
+---
+import FAQTemplate from '../../ServiceTemplates/FAQTemplate.astro';
+
+const fragen = [
+  {
+    question: 'Wann ist ein Notfall wirklich ein Notfall?',
+    answer:
+      'Ein Notfall liegt vor, wenn das Leben Ihres Tieres akut bedroht ist oder starke Schmerzen bestehen. Dazu zählen: <strong>Atemnot</strong>, starke Blutungen, <strong>Bewusstlosigkeit</strong>, Krampfanfälle über 5 Minuten, <strong>Vergiftungen</strong>, Magendrehung, schwere Verletzungen oder extreme Verhaltensänderungen. Im Zweifelsfall: <strong>Lieber einmal zu viel anrufen als zu spät!</strong>',
+  },
+  {
+    question: 'Was mache ich, wenn mein Tier etwas Giftiges gefressen hat?',
+    answer:
+      'Rufen Sie <strong>SOFORT</strong> an, auch wenn Ihr Tier noch keine Symptome zeigt! Bringen Sie wenn möglich die Verpackung oder Reste mit. Lösen Sie <strong>NICHT eigenständig Erbrechen aus</strong> – das kann je nach Gift mehr schaden als helfen. Je schneller wir handeln, desto besser die Prognose. <strong>Häufige Gifte:</strong> Schokolade, Rosinen/Weintrauben, Zwiebeln/Knoblauch, Xylitol (Süßstoff), Frostschutzmittel, Rattengift, viele Zimmerpflanzen (besonders Lilien bei Katzen).',
+  },
+  {
+    question: 'Wie erkenne ich eine Magendrehung?',
+    answer:
+      'Eine Magendrehung ist ein <strong>absoluter Notfall</strong>, besonders bei großen Hunden! Typische Anzeichen: Der Bauch bläht sich schnell auf und wird sehr hart, das Tier versucht zu erbrechen (würgt erfolglos), ist stark unruhig, speichelt stark und zeigt zunehmende Schwäche bis zum Kollaps. <strong>Handeln Sie SOFORT:</strong> Eine Magendrehung ist innerhalb weniger Stunden tödlich! Rufen Sie sofort an und kommen Sie direkt zu uns – hier zählt jede Minute!',
+  },
+  {
+    question: 'Mein Tier hatte einen Unfall – wie transportiere ich es sicher?',
+    answer:
+      'Bewegen Sie das Tier so wenig wie möglich. Bei Verdacht auf <strong>Wirbelsäulenverletzung oder Knochenbrüche</strong>: Legen Sie es vorsichtig auf eine feste Unterlage (Brett, Decke). Halten Sie Kopf und Hals in einer geraden Linie. Achten Sie auf Atmung. Bei Schockzuständen warm halten. <strong>Vorsicht:</strong> Auch zahme Tiere können bei starken Schmerzen beißen – ggf. vorsichtig Maul sichern (aber nur, wenn keine Atemnot!). Fahren Sie vorausschauend und kontaktieren Sie uns bereits während der Fahrt.',
+  },
+  {
+    question: 'Was ist bei einem Hitzschlag zu tun?',
+    answer:
+      'Bringen Sie das Tier sofort aus der Hitze an einen kühlen, schattigen Ort. Beginnen Sie mit Kühlung: Befeuchten Sie Pfoten, Bauch und Achseln mit <strong>lauwarmem (NICHT eiskaltem!)</strong> Wasser. Bieten Sie Wasser an, aber zwingen Sie nicht zum Trinken. Kühlen Sie während der Fahrt zu uns weiter. <strong>Warnung:</strong> Ein Hitzschlag kann auch Stunden später noch zu Organversagen führen! Auch wenn sich Ihr Tier erholt zu haben scheint, muss es unbedingt untersucht werden.',
+  },
+  {
+    question: 'Wie stoppe ich eine Blutung bis zum Tierarztbesuch?',
+    answer:
+      'Legen Sie sterile Kompressen oder ein sauberes Tuch auf die Wunde und drücken Sie fest (<strong>Druckverband</strong>). Binden Sie NICHT ab! Bei starken Blutungen an Gliedmaßen können Sie zusätzlich oberhalb der Wunde drücken. Entfernen Sie keine Fremdkörper aus tiefen Wunden – lassen Sie das den Tierarzt machen. Halten Sie den Druck während des gesamten Transports aufrecht. Bei lebensbedrohlichen Blutungen: Rufen Sie uns an, wir leiten Sie an!',
+  },
+];
+---
+
+<FAQTemplate
+  fragen={fragen}
+  title="Häufig gestellte Fragen zu Notfällen"
+  sectionId="notfallhinweise-faq"
+/>
+

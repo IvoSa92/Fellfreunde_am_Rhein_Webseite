@@ -1,17 +1,20 @@
 ---
 import HeroTemplate from '../../ServiceTemplates/HeroTemplate.astro';
 import hero from '../../../assets/images/notfall_hero.png';
-import cat from '../../../assets/images/pfoten.png';
+import cat from '../../../assets/images/notfall_hamster.png';
 ---
 
 <HeroTemplate
   h1Text="Notfall- & Intensivversorgung – schnell und sicher"
   paragraphText="In kritischen Momenten zählt jede Sekunde. Unser erfahrenes Notfallteam steht bereit, um Ihr Tier in lebensbedrohlichen Situationen sofort zu versorgen. Mit modernster Intensivmedizin, 24-Stunden-Überwachung und höchster Expertise kämpfen wir um jedes Leben."
   buttonText="Notfall-Kontakt anzeigen"
+  buttonLink="/kontakt"
   imageSrc={hero}
   imageAlt="Tierarzt in Notfallversorgung"
   decorativeImage={cat}
-  decorativeImageAlt="Katze hinterlässt Pfotenabdrücke"
+  decorativeImageAlt="Hamster"
+  decorativeImageWidth={300}
+  decorativeImageHeight={300}
   showWaves={true}
   sectionId="notfall-intensiv-hero"
 />
