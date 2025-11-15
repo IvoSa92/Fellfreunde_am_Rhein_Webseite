@@ -171,7 +171,8 @@ const secondColumn = fragen.slice(midpoint);
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  // Function to initialize FAQ accordions
+  const initializeFAQs = () => {
     // Find all accordion buttons
     const accordionButtons = document.querySelectorAll<HTMLElement>('[aria-controls]');
 
@@ -203,6 +204,10 @@ const secondColumn = fragen.slice(midpoint);
 
       const content = document.getElementById(contentId);
       if (!content) return;
+
+      // Skip if already initialized
+      if (button.dataset.faqInitialized === 'true') return;
+      button.dataset.faqInitialized = 'true';
 
       // Function to toggle accordion
       const toggleAccordion = () => {
@@ -256,5 +261,19 @@ const secondColumn = fragen.slice(midpoint);
       if (resizeTimeout) clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(synchronizeButtonHeights, 100);
     });
-  });
+  };
+
+  // Initialize on DOMContentLoaded (first page load)
+  document.addEventListener('DOMContentLoaded', initializeFAQs);
+
+  // Re-initialize after View Transitions navigation
+  document.addEventListener('astro:page-load', initializeFAQs);
+
+  // Also run immediately in case the script loads after DOMContentLoaded
+  if (document.readyState === 'loading') {
+    // Still loading, wait for DOMContentLoaded
+  } else {
+    // Already loaded, run immediately
+    initializeFAQs();
+  }
 </script>
