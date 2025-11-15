@@ -216,8 +216,8 @@ html {
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition:
-    width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    width 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.3s ease,
     opacity 0.3s ease;
   opacity: 0.5;
@@ -225,14 +225,14 @@ html {
 
 /* Hover-Zustand für interaktive Elemente */
 .cursor-dot.cursor-hover {
-  width: 12px;
-  height: 12px;
+  width: 1px;
+  height: 1px;
   background-color: var(--color-warning);
 }
 
 .cursor-outline.cursor-hover {
-  width: 50px;
-  height: 50px;
+  width: 10px;
+  height: 10px;
   border-color: var(--color-primary);
   opacity: 0.7;
   border-width: 3px;
