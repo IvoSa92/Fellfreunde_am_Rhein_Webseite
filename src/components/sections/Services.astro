@@ -25,7 +25,7 @@ const { id = 'services', heading, intro = '', services = [] } = Astro.props as P
 
 <section id={id} aria-labelledby={`${id}-heading`} class="bg-base-100">
   <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-    <div class="w-full text-center">
+    <div class="w-full text-center" data-animate="fade-up">
       <h2
         id={`${id}-heading`}
         class="font-header decoration-primary-content text-3xl/tight text-balance underline underline-offset-6 sm:text-4xl/tight"
@@ -39,10 +39,14 @@ const { id = 'services', heading, intro = '', services = [] } = Astro.props as P
     {
       services.length > 0 && (
         <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <article class="border-base-200 from-success/10 to-base-100 hover:border-base-3ƒ00 group flex h-full flex-col gap-4 rounded-2xl border bg-gradient-to-tl p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <article 
+                class="border-base-200 from-success/10 to-base-100 hover:border-base-3ƒ00 group flex h-full flex-col gap-4 rounded-2xl border bg-gradient-to-tl p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                data-animate="fade-up"
+                data-delay={index * 100}
+              >
                 <div class="flex items-center gap-6">
                   {Icon && (
                     <span class="bg-primary/10 text-primary inline-flex size-12 items-center justify-center rounded-full">

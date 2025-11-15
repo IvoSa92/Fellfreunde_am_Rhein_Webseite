@@ -45,17 +45,32 @@ const {
     class="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center gap-12 px-6 py-16 sm:gap-16 sm:py-20 md:flex-row md:gap-24 md:py-28"
   >
     <div class="flex flex-col gap-8 text-center md:gap-12 md:text-left">
-      <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight">{h1Text}</h1>
-      <p class="text-base-content/90 text-base leading-relaxed sm:text-lg">
+      <h1 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight" data-animate="fade-up">
+        {h1Text}
+      </h1>
+      <p
+        class="text-base-content/90 text-base leading-relaxed sm:text-lg"
+        data-animate="fade-up"
+        data-delay="100"
+      >
         {paragraphText}
       </p>
       {
         buttonLink ? (
-          <a href={buttonLink} class="btn btn-primary mx-auto w-full sm:w-2/3 md:mx-0 md:w-1/2">
+          <a
+            href={buttonLink}
+            class="btn btn-primary mx-auto w-full sm:w-2/3 md:mx-0 md:w-1/2"
+            data-animate="fade-up"
+            data-delay="200"
+          >
             {buttonText}
           </a>
         ) : (
-          <button class="btn btn-primary mx-auto w-full sm:w-2/3 md:mx-0 md:w-1/2">
+          <button
+            class="btn btn-primary mx-auto w-full sm:w-2/3 md:mx-0 md:w-1/2"
+            data-animate="fade-up"
+            data-delay="200"
+          >
             {buttonText}
           </button>
         )
@@ -69,6 +84,8 @@ const {
             alt={decorativeImageAlt}
             width={decorativeImageWidth}
             height={decorativeImageHeight}
+            data-animate="fade-in"
+            data-delay="400"
           />
         )
       }
@@ -81,6 +98,8 @@ const {
       height={heroImageHeight}
       format="webp"
       class="relative w-full rounded-3xl shadow-lg md:w-1/2"
+      data-animate="scale"
+      data-delay="300"
     />
     <img
       class="absolute -z-10 max-w-full"

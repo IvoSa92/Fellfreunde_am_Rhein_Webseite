@@ -37,7 +37,7 @@ const formatQuote = (quote?: string) => {
 
 <section id={id}>
   <div class="cs-container">
-    <div class="cs-content">
+    <div class="cs-content" data-animate="fade-up">
       <h2
         class="cs-title decoration-primary-content text-4xl underline underline-offset-6"
         set:html={heading}
@@ -54,7 +54,7 @@ const formatQuote = (quote?: string) => {
               ? `Portrait von ${item.name}`
               : 'Porträt eines zufriedenen Tierbesitzers';
             return (
-              <div class="cs-review-group">
+              <div class="cs-review-group" data-animate="fade-up" data-delay={100 + index * 150}>
                 <div class="cs-picture-group">
                   <div class="cs-picture rounded-full">
                     <Image

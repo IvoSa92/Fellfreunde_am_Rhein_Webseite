@@ -115,5 +115,30 @@ const ogImageURL = Astro.site ? new URL(ogImage, Astro.site).href : ogImage;
       document.addEventListener('astro:after-swap', setupNavbarShrink);
       setupNavbarShrink();
     </script>
+    <script>
+      import { initScrollAnimations, cleanupScrollAnimations } from '../scripts/scroll-animations';
+      import { initCustomCursor } from '../scripts/custom-cursor';
+
+      // Initialisiere Scroll-Animationen beim ersten Laden
+      document.addEventListener('DOMContentLoaded', () => {
+        initScrollAnimations();
+        initCustomCursor();
+      });
+
+      // Re-initialisiere nach View Transitions
+      document.addEventListener('astro:page-load', () => {
+        initScrollAnimations();
+        initCustomCursor();
+      });
+
+      // Cleanup vor View Transition
+      document.addEventListener('astro:before-swap', cleanupScrollAnimations);
+
+      // Direkte Initialisierung falls bereits geladen
+      if (document.readyState !== 'loading') {
+        initScrollAnimations();
+        initCustomCursor();
+      }
+    </script>
   </body>
 </html>
