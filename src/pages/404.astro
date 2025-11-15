@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import catImage from '../assets/images/404.png';
+---
+
+<BaseLayout
+  title="Seite nicht gefunden – Fellfreunde am Rhein"
+  description="Die gesuchte Seite konnte leider nicht gefunden werden. Kehren Sie zur Startseite zurück oder kontaktieren Sie uns."
+>
+  <section class="bg-base-100 py-24 sm:py-32">
+    <div
+      class="container mx-auto flex flex-col items-center justify-center gap-8 px-6 md:flex-row lg:px-8"
+    >
+      <div class="mx-auto max-w-4xl text-center">
+        <!-- 404 Badge -->
+        <div class="mb-8 flex justify-center">
+          <span
+            class="bg-primary/80 text-primary-content inline-flex items-center rounded-full px-6 py-2 text-2xl font-semibold"
+          >
+            404
+          </span>
+        </div>
+
+        <!-- Heading -->
+        <h1 class="text-base-content z-10 mb-6 text-4xl font-bold tracking-tight sm:text-6xl">
+          Ups, diese Seite ist ausgebüxt!
+        </h1>
+
+        <p class="text-base-content/70 z-10 mx-auto mb-8 max-w-2xl text-lg">
+          Die gesuchte Seite konnte leider nicht gefunden werden. Vielleicht ist sie auf der Suche
+          nach Leckerlis? Kehren Sie zur Startseite zurück oder kontaktieren Sie uns.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="/" class="btn btn-primary btn-lg text-white">Zur Startseite</a>
+          <a href="/kontakt" class="btn btn-outline btn-lg">Kontakt aufnehmen</a>
+        </div>
+      </div>
+      <div class="rounded-2xl md:w-1/2">
+        <Image
+          src={catImage}
+          alt="Ein hund springt über einen Zaun"
+          format="webp"
+          class="rounded-2xl"
+        />
+      </div>
+    </div>
+    <!-- Helper Links -->
+    <div class="border-base-300 mt-16 flex flex-col items-center justify-center border-t pt-8">
+      <p class="text-base-content mb-4 text-sm">Vielleicht suchen Sie eine dieser Seiten?</p>
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        <a href="/allgemeinmedizin" class="link link-hover text-warning">Allgemeinmedizin</a>
+        <a href="/chirurgie_zahnmedizin" class="link link-hover text-warning">
+          Chirurgie & Zahnmedizin
+        </a>
+        <a href="/diagnostik_labor" class="link link-hover text-warning">Diagnostik & Labor</a>
+        <a href="/notfall_intensiv" class="link link-hover text-warning">Notfall & Intensiv</a>
+        <a href="/ueber_uns" class="link link-hover text-warning">Über uns</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

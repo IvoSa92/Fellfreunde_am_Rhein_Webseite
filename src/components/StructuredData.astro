@@ -1,0 +1,95 @@
+---
+// Structured Data (JSON-LD) für Local Business
+// Hilft Google, Ihr Geschäft besser zu verstehen und in Suchergebnissen anzuzeigen
+
+interface Props {
+  type?: 'VeterinaryCare';
+}
+
+const { type = 'VeterinaryCare' } = Astro.props;
+
+// TODO: Ersetzen Sie die Platzhalter mit echten Daten!
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': type,
+  name: 'Fellfreunde am Rhein',
+  description:
+    'Moderne Tierarztpraxis mit Herz - Diagnostik, Chirurgie und liebevolle Betreuung für Hund & Katze.',
+  url: Astro.site?.href,
+  telephone: '+49-XXX-XXXXXXX', // TODO: Echte Telefonnummer
+  email: 'info@fellfreunde-am-rhein.de', // TODO: Echte E-Mail
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Musterstraße 123', // TODO: Echte Adresse
+    addressLocality: 'Köln', // TODO: Stadt
+    postalCode: '50667', // TODO: PLZ
+    addressCountry: 'DE',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 50.9375, // TODO: Echte Koordinaten
+    longitude: 6.9603,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '18:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: 'Saturday',
+      opens: '09:00',
+      closes: '14:00',
+    },
+  ],
+  priceRange: '€€',
+  image: Astro.site ? new URL('/fellnasen_logo.png', Astro.site).href : '/fellnasen_logo.png',
+  sameAs: [
+    // TODO: Fügen Sie Social Media Links hinzu
+    // 'https://www.facebook.com/fellfreunde',
+    // 'https://www.instagram.com/fellfreunde',
+  ],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Tierarztleistungen',
+    itemListElement: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Allgemeinmedizin',
+          description: 'Vorsorgeuntersuchungen, Impfungen und Gesundheitschecks',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Chirurgie & Zahnmedizin',
+          description: 'Operationen und Zahnbehandlungen',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Diagnostik & Labor',
+          description: 'Röntgen, Ultraschall und Laboranalysen',
+        },
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Notfall- & Intensivversorgung',
+          description: '24/7 Notfallversorgung für Ihr Tier',
+        },
+      },
+    ],
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

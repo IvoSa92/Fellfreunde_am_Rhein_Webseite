@@ -1,0 +1,11 @@
+# robots.txt für Fellfreunde am Rhein
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://fellfreunde-am-rhein.de/sitemap-index.xml
+
+# Optional: Bestimmte Bereiche ausschließen
+# Disallow: /api/
+# Disallow: /admin/
+
