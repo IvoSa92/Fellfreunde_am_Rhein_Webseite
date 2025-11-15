@@ -3,8 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  // TODO: WICHTIG - Ersetzen Sie dies mit Ihrer echten Domain vor dem Launch!
-  site: 'https://fellfreunde-am-rhein.de',
+  // Production Domain - Custom Domain für Cloudflare Pages
+  site: 'https://fellfreunde.blackforest-webcraft.de',
   
   integrations: [
     sitemap({

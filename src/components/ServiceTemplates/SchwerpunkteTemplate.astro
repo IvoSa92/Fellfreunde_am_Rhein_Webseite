@@ -64,7 +64,7 @@ const {
               <div class="w-full flex-shrink-0 md:w-auto">
                 <Image
                   src={schwerpunkt.image || placeholderImageSrc}
-                  alt={schwerpunkt.imageAlt || ''}
+                  alt={schwerpunkt.imageAlt || schwerpunkt.title || 'Illustration für ' + schwerpunkt.title}
                   width={imageWidth}
                   height={imageHeight}
                   format="webp"
